@@ -9,7 +9,7 @@ iex> recompile
 iex> r Foo
 ```
 
-## Renew iex
+### Renew iex
 ```elixir
 iex> respawn
 ```
@@ -35,4 +35,22 @@ iex> alias Foo.Bar.Hoge, as: H
 iex> H.xxx()
 iex> r H
 ```
+
+### View all params
+```elixir
+iex> binding()
+```
+
+```elixir
+iex(1)> map = %{foo: 123, bar: 456}
+%{bar: 456, foo: 123}
+iex(2)> int_param = 999
+999
+iex(3)> string_param = "today i learned"
+"today i learned"
+
+iex(5)> binding()
+[int_param: 999, map: %{bar: 456, foo: 123}, string_param: "today i learned"]
+```
+
 
