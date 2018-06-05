@@ -38,6 +38,7 @@ iex> r H
 
 ### View all params
 ```elixir
+# view all binding params as special syntax keywordlist
 iex> binding()
 ```
 
