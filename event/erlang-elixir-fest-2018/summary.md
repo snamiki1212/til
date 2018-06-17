@@ -31,3 +31,28 @@ ErlangElixirFestHandsOn
 - [slide](https://www.slideshare.net/ohr486?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview)
 
 
+## Twitter
+- [#elixirfestjp](https://twitter.com/hashtag/elixirfestjp?f=tweets&vertical=default&src=hash)
+
+## 全体を通した所感とか
+- 登壇内容またはQA内容で
+  - `クラスタ化` vs `非クラスタ化`
+  - hot-deployを行う？
+  
+  の話が多かったが、大抵
+  `非クラスタ化` / `hot-deployはしない`
+  の選択肢をとる人が多かった。
+  その理由も「大変」「時間がない」「複雑になる」「面倒」etcなので、
+  現状では費用対効果的にここまで作り込むフェーズのサービスが少ない、または、これらの機能の技術的洗練が足りていない段階の可能性があるのかもしれない、と感じた。
+  
+- 記憶に残ったワード
+  - これから始める人に必要なもの　英語・根性
+  - 「お前disれるほどPhoenixを使ってんの？」
+  - （PubSubのSupervisorTree見ながら）「どうです？かっこよくないです？」
+  - 効率よりも安全
+  - Elixirは早くない
+  - Erlang in Anger
+  - Elixirﾁｮｯﾄﾃﾞｷﾙ人
+
+- [Erlang in Anger](https://www.erlang-in-anger.com/)の話が多すぎて、これを機に[日本語訳化が行われるかもしれない](https://twitter.com/seizans/status/1008263285559312384)ので、逆に今読むのは待ったほうが良いかも
+
