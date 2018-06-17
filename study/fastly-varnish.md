@@ -7,7 +7,42 @@ CDN周りで
 
 の単語をよく聞くようになったが、概念レベルにてきちんと理解をしておくための学習履歴メモ
 
+## Varnish
+
+- Fastlyのコア機能としてVarnishを使用している
+
+Varnishとは？
+```
+> Varnish is an HTTP accelerator designed for content-heavy dynamic web sites as well as APIs
+https://en.wikipedia.org/wiki/Varnish_(software)
+
+> HTTP accelerator
+>> A web accelerator is a proxy server that reduces web site access time.
+https://en.wikipedia.org/wiki/Web_accelerator
+
+> Varnish is a caching HTTP reverse proxy. 
+https://varnish-cache.org/docs/trunk/tutorial/introduction.html
+
+```
+
+つまり、
+  - 動的大規模コンテンツサイト／API向けのリバースプロキシサーバ
+  - モダンなアーキテクチャを持ちつつパフォーマンスが意識された設計
+  - OSS
+
 ## Fastly
+[Fastly](https://www.fastly.com/)社は既知の概念ではCDN業者だが、CDN業者として今まで出来なかったことをやってやる。ってスタンスみたい。
+
+
+> Fastlyは便宜上CDNというくくりのサービスということにしていますが、「これまでのCDNができなかったことをやろう」というのが既存のCDNと発想が大きく異なるところです。
+
+だからなのか、wikiも
+
+> Fastly, Inc. is an American cloud computing services provider. 
+
+となってる
+
+### 特徴
 
 > インスタント・パージとログのストリーミングができるという点、そして「Varnish」のVCL（Varnish Configuration Language）を使った配信設定のカスタマイズ性の高さですね。この3つが最大の特徴だと考えています。
 
@@ -33,34 +68,15 @@ CDN周りで
   
    - アクセスログを瞬時に取得することができるため、リアルタイムでの傾向分析、障害把握が可能
 
-## Varnish
-
-- Fastlyのコア機能としてVarnishを使用している
-
-Varnishとは？
-```
-> Varnish is an HTTP accelerator designed for content-heavy dynamic web sites as well as APIs
-https://en.wikipedia.org/wiki/Varnish_(software)
-
-> HTTP accelerator
->> A web accelerator is a proxy server that reduces web site access time.
-https://en.wikipedia.org/wiki/Web_accelerator
-
-> Varnish is a caching HTTP reverse proxy. I
-https://varnish-cache.org/docs/trunk/tutorial/introduction.html
-
-```
-
-つまり、
-  - 動的大規模コンテンツサイト／API向けのリバースプロキシサーバ
-  - モダンなアーキテクチャを持ちつつパフォーマンスが意識された設計
-  - OSS
 
 ## まとめ
 - Fastlyは先進的な機能を数多く有しており技術的優位が高い
 - Fastlyのコア機能となるのがVarnish基盤であるが、OSSであるためFastly経由ではなく自社／自身で導入することも可能
+
   ただ、その分自分達ですべて実装するので当たり前だが技術難易度が高い（日経の記事でFastlyを使用しても？したから？大変だった旨が書かれてる）
+  
   どちらにしても、仕事を利用する際は最初からVarnish-cacheで自前ですべて作らずに、Fastlyのサービスを利用して慣れてきてからのほうが良さそう。
+  
   ただ、Varnish自体はOSSだし、Fastlyも無料枠があるので、ガンガンtryできる環境はある
 
 ## Reference
