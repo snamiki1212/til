@@ -11,7 +11,7 @@
 
 1. 「らくらく連絡網」が Elixir でリアルタイムメッセージング基盤を刷新した話
 2. [初めてのErlangサーバ開発と運用](https://speakerdeck.com/mookjp/chu-metefalseerlangsahakai-fa-toyun-yong?slide=1)
-3. Keep Phoenix App Productivity
+3. [Keep Phoenix App Productivity](https://speakerdeck.com/kanmo/keep-phoenix-app-productivity?slide=1)
 4. from Python to Elixir
 5. [ステートフルで大規模アクセスのあるsoft-realtimeなゲームサーバーをeasyにつくる](https://speakerdeck.com/ne_sachirou/sutetohurudeda-gui-mo-akusesufalsearusoft-realtimenagemusabawoeasynitukuru?slide=1)
 6. [Channel先生...!! PubSubがしたいです...](https://speakerdeck.com/ohr486/erlangelixirfest2018-ohr486-session)
