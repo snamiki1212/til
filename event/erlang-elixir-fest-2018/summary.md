@@ -1,11 +1,14 @@
-[Erlang & Elixir Fest 2018](https://elixir-fest.jp/)の内容のサマリ
 
-## INTRO
+## TL;DR
 
-カンファレンス内容
-- 2017: これから開発が始まる系が多い
-- 2018: 実際に使った結果や運用面での話系が多い
+2018/06/16に行われた[Erlang & Elixir Fest 2018](https://elixir-fest.jp/)の発表内容についてサマっておきました。
+基本的には発表社達のオリジナルをご自身で見てほしいですが、いかんせんカンファレンスの動画が無く、当日に休日対応していた同僚もいることもあり、
+発表中に口頭補足されていたところや、私自身の所感も合わせて書かせていただきます。
+Elixir/Webエンジニア弱者なので、指摘事項などがあればコメントいただけると助かります。
 
+冒頭での司会の方が述べられていた今回と去年のカンファレンスの内容についての傾向です。
+  - 2017: これから開発が始まる系が多い
+  - 2018: 実際に使った結果や運用面での話系が多い
 
 ## SLIDE
 
@@ -19,7 +22,6 @@
 8. [Erlang 事例紹介: メディアストリーム中継システム](https://niconare.nicovideo.jp/watch/kn3115)
 9. [任意のBEAM系言語でプラグインを書ける安定したフレームワークの作りかた](https://niku.name/2018/06/16/slide.html)
 10. [Erlang and Elixir Fest 2018 Keynote](https://speakerdeck.com/jj1bdx/erlang-and-elixir-fest-2018-keynote)
-
 
 
 ## HANDS ON
@@ -46,6 +48,7 @@ ErlangElixirFestHandsOn
   現状では費用対効果的にここまで作り込むフェーズのサービスが少ない、または、これらの機能の技術的洗練が足りていない段階の可能性があるのかもしれない、と感じた。
   
 - 記憶に残ったワード
+  カンファレンスに行った人ならわかる内輪ネタが多くて恐縮ですが。
   - これから始める人に必要なもの　英語・根性
   - 「お前disれるほどPhoenixを使ってんの？」
   - （PubSubのSupervisorTree見ながら）「どうです？かっこよくないです？」
@@ -53,6 +56,7 @@ ErlangElixirFestHandsOn
   - Elixirは早くない
   - Erlang in Anger
   - Elixirﾁｮｯﾄﾃﾞｷﾙ人
+  - 1週間でElixirを完全に理解した
 
 - [Erlang in Anger](https://www.erlang-in-anger.com/)の話が多すぎて、これを機に[日本語訳化が行われるかもしれない](https://twitter.com/seizans/status/1008263285559312384)ので、逆に今読むのは待ったほうが良いかも
 
