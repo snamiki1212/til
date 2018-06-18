@@ -3,6 +3,8 @@ Erlang & Elixir Fest JP 2018 まとめ
 
 ## TL;DR
 
+![image](https://user-images.githubusercontent.com/26793088/41524819-af749156-7319-11e8-9e5c-9ff54fc4dd14.png)
+
 2018/06/16に行われた[Erlang & Elixir Fest JP 2018](https://elixir-fest.jp/)の発表内容についてサマっておきました。
 基本的には発表社達のオリジナルをご自身で見てほしいですが、いかんせんカンファレンスの動画が無く、当日に休日対応していた同僚もいることもあり、
 発表中に口頭補足されていたところや、私自身の所感も合わせて書かせていただきます。
