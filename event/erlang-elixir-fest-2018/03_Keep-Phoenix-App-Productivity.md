@@ -1,4 +1,4 @@
-# Keep Phoenix App Productivity
+# Phoenixアプリケーションを１年間運用して分かったこと
 
 想定対象： これから、Elixir/Phoenixを活用していく人に向けて
 
