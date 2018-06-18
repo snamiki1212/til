@@ -24,18 +24,6 @@ Elixir/Webエンジニア弱者なので、指摘事項などがあればコメ�
 10. [Erlang and Elixir Fest 2018 Keynote](https://speakerdeck.com/jj1bdx/erlang-and-elixir-fest-2018-keynote)
 
 
-## HANDS ON
-
-ErlangElixirFestHandsOn
-
-- [github](https://github.com/ohr486/ErlangElixirFestHandsOn)
-
-- [slide](https://www.slideshare.net/ohr486?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview)
-
-
-## Twitter
-- [#elixirfestjp](https://twitter.com/hashtag/elixirfestjp?f=tweets&vertical=default&src=hash)
-
 ## 全体を通した所感とか
 - 登壇内容またはQA内容で
   - `クラスタ化` vs `非クラスタ化`
@@ -59,4 +47,18 @@ ErlangElixirFestHandsOn
   - 1週間でElixirを完全に理解した
 
 - [Erlang in Anger](https://www.erlang-in-anger.com/)の話が多すぎて、これを機に[日本語訳化が行われるかもしれない](https://twitter.com/seizans/status/1008263285559312384)ので、逆に今読むのは待ったほうが良いかも
+
+
+## HANDS ON
+
+ErlangElixirFestHandsOn
+
+- [github](https://github.com/ohr486/ErlangElixirFestHandsOn)
+
+- [slide](https://www.slideshare.net/ohr486?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview)
+
+
+## Twitter
+- [#elixirfestjp](https://twitter.com/hashtag/elixirfestjp?f=tweets&vertical=default&src=hash)
+
 
