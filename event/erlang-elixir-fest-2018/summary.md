@@ -15,7 +15,7 @@ Elixir/Webエンジニア弱者なので、指摘事項などがあればコメ�
 
 ## SLIDE
 
-1. 「らくらく連絡網」が Elixir でリアルタイムメッセージング基盤を刷新した話
+1. [「らくらく連絡網」が Elixir でリアルタイムメッセージング基盤を刷新した話](https://eole-repos.github.io/public/elixirfest/2018/elixirfest2018-eole-rinosamakanata.pdf)
 2. [初めてのErlangサーバ開発と運用](https://speakerdeck.com/mookjp/chu-metefalseerlangsahakai-fa-toyun-yong?slide=1)
 3. [Phoenixアプリケーションを1年間運用して分かったこと](https://speakerdeck.com/kanmo/keep-phoenix-app-productivity?slide=1)
 4. from Python to Elixir
