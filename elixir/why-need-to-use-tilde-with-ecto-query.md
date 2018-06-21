@@ -16,4 +16,4 @@ Friends.Person |> Ecto.Query.where(last_name: "namiki")   |> Friends.Repo.all # 
 
 
 
-https://hexdocs.pm/ecto/getting-started.html#content
+https://hexdocs.pm/ecto/getting-started.html#filtering-results
