@@ -3,8 +3,8 @@
 - BackPressure モデル
 - ３つの役割(producer, consumer, producer_consumer)
 - 起動・構築は下記のどちらかでできる
-1. SupervisorTree経由
-2. 明示的に関数での実行経由
+  1. SupervisorTree経由
+  2. 関数での実行経由
 - send/receiveでステージ毎にデータの授受を行うことで、データフローされる
 - producer/consumerは複数持てる
 - 並列処理
