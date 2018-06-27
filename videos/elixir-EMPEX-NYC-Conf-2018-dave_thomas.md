@@ -1,5 +1,4 @@
-# Content 
-
+## [翻訳]EMPEX NYC Conference 2018 (Elixir/Erlang/BEAM): Keynote(Dave Thomas)
 下記動画の内容のメモと所感
 
 - [(VIDEO)EMPEX NYC Conference 2018 - Dave Thomas](https://www.youtube.com/watch?v=6U7cLUygMeI&feature=youtu.be)
