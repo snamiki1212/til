@@ -68,6 +68,16 @@
 2. `PartitionDispatcher`: Eventに応じてDispatcherを変動
 3. `BroadcastDispatcher`: 全ConsumerにBroadcast
 
+## asnycronous
+- `consumer`/`producer_consumer`は`handle_event`の終了タイミング＝再度`producer`への要求タイミングと認識して、`demand`を`producer`へ投げる＝`subscribe`する
+- 上記内容はcall_back内で自動的に行うが、手動で行いたい場合は
+  - `handle_subscribe`を定義
+  - `{:manual, event}`をreturn
+  - `subscribe`は`GenStage.ask/3`で行う
+
+> 時間間隔ごとに限られた数のイベントを処理できるコンシューマを実装しましょう。これらはレートリミッタと呼ばれることがよくあります。  
+
+
 ## YouTube
 [Elixir London June 2016 w/ José Valim](https://www.youtube.com/watch?time_continue=264&v=aZuY5-2lwW4)
 - 基本的な流れ
