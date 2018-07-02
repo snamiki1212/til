@@ -68,12 +68,14 @@
 2. `PartitionDispatcher`: Eventに応じてDispatcherを変動
 3. `BroadcastDispatcher`: 全ConsumerにBroadcast
 
-## asnycronous
-- `consumer`/`producer_consumer`は`handle_event`の終了タイミング＝再度`producer`への要求タイミングと認識して、`demand`を`producer`へ投げる
-- 上記内容はcall_back内で自動的に行うが、手動で行いたい場合は
-  - `handle_subscribe`を定義
-  - `{:manual, event}`をreturn
+## multiple consumer
+- デフォルトの振る舞いとして、`consumer`/`producer_consumer`は「`handle_event`の終了タイミング」＝「再度`producer`への要求タイミング」と認識して、`demand`を`producer`へ自動的に投げる
+- 複数consumerを定義する場合は、上記処理を手動で行う必要がある
+  - `handle_subscribe`を定義`{:manual, event}`をreturn。デフォルトは`{:automatic, state}`
   - `Producer`への要求は`GenStage.ask/3`で行う
+  - `handle_subscribe`を定義
+  - `max_demand` / `min_demand` optionを設定すること
+  
 - Back-Pressureとして、量を調節する機構は`Consumer`にて行い、レートリミッタとして実現する
   > 時間間隔ごとに限られた数のイベントを処理できるコンシューマを実装しましょう。これらはレートリミッタと呼ばれることがよくあります。  
 
