@@ -72,6 +72,7 @@
 - デフォルトの振る舞いとして、`consumer`/`producer_consumer`は「`handle_event`の終了タイミング」＝「再度`producer`への要求タイミング」と認識して、`demand`を`producer`へ自動的に投げる
 - 複数consumerを定義する場合は、上記処理を手動で行う必要がある
   - `handle_subscribe`を定義`{:manual, event}`をreturn。デフォルトは`{:automatic, state}`
+  - `handle_subscribe`はConsumerがProducerにsubscribeするタイミングに実行されるので、各producer毎に初回の１回ずつのみの実行となる。
   - `Producer`への要求は`GenStage.ask/3`で行う
   - `handle_subscribe`を定義
   - `max_demand` / `min_demand` optionを設定すること
