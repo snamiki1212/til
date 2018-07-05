@@ -2,8 +2,7 @@
 ## ExUnit
 > Unit testing framework for Elixir
 
-- [公式ドキュメント](https://hexdocs.pm/ex_unit/ExUnit.html)の説明が簡潔・具体列付き・短文で一番概要がわかりやすい。
-  - その上で詳細な使い方は[ExUnit入門](https://qiita.com/Joe-noh/items/ddd6cf3f38c8f841e90a)を見るとよさげ。
+- [公式ドキュメント](https://hexdocs.pm/ex_unit/ExUnit.html)の説明が簡潔・具体列付き・短文で一番概要がわかりやすい。その上で詳細な使い方は[ExUnit入門](https://qiita.com/Joe-noh/items/ddd6cf3f38c8f841e90a)を見るとよさげ。
 
 - async option
 
@@ -17,29 +16,27 @@
 
 ## Phoenix
 
-- PhoenixでExUnitをwrappingしてるんで、[Phoenix - Introduction to Testing -](https://hexdocs.pm/phoenix/testing.html)も見ておくと概要がわかる
+PhoenixでExUnitをwrappingして使われるので[Phoenix - Introduction to Testing](https://hexdocs.pm/phoenix/testing.html)を見ておくとPhoenix経由での使い方の概要がわかる
 - `test/test_helper.exs`にてdatabaseのcreate/migrationを行う。`mix test`毎に行われるので、毎回のテストにてcleanされる。
 - `test/support`配下のmoduleはテスト可能状態にするための機能群で、具体的にはコネクション確立やEctoChangesetのエラー発見？など
+- mix commands
 
-### mix commands
+  ```terminal
+  ## test all files
+  mix test
 
-```terminal
-## test all files
-mix test
+  ## test all files under directory-path
+  mix test <directory-path>
 
-## test all files under directory-path
-mix test <directory-path>
+  ## test target file
+  mix test <file-path>
 
-## test target file
-mix test <file-path>
+  ## test target file and target line
+  mix test <file-path>:<line>
 
-## test target file and target line
-mix test <file-path>:<line>
-
-## test with this tag
-mix test --only <tag>
-
-```
+  ## test with this tag
+  mix test --only <tag>
+  ```
 
 ### Ecto.Adapters.SQL.Sandbox
 
@@ -74,8 +71,8 @@ mix test --only <tag>
 - [ExUnit入門](https://qiita.com/Joe-noh/items/ddd6cf3f38c8f841e90a)
 
 ### Phoenix / Ecto
-- [Phoenix - Introduction to Testing -](https://hexdocs.pm/phoenix/testing.html)
-- [Ecto - Ecto.Adapters.SQL.Sandbox - ](https://hexdocs.pm/ecto/Ecto.Adapters.SQL.Sandbox.html)
+- [Phoenix - Introduction to Testing](https://hexdocs.pm/phoenix/testing.html)
+- [Ecto - Ecto.Adapters.SQL.Sandbox](https://hexdocs.pm/ecto/Ecto.Adapters.SQL.Sandbox.html)
 
 ### doctest
 - [公式ドキュメント](https://elixir-lang.org/getting-started/mix-otp/docs-tests-and-with.html)（公式日本語訳は無かった）
