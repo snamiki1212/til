@@ -41,3 +41,6 @@ iex> yyyymmdd
 iex> aft
 "12-2"
 ```
+
+## Reference
+[Pattern-matching complex strings](https://thepugautomatic.com/2016/01/pattern-matching-complex-strings/)
