@@ -48,7 +48,7 @@ iex> aft
 
 ### bytes-sizeが変動ケース
 
-例えば、上記のaft変数にpattern-matchされた値の前半部の`12`がzero-paddingされない`時間`の場合は`0`〜`9`の時は1桁になってしまう。
+例えば、上記の「aft変数にpattern-matchされた値の`12`が、zero-paddingされない`時間`」の場合、その時間が`0`〜`9`の時は1桁になってしまう。
 
 こういうケースは関数によるpattern-matchやcase文によるpattern-matchで処理を分岐させる必要がある
 
@@ -99,4 +99,5 @@ iex> M.parse(data3)
 ```
 
 ## Reference
-[Pattern-matching complex strings](https://thepugautomatic.com/2016/01/pattern-matching-complex-strings/)
+
+- [Pattern-matching complex strings](https://thepugautomatic.com/2016/01/pattern-matching-complex-strings/)
