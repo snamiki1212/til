@@ -40,7 +40,7 @@ PhoenixでExUnitをwrappingして使われるので[Phoenix - Introduction to Te
 
 ### Ecto.Adapters.SQL.Sandbox
 
-  EctoのAdapterの１つでテスト専用で使用するもの
+  EctoのAdapterの１つでテスト専用で使用するもの（Adapterは「適合させるもの」の意味のままの通りで、`Ecto`ライブラリと`Sandbox(PostgreSQL or MySQL)`を適合させる。他のAdapterには`MySQL`や｀PostgreSQLがある）
 
   > A pool for concurrent transactional tests.
 
