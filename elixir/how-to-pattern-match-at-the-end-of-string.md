@@ -18,7 +18,6 @@ iex> aft
 終端文字以外は`<>`を使用したpattern-matchは行えない。
 
 ```elxiir
-
 iex> origin
 "2018-07-05T12-2"
 
