@@ -57,8 +57,8 @@ iex> aft
 
 ```elixir
 iex> func = fn
-...> <<yyyymmdd::bytes-size(10)>> <> "T" <> <<h::bytes-size(1)>> <> "-" <> <<mm::bytes-size(1)>> -> [yyyymmdd, h, mm]
-...> <<yyyymmdd::bytes-size(10)>> <> "T" <> <<h::bytes-size(2)>> <> "-" <> <<mm::bytes-size(1)>> -> [yyyymmdd, h, mm]
+...>   <<yyyymmdd::bytes-size(10)>> <> "T" <> <<h::bytes-size(1)>> <> "-" <> <<mm::bytes-size(1)>> -> [yyyymmdd, h, mm]
+...>   <<yyyymmdd::bytes-size(10)>> <> "T" <> <<h::bytes-size(2)>> <> "-" <> <<mm::bytes-size(1)>> -> [yyyymmdd, h, mm]
 ...> end
 #Function<6.99386804/1 in :erl_eval.expr/5>
 
@@ -107,10 +107,13 @@ iex> M.parse(data3)
 ```elixir
 iex> data12 = "2018-07-05T12-2"
 "2018-07-05T12-2"
+
 iex> [yyyymmdd, aft] = String.split(data12, "T")
 ["2018-07-05", "12-2"]
+
 iex> [h, m] = String.split(aft, "-")
 ["12", "2"]
+
 iex> [yyyymmdd, h, m]
 ["2018-07-05", "12", "2"]
 ```
