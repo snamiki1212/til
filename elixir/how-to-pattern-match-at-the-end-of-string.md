@@ -1,4 +1,4 @@
-## 終端文字列のpattern-match
+## 末尾文字列のpattern-match
 
 `<>`を使用すればシンプルなpattern-matchで実現可能
 
@@ -13,9 +13,9 @@ iex> aft
 "12-2"
 ```
 
-## 終端文字列以外のpattern-match
+## 末尾文字列以外のpattern-match
 
-終端文字以外は`<>`を使用したpattern-matchは行えない。
+末尾文字以外は`<>`を使用したpattern-matchは行えない。
 
 ```elxiir
 iex> origin
@@ -25,9 +25,10 @@ iex> yyyymmdd<>"T"<>aft = origin
 ** (CompileError) iex:16: a binary field without size is only allowed at the end of a binary pattern
 ```
 
-こういうケースは`<< >>`を使用してbinary-pattern-matchを行う
+こういうケースは`<< >>`を使用したbinary-pattern-matchを行える
 
-### bytes-sizeが固定ケース
+### binery-pattern-match
+#### bytes-sizeが固定ケース
 
 ```elixir
 iex> origin = "2018-07-05T12-2"
@@ -46,11 +47,11 @@ iex> aft
 
 ただし、この記述だと文字列のlengthが事前にわかっている必要がある。
 
-### bytes-sizeが変動ケース
+#### bytes-sizeが変動ケース
 
 例えば、上記の「aft変数にpattern-matchされた値の`12`が、zero-paddingされない`時間`」の場合、その時間が`0`〜`9`の時は1桁になってしまう。
 
-こういうケースは関数によるpattern-matchやcase文によるpattern-matchで処理を分岐させる必要がある
+こういうケースは「関数によるpattern-match」や「case文によるpattern-match」などで処理を分岐させる必要がある
 
 #### 無名関数
 
@@ -97,6 +98,25 @@ iex> M.parse(data12)
 iex> M.parse(data3)
 ["2018-07-05", "3", "2"]
 ```
+
+### list pattern-match
+
+上記ケースだと、どちらにしてもlengthが固定値になり融通が効かなくなるし、見た目もスマートな方法でない。
+結局は、素直に文字列を分割してpattern-matchさせたほうがスマートになりそう。
+
+```elixir
+iex> data12 = "2018-07-05T12-2"
+"2018-07-05T12-2"
+iex> [yyyymmdd, aft] = String.split(data12, "T")
+["2018-07-05", "12-2"]
+iex> [h, m] = String.split(aft, "-")
+["12", "2"]
+iex> [yyyymmdd, h, m]
+["2018-07-05", "12", "2"]
+```
+
+## まとめ
+- 末尾文字列以外の文字列はbinary-pattern-matchで実現できるが、`String.split/2`を使用したほうがスマートになる
 
 ## Reference
 
