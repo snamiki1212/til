@@ -1,3 +1,12 @@
+---
+date: "2018-07-05"
+last-mod: "2018-07-06"
+title: "How to pattern match at the end of string"
+slug: "how-to-pattern-match-at-the-end-of-string"
+categories: [ "TIL", "Elixir" ]
+tags: [ "TIL", "Elixir", "pattern-match" , "binary-pattern-match"]
+---
+
 ## 末尾文字列のpattern-match
 
 `<>`を使用すればシンプルなpattern-matchで実現可能
