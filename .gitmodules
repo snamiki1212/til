@@ -1,4 +1,4 @@
-[submodule "content/til"]
+[submodule "content"]
 	path = content
 	url = git@github-private:snamiki1212/til.git
 [submodule "themes/minimal"]
