@@ -1,3 +1,6 @@
 [submodule "content/til"]
 	path = content/til
 	url = git@github-private:snamiki1212/til.git
+[submodule "themes/minimal"]
+	path = themes/minimal
+	url = https://github.com/calintat/minimal.git
