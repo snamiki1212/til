@@ -1,3 +1,12 @@
+---
+date: "2018-06-19"
+last-mod: "2018-07-05"
+title: "How to get map"
+slug: "how-to-get-may-map"
+categories: [ "TIL", "Elixir" ]
+tags: [ "TIL", "Elixir", "map" ]
+---
+
 ## Content
 mapから値を取り出す際は、`[]`でデータにアクセスできる。
 
