@@ -1,3 +1,11 @@
+---
+date: "2018-06-21"
+last-mod: "2018-06-21"
+title: "Why need to use tilde with ecto query"
+slug: "why-need-to-use-tilde-with-ecto-query"
+categories: [ "TIL", "Elixir" ]
+tags: [ "TIL", "Elixir", "Ecto"]
+---
 
 ### Content
 
