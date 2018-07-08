@@ -1,3 +1,12 @@
+---
+date: "2018-06-03"
+last-mod: "2018-06-03"
+title: "Debug Tips"
+slug: "debug-tips"
+categories: [ "TIL", "Elixir" ]
+tags: [ "TIL", "Elixir", "Debug" ]
+---
+
 ## `binding/0`
 ### Content
 
