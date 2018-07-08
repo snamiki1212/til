@@ -1,8 +1,8 @@
 ---
 date: "2018-06-18"
 last-mod: "2018-06-18"
-title: "Extending this logic"
-slug: "extending-this-logic"
+title: "What is Agent"
+slug: "what-is-agent"
 categories: [ "TIL", "Elixir" ]
 tags: [ "TIL", "Elixir", "Agent", "build-in" ]
 ---
