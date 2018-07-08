@@ -1,3 +1,12 @@
+---
+date: "2018-06-08"
+last-mod: "2018-06-08"
+title: "task"
+slug: "task"
+categories: [ "TIL", "Elixir" ]
+tags: [ "TIL", "Elixir", "Task"]
+---
+
 ほぼ[公式ドキュメントの意訳](https://hexdocs.pm/elixir/1.4.5/Task.html#await/2)になってるので基本的には原文参照を推奨
 
 ## Task
