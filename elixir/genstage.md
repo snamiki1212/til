@@ -1,3 +1,12 @@
+---
+date: "2018-06-28"
+last-mod: "2018-07-02"
+title: "What is GenStage"
+slug: "genstage"
+categories: [ "TIL", "Elixir" ]
+tags: [ "TIL", "Elixir", "GenStage" ]
+---
+
 # GenStageの学習メモ
 
 ## 概要
