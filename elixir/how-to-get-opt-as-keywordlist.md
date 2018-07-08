@@ -1,3 +1,11 @@
+---
+date: "2018-06-05"
+last-mod: "2018-06-05"
+title: "How to get opt as keywordlist"
+slug: "how-to-get-opt-as-keywordlist"
+categories: [ "TIL", "Elixir" ]
+tags: [ "TIL", "Elixir", "Keywordlist" ]
+---
 
 ```elixir
 defmodule Bar do
