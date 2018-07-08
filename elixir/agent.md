@@ -1,3 +1,12 @@
++++
+date = "2018-02-09"
+title = "Extending this logic"
+slug = "extending-this-logic"
+categories = [ "Post", "Metaphorsum" ]
+tags = [ "Lamb", "Shell", "Bookcase", "Nothing" ]
++++
+
+
 https://hexdocs.pm/elixir/Agent.html
 
 
