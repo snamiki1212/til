@@ -1,3 +1,11 @@
+---
+date: "2018-07-05"
+last-mod: "2018-07-05"
+title: "test"
+slug: "test"
+categories: [ "TIL", "Elixir" ]
+tags: [ "TIL", "Elixir", "Test", "ExUnit", "Phoenix", "Ecto"]
+---
 
 ## ExUnit
 > Unit testing framework for Elixir
