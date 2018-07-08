@@ -1,4 +1,4 @@
-baseURL = "https://snamiki1212.github.io/til"
+baseURL = "https://snamiki1212.github.io/til/"
 languageCode = "en-us"
 title = "Today I Learned"
 theme = "minimal"
