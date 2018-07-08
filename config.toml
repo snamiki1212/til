@@ -1,6 +1,6 @@
-baseURL = "http://example.com/"
+baseURL = "https://snamiki1212.github.io/"
 languageCode = "en-us"
-title = "Minimal"
+title = "Today I Learned"
 theme = "minimal"
 disqusShortname = "username" # delete this to disable disqus comments
 googleAnalytics = ""
