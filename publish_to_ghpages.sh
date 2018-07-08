@@ -22,6 +22,9 @@ git worktree add -B gh-pages public origin/gh-pages
 echo "Removing existing files"
 rm -rf public/*
 
+echo "Updating master branch"
+cd content && git pull && cd ../
+
 echo "Generating site"
 hugo
 
