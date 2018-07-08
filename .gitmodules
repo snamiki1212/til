@@ -1,0 +1,3 @@
+[submodule "content/til"]
+	path = content/til
+	url = git@github-private:snamiki1212/til.git
