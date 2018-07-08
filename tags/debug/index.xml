@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Debug on Today I Learned</title>
+    <link>https://snamiki1212.github.io/til/tags/debug/</link>
+    <description>Recent content in Debug on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 03 Jun 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://snamiki1212.github.io/til/tags/debug/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Debug Tips</title>
+      <link>https://snamiki1212.github.io/til/elixir/debug-tips/</link>
+      <pubDate>Sun, 03 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/elixir/debug-tips/</guid>
+      <description> binding/0 Content binding/0 or binding/1 returns the binding for the given context as a keyword list.
+How to iex&amp;gt; binding() |&amp;gt; IO.inspect() iex&amp;gt; binding() |&amp;gt; inspect() |&amp;gt; Logger.info()  Reference  Elixir — quick reference for debugging techniques Elixir - binding(context \ nil)  </description>
+    </item>
+    
+  </channel>
+</rss>

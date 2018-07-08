@@ -6,44 +6,188 @@
     <description>Recent content in Tags on Today I Learned</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 18 Jun 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://snamiki1212.github.io/til/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Bookcase</title>
-      <link>https://snamiki1212.github.io/til/tags/bookcase/</link>
-      <pubDate>Fri, 09 Feb 2018 00:00:00 +0000</pubDate>
+      <title>Agent</title>
+      <link>https://snamiki1212.github.io/til/tags/agent/</link>
+      <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://snamiki1212.github.io/til/tags/bookcase/</guid>
+      <guid>https://snamiki1212.github.io/til/tags/agent/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Lamb</title>
-      <link>https://snamiki1212.github.io/til/tags/lamb/</link>
-      <pubDate>Fri, 09 Feb 2018 00:00:00 +0000</pubDate>
+      <title>Binary Pattern Match</title>
+      <link>https://snamiki1212.github.io/til/tags/binary-pattern-match/</link>
+      <pubDate>Thu, 05 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://snamiki1212.github.io/til/tags/lamb/</guid>
+      <guid>https://snamiki1212.github.io/til/tags/binary-pattern-match/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Nothing</title>
-      <link>https://snamiki1212.github.io/til/tags/nothing/</link>
-      <pubDate>Fri, 09 Feb 2018 00:00:00 +0000</pubDate>
+      <title>Build In</title>
+      <link>https://snamiki1212.github.io/til/tags/build-in/</link>
+      <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://snamiki1212.github.io/til/tags/nothing/</guid>
+      <guid>https://snamiki1212.github.io/til/tags/build-in/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Shell</title>
-      <link>https://snamiki1212.github.io/til/tags/shell/</link>
-      <pubDate>Fri, 09 Feb 2018 00:00:00 +0000</pubDate>
+      <title>Commands</title>
+      <link>https://snamiki1212.github.io/til/tags/commands/</link>
+      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://snamiki1212.github.io/til/tags/shell/</guid>
+      <guid>https://snamiki1212.github.io/til/tags/commands/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Debug</title>
+      <link>https://snamiki1212.github.io/til/tags/debug/</link>
+      <pubDate>Sun, 03 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/tags/debug/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ecto</title>
+      <link>https://snamiki1212.github.io/til/tags/ecto/</link>
+      <pubDate>Thu, 05 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/tags/ecto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Elixir</title>
+      <link>https://snamiki1212.github.io/til/tags/elixir/</link>
+      <pubDate>Thu, 05 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/tags/elixir/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Exunit</title>
+      <link>https://snamiki1212.github.io/til/tags/exunit/</link>
+      <pubDate>Thu, 05 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/tags/exunit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Genserver</title>
+      <link>https://snamiki1212.github.io/til/tags/genserver/</link>
+      <pubDate>Wed, 20 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/tags/genserver/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Genstage</title>
+      <link>https://snamiki1212.github.io/til/tags/genstage/</link>
+      <pubDate>Thu, 28 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/tags/genstage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Iex</title>
+      <link>https://snamiki1212.github.io/til/tags/iex/</link>
+      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/tags/iex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Keywordlist</title>
+      <link>https://snamiki1212.github.io/til/tags/keywordlist/</link>
+      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/tags/keywordlist/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Map</title>
+      <link>https://snamiki1212.github.io/til/tags/map/</link>
+      <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/tags/map/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mix</title>
+      <link>https://snamiki1212.github.io/til/tags/mix/</link>
+      <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/tags/mix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pattern Match</title>
+      <link>https://snamiki1212.github.io/til/tags/pattern-match/</link>
+      <pubDate>Thu, 05 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/tags/pattern-match/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Phoenix</title>
+      <link>https://snamiki1212.github.io/til/tags/phoenix/</link>
+      <pubDate>Thu, 05 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/tags/phoenix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Task</title>
+      <link>https://snamiki1212.github.io/til/tags/task/</link>
+      <pubDate>Fri, 08 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/tags/task/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Test</title>
+      <link>https://snamiki1212.github.io/til/tags/test/</link>
+      <pubDate>Thu, 05 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/tags/test/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Til</title>
+      <link>https://snamiki1212.github.io/til/tags/til/</link>
+      <pubDate>Thu, 05 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/tags/til/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Typespecs</title>
+      <link>https://snamiki1212.github.io/til/tags/typespecs/</link>
+      <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/tags/typespecs/</guid>
       <description></description>
     </item>
     

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Exunit on Today I Learned</title>
+    <link>https://snamiki1212.github.io/til/tags/exunit/</link>
+    <description>Recent content in Exunit on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://snamiki1212.github.io/til/tags/exunit/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>test</title>
+      <link>https://snamiki1212.github.io/til/elixir/test/</link>
+      <pubDate>Thu, 05 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/elixir/test/</guid>
+      <description>ExUnit  Unit testing framework for Elixir
+  公式ドキュメントの説明が簡潔・具体列付き・短文で一番概要がわかりやすい。その上で詳細な使い方はExUnit入門を見るとよさげ。
+ async option
+  asyncoptionをtrueしているすると、非同期実行される。つまり、全テストが並列に実行される。
+ ... use ExUnit.Case, async: true ...  Phoenix PhoenixでExUnitをwrappingして使われるのでPhoenix - Introduction to Testingを見ておくとPhoenix経由での使い方の概要がわかる - test/test_helper.exsにてdatabaseのcreate/migrationを行う。mix test毎に行われるので、毎回のテストにてcleanされる。 - test/support配下のmoduleはテスト可能状態にするための機能群で、具体的にはコネクション確立やEctoChangesetのエラー発見？など - mix commands
+## test all files mix test ## test all files under directory-path mix test &amp;lt;directory-path&amp;gt; ## test target file mix test &amp;lt;file-path&amp;gt; ## test target file and target line mix test &amp;lt;file-path&amp;gt;:&amp;lt;line&amp;gt; ## test with this tag mix test --only &amp;lt;tag&amp;gt;  Ecto.</description>
+    </item>
+    
+  </channel>
+</rss>

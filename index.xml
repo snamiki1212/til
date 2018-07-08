@@ -6,85 +6,15 @@
     <description>Recent content on Today I Learned</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 05 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://snamiki1212.github.io/til/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Extending this logic</title>
-      <link>https://snamiki1212.github.io/til/elixir/extending-this-logic/</link>
-      <pubDate>Fri, 09 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://snamiki1212.github.io/til/elixir/extending-this-logic/</guid>
-      <description>https://hexdocs.pm/elixir/Agent.html
-function 大別すると下記の6種類の操作が可能。 1. start系 - link関係: Agent.start_link/{2,4} - 非link関係: Agent.start/{2,4}
- stop系
-Agentのkill
- get系
- update系(同期的にデータ更新
-iex(33)&amp;gt; Agent.get a, fn x -&amp;gt; x end 9 iex(34)&amp;gt; Agent.update a, fn x -&amp;gt; :timer.sleep 5_000; x+1 end, 6_000 ## ここでsleep 5sが行われる :ok iex(35)&amp;gt; Agent.get a, fn x -&amp;gt; x end 10  cast系(非同期的にデータ更新
-iex(24)&amp;gt; Agent.get a, fn x -&amp;gt; x end 5 iex(25)&amp;gt; Agent.cast a, fn x -&amp;gt; :timer.sleep 10_000; x+1 end :ok ## ここでsleep10sは行われないで、即時にreturnされる iex(26)&amp;gt; Agent.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://snamiki1212.github.io/til/elixir/catch-msg-when-genserver-killed/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://snamiki1212.github.io/til/elixir/catch-msg-when-genserver-killed/</guid>
-      <description> SET TO SEND TERMINATE MESSAGE
-## GENSERVER def init() do ## ... Process.flag(:trap_exit, true) ## ... end  Kill PROCESS
- CATCH
-def terminate(reason, state) do Logger.info(&amp;quot;#{inspect(__MODULE__)} &amp;gt;&amp;gt; terminate| reason: #{inspect(reason)} | state: #{inspect(state)}&amp;quot;) end   </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://snamiki1212.github.io/til/elixir/debug/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://snamiki1212.github.io/til/elixir/debug/</guid>
-      <description> binding/0 Content binding/0 or binding/1 returns the binding for the given context as a keyword list.
-How to iex&amp;gt; binding() |&amp;gt; IO.inspect() iex&amp;gt; binding() |&amp;gt; inspect() |&amp;gt; Logger.info()  Reference  Elixir — quick reference for debugging techniques Elixir - binding(context \ nil)  </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://snamiki1212.github.io/til/elixir/genstage/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://snamiki1212.github.io/til/elixir/genstage/</guid>
-      <description>GenStageの学習メモ 概要  Demand-Driven Back-Pressure モデル(Back-Pressureモデルが不要なら、並列処理を行う類似方法はTask.asny_stream/2で行える   つまり、GenStageは需要トリガーを元にストリームイベントを処理するライブラリなのです。需要トリガーで供給を引っ張ることを、ストリーム界隈(?)ではバックプレッシャー(背圧)といいます。
-  ３つの役割(producer, consumer, producer_consumer) 起動・構築は下記のどちらかでできる  SupervisorTree経由 関数での実行経由  send/receiveでステージ毎にデータの授受を行うことで、データフローされる producer/consumerは複数持てる GenServerのラッピング 並列処理 複数step処理にはしないで、3層レイヤに留める  NG: [Producer] -&amp;gt; [Step 1] -&amp;gt; [Step 2] -&amp;gt; [Step 3]    OK: [Consumer] / [Producer]-&amp;lt;-[Consumer] \ [Consumer]   if your domain has to process the data in multiple steps, you should write that logic in separate modules and not directly in a GenStage.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://snamiki1212.github.io/til/elixir/how-to-get-may-map/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://snamiki1212.github.io/til/elixir/how-to-get-may-map/</guid>
-      <description>Content mapから値を取り出す際は、[]でデータにアクセスできる。
-iex(5)&amp;gt; map = %{a: 1, b: 10, c: 100} %{a: 1, b: 10, c: 100} iex(6)&amp;gt; map[:a] 1  []なら、仮に対象がnilでも、Exceptionを起こさずにnilを返す。
-iex(10)&amp;gt; map = nil nil iex(11)&amp;gt; map[:abc] nil  パイプライン演算子で引き渡されたmapに対してアクセスして次のパイプに流すようなときは[]は可読性が悪いので、大抵Map.get/3を使う。
-iex(14)&amp;gt; map = %{a: 1, b: 10, c: 100} %{a: 1, b: 10, c: 100} iex(15)&amp;gt; map |&amp;gt; IO.inspect |&amp;gt; Map.get(:a) |&amp;gt; IO.inspect %{a: 1, b: 10, c: 100} 1 1  だが、Map.get/3にmapではなく、nilを渡してしまうととExceptionを起こしてしまう。
-iex(18)&amp;gt; Map.get(nil, :abc) ** (BadMapError) expected a map, got: nil (stdlib) :maps.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://snamiki1212.github.io/til/elixir/how-to-get-opt-as-keywordlist/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://snamiki1212.github.io/til/elixir/how-to-get-opt-as-keywordlist/</guid>
-      <description>defmodule Bar do # for size def foo(params, [{:size, size}| rest]) do IO.inspect(&amp;quot;size is #{size}&amp;quot;) foo(params, rest) end # for name def foo(params, [{:name, name}| rest]) do IO.inspect(&amp;quot;name is #{name}&amp;quot;) foo(params, rest) end # ignore not to except options def foo(params, [_| rest]) do foo(params, rest) end # after getting all option def foo(params, []) do IO.inspect(&amp;quot;params is #{params}&amp;quot;) end end ## call params = 1 opts = [name: &amp;quot;foobar&amp;quot;, size: 2, dust: 123] Bar.</description>
-    </item>
-    
-    <item>
-      <title></title>
+      <title>How to pattern match at the end of string</title>
       <link>https://snamiki1212.github.io/til/elixir/how-to-pattern-match-at-the-end-of-string/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 05 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://snamiki1212.github.io/til/elixir/how-to-pattern-match-at-the-end-of-string/</guid>
       <description>末尾文字列のpattern-match &amp;lt;&amp;gt;を使用すればシンプルなpattern-matchで実現可能
@@ -94,42 +24,9 @@ binery-pattern-match bytes-sizeが固定ケース iex&amp;gt; origin = &amp;quot
     </item>
     
     <item>
-      <title></title>
-      <link>https://snamiki1212.github.io/til/elixir/iex-useful-commands/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://snamiki1212.github.io/til/elixir/iex-useful-commands/</guid>
-      <description>Commands Recopmile # recompile all files iex&amp;gt; recompile # recompile specific Module iex&amp;gt; r Foo  Renew iex iex&amp;gt; respawn  # kill this iex process and wake up new iex process. # to use respawn when doing &#39;pry&#39; especially. iex&amp;gt; self #PID&amp;lt;0.23831.8&amp;gt; # &amp;lt;- before iex&amp;gt; respawn Interactive Elixir (1.4.2) - press Ctrl+C to exit (type h() ENTER for help) iex&amp;gt; self #PID&amp;lt;0.23927.8&amp;gt; # &amp;lt;- after  Alias # alias iex&amp;gt; alias Foo.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://snamiki1212.github.io/til/elixir/mix/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://snamiki1212.github.io/til/elixir/mix/</guid>
-      <description> mix 今まで毎日のようにmixコマンドを使っていたが、改めてこれは何？を口頭で説明できなかったので整理
- 主要な役割  compiler 依存性管理 test実行 環境管理  taskという単位で機能を提供している taskにはデフォルトで下記などが提供されている。もちろん、custom taskを定義できる。project毎に作成したり、自分用の便利taskを作っておくと捗る  project生成 compile testの実行    Reference  Introduction to Mix Elixir School - Mix - hex-doc Mix  </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://snamiki1212.github.io/til/elixir/task/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://snamiki1212.github.io/til/elixir/task/</guid>
-      <description>ほぼ公式ドキュメントの意訳になってるので基本的には原文参照を推奨
-Task  非同期で処理を行いたい場合かつ結果を利用したい場合に使用  Spawn/send/receiveでも可能だが、これらの処理をラップしたものが、おそらくTaskの位置づけとなる。
- 複数非同期処理同士で関連性が無いかつ小規模処理のときに使用される位置づけ  使い方  Supervisorを使わない方法(①)
- Supervisorを使うなら、
- 事前に定義しておいたTaskを実行する方法(②)  または
- 動的にタスクを宣言する方法(③)   ① async and await ## (1)非同期用に並列実行プロセスをcallして処理を渡す task = Task.async(fn -&amp;gt; do_some_work() end) ## ...他の処理をおこなう res = do_some_other_work() ## (2)並列実行プロセスから結果を貰う res + Task.await(task)   asyncをする際は必ずawaitする asyncを実行したプロセス（caller）と呼ばれたプロセスはlink関係  つまり、どちらかのプロセスがクラッシュしたらもう片方もクラッシュする link関係にしたくなければ、Task.start/1やTask.Supervisorなどを利用するように。   ②Supervised tasks ## Taskをuse defmodule MyTask do use Task def start_link(arg) do Task.start_link(__MODULE__, :run, [arg]) end def run(arg) do # .</description>
-    </item>
-    
-    <item>
-      <title></title>
+      <title>test</title>
       <link>https://snamiki1212.github.io/til/elixir/test/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 05 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://snamiki1212.github.io/til/elixir/test/</guid>
       <description>ExUnit  Unit testing framework for Elixir
@@ -141,22 +38,125 @@ Task  非同期で処理を行いたい場合かつ結果を利用したい場�
     </item>
     
     <item>
-      <title></title>
+      <title>What is mix</title>
+      <link>https://snamiki1212.github.io/til/elixir/what-is-mix/</link>
+      <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/elixir/what-is-mix/</guid>
+      <description> mix 今まで毎日のようにmixコマンドを使っていたが、改めてこれは何？を口頭で説明できなかったので整理
+ 主要な役割  compiler 依存性管理 test実行 環境管理  taskという単位で機能を提供している taskにはデフォルトで下記などが提供されている。もちろん、custom taskを定義できる。project毎に作成したり、自分用の便利taskを作っておくと捗る  project生成 compile testの実行    Reference  Introduction to Mix Elixir School - Mix - hex-doc Mix  </description>
+    </item>
+    
+    <item>
+      <title>typespecs</title>
       <link>https://snamiki1212.github.io/til/elixir/typespecs/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://snamiki1212.github.io/til/elixir/typespecs/</guid>
       <description> 詳細はこの公式ドキュメントを参照 厳格さ整理したgist  </description>
     </item>
     
     <item>
-      <title></title>
+      <title>What is GenStage</title>
+      <link>https://snamiki1212.github.io/til/elixir/genstage/</link>
+      <pubDate>Thu, 28 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/elixir/genstage/</guid>
+      <description>GenStageの学習メモ 概要  Demand-Driven Back-Pressure モデル(Back-Pressureモデルが不要なら、並列処理を行う類似方法はTask.asny_stream/2で行える   つまり、GenStageは需要トリガーを元にストリームイベントを処理するライブラリなのです。需要トリガーで供給を引っ張ることを、ストリーム界隈(?)ではバックプレッシャー(背圧)といいます。
+  ３つの役割(producer, consumer, producer_consumer) 起動・構築は下記のどちらかでできる  SupervisorTree経由 関数での実行経由  send/receiveでステージ毎にデータの授受を行うことで、データフローされる producer/consumerは複数持てる GenServerのラッピング 並列処理 複数step処理にはしないで、3層レイヤに留める  NG: [Producer] -&amp;gt; [Step 1] -&amp;gt; [Step 2] -&amp;gt; [Step 3]    OK: [Consumer] / [Producer]-&amp;lt;-[Consumer] \ [Consumer]   if your domain has to process the data in multiple steps, you should write that logic in separate modules and not directly in a GenStage.</description>
+    </item>
+    
+    <item>
+      <title>Why need to use tilde with ecto query</title>
       <link>https://snamiki1212.github.io/til/elixir/why-need-to-use-tilde-with-ecto-query/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 21 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://snamiki1212.github.io/til/elixir/why-need-to-use-tilde-with-ecto-query/</guid>
       <description>Content Ectoモジュールでsql apiを使用するとき、変数を使う場合は^(pin operator)が必要になる。
  ^をつけると、その値はエスケープ処理される。 理由として、sql injection対策のために変数を参照する場合、それがユーザから渡される値であるかどうか、のジャッジのために大きくスコープを取って 「ハードコードではなく、変数に格納された値が引き渡される場合はユーザから引き渡される値の可能性が1%でもありうる＝SQLインジェクションの可能性がある」 という理屈のもととなる。  last_name = &amp;quot;Smith&amp;quot; Friends.Person |&amp;gt; Ecto.Query.where(last_name: ^last_name) |&amp;gt; Friends.Repo.all # ^が必要　Friends.Person |&amp;gt; Ecto.Query.where(last_name: &amp;quot;namiki&amp;quot;) |&amp;gt; Friends.Repo.all # ^が不要  https://hexdocs.pm/ecto/getting-started.html#filtering-results https://github.com/elixir-ecto/ecto/issues/180</description>
+    </item>
+    
+    <item>
+      <title>Catch msg when gen-server killed</title>
+      <link>https://snamiki1212.github.io/til/elixir/catch-msg-when-genserver-killed.md/</link>
+      <pubDate>Wed, 20 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/elixir/catch-msg-when-genserver-killed.md/</guid>
+      <description> How to  SET TO SEND TERMINATE MESSAGE
+## GENSERVER def init() do ## ... Process.flag(:trap_exit, true) ## ... end  Kill PROCESS
+ CATCH
+def terminate(reason, state) do Logger.info(&amp;quot;#{inspect(__MODULE__)} &amp;gt;&amp;gt; terminate| reason: #{inspect(reason)} | state: #{inspect(state)}&amp;quot;) end   </description>
+    </item>
+    
+    <item>
+      <title>How to get map</title>
+      <link>https://snamiki1212.github.io/til/elixir/how-to-get-may-map/</link>
+      <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/elixir/how-to-get-may-map/</guid>
+      <description>Content mapから値を取り出す際は、[]でデータにアクセスできる。
+iex(5)&amp;gt; map = %{a: 1, b: 10, c: 100} %{a: 1, b: 10, c: 100} iex(6)&amp;gt; map[:a] 1  []なら、仮に対象がnilでも、Exceptionを起こさずにnilを返す。
+iex(10)&amp;gt; map = nil nil iex(11)&amp;gt; map[:abc] nil  パイプライン演算子で引き渡されたmapに対してアクセスして次のパイプに流すようなときは[]は可読性が悪いので、大抵Map.get/3を使う。
+iex(14)&amp;gt; map = %{a: 1, b: 10, c: 100} %{a: 1, b: 10, c: 100} iex(15)&amp;gt; map |&amp;gt; IO.inspect |&amp;gt; Map.get(:a) |&amp;gt; IO.inspect %{a: 1, b: 10, c: 100} 1 1  だが、Map.get/3にmapではなく、nilを渡してしまうととExceptionを起こしてしまう。
+iex(18)&amp;gt; Map.get(nil, :abc) ** (BadMapError) expected a map, got: nil (stdlib) :maps.</description>
+    </item>
+    
+    <item>
+      <title>What is Agent</title>
+      <link>https://snamiki1212.github.io/til/elixir/what-is-agent/</link>
+      <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/elixir/what-is-agent/</guid>
+      <description>Agent https://hexdocs.pm/elixir/Agent.html
+function 大別すると下記の6種類の操作が可能。 1. start系 - link関係: Agent.start_link/{2,4} - 非link関係: Agent.start/{2,4}
+ stop系
+Agentのkill
+ get系
+ update系(同期的にデータ更新
+iex(33)&amp;gt; Agent.get a, fn x -&amp;gt; x end 9 iex(34)&amp;gt; Agent.update a, fn x -&amp;gt; :timer.sleep 5_000; x+1 end, 6_000 ## ここでsleep 5sが行われる :ok iex(35)&amp;gt; Agent.get a, fn x -&amp;gt; x end 10  cast系(非同期的にデータ更新
+iex(24)&amp;gt; Agent.get a, fn x -&amp;gt; x end 5 iex(25)&amp;gt; Agent.cast a, fn x -&amp;gt; :timer.</description>
+    </item>
+    
+    <item>
+      <title>task</title>
+      <link>https://snamiki1212.github.io/til/elixir/task/</link>
+      <pubDate>Fri, 08 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/elixir/task/</guid>
+      <description>ほぼ公式ドキュメントの意訳になってるので基本的には原文参照を推奨
+Task  非同期で処理を行いたい場合かつ結果を利用したい場合に使用  Spawn/send/receiveでも可能だが、これらの処理をラップしたものが、おそらくTaskの位置づけとなる。
+ 複数非同期処理同士で関連性が無いかつ小規模処理のときに使用される位置づけ  使い方  Supervisorを使わない方法(①)
+ Supervisorを使うなら、
+ 事前に定義しておいたTaskを実行する方法(②)  または
+ 動的にタスクを宣言する方法(③)   ① async and await ## (1)非同期用に並列実行プロセスをcallして処理を渡す task = Task.async(fn -&amp;gt; do_some_work() end) ## ...他の処理をおこなう res = do_some_other_work() ## (2)並列実行プロセスから結果を貰う res + Task.await(task)   asyncをする際は必ずawaitする asyncを実行したプロセス（caller）と呼ばれたプロセスはlink関係  つまり、どちらかのプロセスがクラッシュしたらもう片方もクラッシュする link関係にしたくなければ、Task.start/1やTask.Supervisorなどを利用するように。   ②Supervised tasks ## Taskをuse defmodule MyTask do use Task def start_link(arg) do Task.start_link(__MODULE__, :run, [arg]) end def run(arg) do # .</description>
+    </item>
+    
+    <item>
+      <title>How to get opt as keywordlist</title>
+      <link>https://snamiki1212.github.io/til/elixir/how-to-get-opt-as-keywordlist/</link>
+      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/elixir/how-to-get-opt-as-keywordlist/</guid>
+      <description>defmodule Bar do # for size def foo(params, [{:size, size}| rest]) do IO.inspect(&amp;quot;size is #{size}&amp;quot;) foo(params, rest) end # for name def foo(params, [{:name, name}| rest]) do IO.inspect(&amp;quot;name is #{name}&amp;quot;) foo(params, rest) end # ignore not to except options def foo(params, [_| rest]) do foo(params, rest) end # after getting all option def foo(params, []) do IO.inspect(&amp;quot;params is #{params}&amp;quot;) end end ## call params = 1 opts = [name: &amp;quot;foobar&amp;quot;, size: 2, dust: 123] Bar.</description>
+    </item>
+    
+    <item>
+      <title>iex useful commands</title>
+      <link>https://snamiki1212.github.io/til/elixir/iex-useful-commands/</link>
+      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/elixir/iex-useful-commands/</guid>
+      <description>Commands Recopmile # recompile all files iex&amp;gt; recompile # recompile specific Module iex&amp;gt; r Foo  Renew iex iex&amp;gt; respawn  # kill this iex process and wake up new iex process. # to use respawn when doing &#39;pry&#39; especially. iex&amp;gt; self #PID&amp;lt;0.23831.8&amp;gt; # &amp;lt;- before iex&amp;gt; respawn Interactive Elixir (1.4.2) - press Ctrl+C to exit (type h() ENTER for help) iex&amp;gt; self #PID&amp;lt;0.23927.8&amp;gt; # &amp;lt;- after  Alias # alias iex&amp;gt; alias Foo.</description>
+    </item>
+    
+    <item>
+      <title>Debug Tips</title>
+      <link>https://snamiki1212.github.io/til/elixir/debug-tips/</link>
+      <pubDate>Sun, 03 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/elixir/debug-tips/</guid>
+      <description> binding/0 Content binding/0 or binding/1 returns the binding for the given context as a keyword list.
+How to iex&amp;gt; binding() |&amp;gt; IO.inspect() iex&amp;gt; binding() |&amp;gt; inspect() |&amp;gt; Logger.info()  Reference  Elixir — quick reference for debugging techniques Elixir - binding(context \ nil)  </description>
     </item>
     
     <item>

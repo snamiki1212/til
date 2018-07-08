@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Binary Pattern Match on Today I Learned</title>
+    <link>https://snamiki1212.github.io/til/tags/binary-pattern-match/</link>
+    <description>Recent content in Binary Pattern Match on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://snamiki1212.github.io/til/tags/binary-pattern-match/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to pattern match at the end of string</title>
+      <link>https://snamiki1212.github.io/til/elixir/how-to-pattern-match-at-the-end-of-string/</link>
+      <pubDate>Thu, 05 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/elixir/how-to-pattern-match-at-the-end-of-string/</guid>
+      <description>末尾文字列のpattern-match &amp;lt;&amp;gt;を使用すればシンプルなpattern-matchで実現可能
+iex&amp;gt; origin &amp;quot;2018-07-05T12-2&amp;quot; iex&amp;gt; &amp;quot;2018-07-05T&amp;quot; &amp;lt;&amp;gt; aft = origin &amp;quot;2018-07-05T12-2&amp;quot; iex&amp;gt; aft &amp;quot;12-2&amp;quot;  末尾文字列以外のpattern-match 末尾文字以外は&amp;lt;&amp;gt;を使用したpattern-matchは行えない。
+iex&amp;gt; origin &amp;quot;2018-07-05T12-2&amp;quot; iex&amp;gt; yyyymmdd&amp;lt;&amp;gt;&amp;quot;T&amp;quot;&amp;lt;&amp;gt;aft = origin ** (CompileError) iex:16: a binary field without size is only allowed at the end of a binary pattern  こういうケースは&amp;lt;&amp;lt; &amp;gt;&amp;gt;を使用したbinary-pattern-matchを行える
+binery-pattern-match bytes-sizeが固定ケース iex&amp;gt; origin = &amp;quot;2018-07-05T12-2&amp;quot; &amp;quot;2018-07-05T12-2&amp;quot; iex&amp;gt; &amp;lt;&amp;lt;yyyymmdd::bytes-size(10)&amp;gt;&amp;gt; &amp;lt;&amp;gt; &amp;quot;T&amp;quot; &amp;lt;&amp;gt; aft = origin &amp;quot;2018-07-05T12-2&amp;quot; # yyyymmdd変数に、byes-size=10(桁)分をpattern-match iex&amp;gt; yyyymmdd &amp;quot;2018-07-05&amp;quot; iex&amp;gt; aft &amp;quot;12-2&amp;quot;  ただし、この記述だと文字列のlengthが事前にわかっている必要がある。</description>
+    </item>
+    
+  </channel>
+</rss>

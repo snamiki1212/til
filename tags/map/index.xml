@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Map on Today I Learned</title>
+    <link>https://snamiki1212.github.io/til/tags/map/</link>
+    <description>Recent content in Map on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 Jun 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://snamiki1212.github.io/til/tags/map/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to get map</title>
+      <link>https://snamiki1212.github.io/til/elixir/how-to-get-may-map/</link>
+      <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/elixir/how-to-get-may-map/</guid>
+      <description>Content mapから値を取り出す際は、[]でデータにアクセスできる。
+iex(5)&amp;gt; map = %{a: 1, b: 10, c: 100} %{a: 1, b: 10, c: 100} iex(6)&amp;gt; map[:a] 1  []なら、仮に対象がnilでも、Exceptionを起こさずにnilを返す。
+iex(10)&amp;gt; map = nil nil iex(11)&amp;gt; map[:abc] nil  パイプライン演算子で引き渡されたmapに対してアクセスして次のパイプに流すようなときは[]は可読性が悪いので、大抵Map.get/3を使う。
+iex(14)&amp;gt; map = %{a: 1, b: 10, c: 100} %{a: 1, b: 10, c: 100} iex(15)&amp;gt; map |&amp;gt; IO.inspect |&amp;gt; Map.get(:a) |&amp;gt; IO.inspect %{a: 1, b: 10, c: 100} 1 1  だが、Map.get/3にmapではなく、nilを渡してしまうととExceptionを起こしてしまう。
+iex(18)&amp;gt; Map.get(nil, :abc) ** (BadMapError) expected a map, got: nil (stdlib) :maps.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mix on Today I Learned</title>
+    <link>https://snamiki1212.github.io/til/tags/mix/</link>
+    <description>Recent content in Mix on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 04 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://snamiki1212.github.io/til/tags/mix/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What is mix</title>
+      <link>https://snamiki1212.github.io/til/elixir/what-is-mix/</link>
+      <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/elixir/what-is-mix/</guid>
+      <description> mix 今まで毎日のようにmixコマンドを使っていたが、改めてこれは何？を口頭で説明できなかったので整理
+ 主要な役割  compiler 依存性管理 test実行 環境管理  taskという単位で機能を提供している taskにはデフォルトで下記などが提供されている。もちろん、custom taskを定義できる。project毎に作成したり、自分用の便利taskを作っておくと捗る  project生成 compile testの実行    Reference  Introduction to Mix Elixir School - Mix - hex-doc Mix  </description>
+    </item>
+    
+  </channel>
+</rss>

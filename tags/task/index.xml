@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Task on Today I Learned</title>
+    <link>https://snamiki1212.github.io/til/tags/task/</link>
+    <description>Recent content in Task on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 08 Jun 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://snamiki1212.github.io/til/tags/task/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>task</title>
+      <link>https://snamiki1212.github.io/til/elixir/task/</link>
+      <pubDate>Fri, 08 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/elixir/task/</guid>
+      <description>ほぼ公式ドキュメントの意訳になってるので基本的には原文参照を推奨
+Task  非同期で処理を行いたい場合かつ結果を利用したい場合に使用  Spawn/send/receiveでも可能だが、これらの処理をラップしたものが、おそらくTaskの位置づけとなる。
+ 複数非同期処理同士で関連性が無いかつ小規模処理のときに使用される位置づけ  使い方  Supervisorを使わない方法(①)
+ Supervisorを使うなら、
+ 事前に定義しておいたTaskを実行する方法(②)  または
+ 動的にタスクを宣言する方法(③)   ① async and await ## (1)非同期用に並列実行プロセスをcallして処理を渡す task = Task.async(fn -&amp;gt; do_some_work() end) ## ...他の処理をおこなう res = do_some_other_work() ## (2)並列実行プロセスから結果を貰う res + Task.await(task)   asyncをする際は必ずawaitする asyncを実行したプロセス（caller）と呼ばれたプロセスはlink関係  つまり、どちらかのプロセスがクラッシュしたらもう片方もクラッシュする link関係にしたくなければ、Task.start/1やTask.Supervisorなどを利用するように。   ②Supervised tasks ## Taskをuse defmodule MyTask do use Task def start_link(arg) do Task.start_link(__MODULE__, :run, [arg]) end def run(arg) do # .</description>
+    </item>
+    
+  </channel>
+</rss>

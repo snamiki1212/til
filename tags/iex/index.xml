@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Iex on Today I Learned</title>
+    <link>https://snamiki1212.github.io/til/tags/iex/</link>
+    <description>Recent content in Iex on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 05 Jun 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://snamiki1212.github.io/til/tags/iex/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>iex useful commands</title>
+      <link>https://snamiki1212.github.io/til/elixir/iex-useful-commands/</link>
+      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/elixir/iex-useful-commands/</guid>
+      <description>Commands Recopmile # recompile all files iex&amp;gt; recompile # recompile specific Module iex&amp;gt; r Foo  Renew iex iex&amp;gt; respawn  # kill this iex process and wake up new iex process. # to use respawn when doing &#39;pry&#39; especially. iex&amp;gt; self #PID&amp;lt;0.23831.8&amp;gt; # &amp;lt;- before iex&amp;gt; respawn Interactive Elixir (1.4.2) - press Ctrl+C to exit (type h() ENTER for help) iex&amp;gt; self #PID&amp;lt;0.23927.8&amp;gt; # &amp;lt;- after  Alias # alias iex&amp;gt; alias Foo.</description>
+    </item>
+    
+  </channel>
+</rss>

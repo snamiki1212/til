@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Keywordlist on Today I Learned</title>
+    <link>https://snamiki1212.github.io/til/tags/keywordlist/</link>
+    <description>Recent content in Keywordlist on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 05 Jun 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://snamiki1212.github.io/til/tags/keywordlist/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to get opt as keywordlist</title>
+      <link>https://snamiki1212.github.io/til/elixir/how-to-get-opt-as-keywordlist/</link>
+      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/elixir/how-to-get-opt-as-keywordlist/</guid>
+      <description>defmodule Bar do # for size def foo(params, [{:size, size}| rest]) do IO.inspect(&amp;quot;size is #{size}&amp;quot;) foo(params, rest) end # for name def foo(params, [{:name, name}| rest]) do IO.inspect(&amp;quot;name is #{name}&amp;quot;) foo(params, rest) end # ignore not to except options def foo(params, [_| rest]) do foo(params, rest) end # after getting all option def foo(params, []) do IO.inspect(&amp;quot;params is #{params}&amp;quot;) end end ## call params = 1 opts = [name: &amp;quot;foobar&amp;quot;, size: 2, dust: 123] Bar.</description>
+    </item>
+    
+  </channel>
+</rss>

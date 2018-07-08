@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Genstage on Today I Learned</title>
+    <link>https://snamiki1212.github.io/til/tags/genstage/</link>
+    <description>Recent content in Genstage on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 28 Jun 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://snamiki1212.github.io/til/tags/genstage/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What is GenStage</title>
+      <link>https://snamiki1212.github.io/til/elixir/genstage/</link>
+      <pubDate>Thu, 28 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/elixir/genstage/</guid>
+      <description>GenStageの学習メモ 概要  Demand-Driven Back-Pressure モデル(Back-Pressureモデルが不要なら、並列処理を行う類似方法はTask.asny_stream/2で行える   つまり、GenStageは需要トリガーを元にストリームイベントを処理するライブラリなのです。需要トリガーで供給を引っ張ることを、ストリーム界隈(?)ではバックプレッシャー(背圧)といいます。
+  ３つの役割(producer, consumer, producer_consumer) 起動・構築は下記のどちらかでできる  SupervisorTree経由 関数での実行経由  send/receiveでステージ毎にデータの授受を行うことで、データフローされる producer/consumerは複数持てる GenServerのラッピング 並列処理 複数step処理にはしないで、3層レイヤに留める  NG: [Producer] -&amp;gt; [Step 1] -&amp;gt; [Step 2] -&amp;gt; [Step 3]    OK: [Consumer] / [Producer]-&amp;lt;-[Consumer] \ [Consumer]   if your domain has to process the data in multiple steps, you should write that logic in separate modules and not directly in a GenStage.</description>
+    </item>
+    
+  </channel>
+</rss>
