@@ -1,3 +1,12 @@
+---
+date: "2018-07-04"
+last-mod: "2018-07-04"
+title: "What is mix"
+slug: "what-is-mix"
+categories: [ "TIL", "Elixir" ]
+tags: [ "TIL", "Elixir", "mix"]
+---
+
 ## mix
 
 今まで毎日のように`mix`コマンドを使っていたが、改めてこれは何？を口頭で説明できなかったので整理
