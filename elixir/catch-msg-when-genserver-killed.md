@@ -1,4 +1,13 @@
+---
+date: "2018-06-20"
+last-mod: "2018-06-20"
+title: "Catch msg when gen-server killed"
+slug: "catch-msg-when-genserver-killed.md"
+categories: [ "TIL", "Elixir" ]
+tags: [ "TIL", "Elixir", "GenServer" ]
+---
 
+## How to
 
 1. SET TO SEND TERMINATE MESSAGE
   ```elixir
