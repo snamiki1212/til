@@ -1,3 +1,12 @@
+---
+date: "2018-06-05"
+last-mod: "2018-06-05"
+title: "iex useful commands"
+slug: "iex-useful-commands"
+categories: [ "TIL", "Elixir" ]
+tags: [ "TIL", "Elixir", "iex" , "commands"]
+---
+
 ## Commands
 
 ### Recopmile
