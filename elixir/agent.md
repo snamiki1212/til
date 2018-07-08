@@ -1,10 +1,10 @@
 ---
-date: "2018-02-09"
-last-mod: "2018-02-09"
+date: "2018-06-18"
+last-mod: "2018-06-18"
 title: "Extending this logic"
 slug: "extending-this-logic"
 categories: [ "TIL", "Elixir" ]
-tags: [ "Elixir", "Agent", "build-in" ]
+tags: [ "TIL", "Elixir", "Agent", "build-in" ]
 ---
 
 ## Agent
