@@ -23,18 +23,8 @@ googleAnalytics = ""
     weight = 1
 
 [[menu.main]]
-    url = "/til/elixir/"
-    name = "Elixir"
-    weight = 2
-
-[[menu.main]]
     url = "/elixir/"
-    name = "Elixir2"
-    weight = 2
-
-[[menu.main]]
-    url = "/til/til/elixir/"
-    name = "Elixir3"
+    name = "Elixir"
     weight = 2
 
 [[menu.main]]
