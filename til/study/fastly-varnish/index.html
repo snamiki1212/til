@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+         
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        
+        <style>
+
+    html body {
+        font-family: 'Raleway', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: red;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="https://snamiki1212.github.io/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scala.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/swift.min.js"></script> 
+
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.42.1" />
+        
+
+        
+    </head>
+
+    
+    
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    <body>
+         
+        <nav class="navbar navbar-default navbar-fixed-top">
+
+            <div class="container">
+
+                <div class="navbar-header">
+
+                    <a class="navbar-brand visible-xs" href="#"></a>
+
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+                <div class="collapse navbar-collapse">
+
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home</a></li>
+                            
+                                <li><a href="/til/elixir/">Elixir</a></li>
+                            
+                                <li><a href="/project/">Projects</a></li>
+                            
+                        </ul>
+                    
+
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="mailto:me@example.com"><i class="fa fa-envelope-o"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://github.com/username/"><i class="fa fa-github"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://twitter.com/username/"><i class="fa fa-twitter"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/username/"><i class="fa fa-linkedin"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.stackoverflow.com/username/"><i class="fa fa-stack-overflow"></i></a></li>
+                            
+                        </ul>
+                    
+
+                </div>
+
+            </div>
+
+        </nav>
+
+
+<main>
+
+    <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/til/study/fastly-varnish/"></a></h4>
+    <h5>January 1, 0001</h5>
+    
+
+</div>
+
+
+    <br> <div class="text-justify">
+
+<h2 id="目的">目的</h2>
+
+<p>CDN周りで</p>
+
+<ul>
+<li>fastly</li>
+<li>varnish</li>
+</ul>
+
+<p>の単語をよく聞くようになったが、概念レベルにてきちんと理解をしておくための学習履歴メモ</p>
+
+<h2 id="varnish">Varnish</h2>
+
+<ul>
+<li>Fastlyのコア機能としてVarnishを使用している</li>
+</ul>
+
+<p>Varnishとは？</p>
+
+<pre><code>&gt; Varnish is an HTTP accelerator designed for content-heavy dynamic web sites as well as APIs
+https://en.wikipedia.org/wiki/Varnish_(software)
+
+&gt; HTTP accelerator
+&gt;&gt; A web accelerator is a proxy server that reduces web site access time.
+https://en.wikipedia.org/wiki/Web_accelerator
+
+&gt; Varnish is a caching HTTP reverse proxy. 
+https://varnish-cache.org/docs/trunk/tutorial/introduction.html
+
+</code></pre>
+
+<p>つまり、
+  - 動的大規模コンテンツサイト／API向けのリバースプロキシサーバ
+  - モダンなアーキテクチャを持ちつつパフォーマンスが意識された設計
+  - OSS</p>
+
+<h2 id="fastly">Fastly</h2>
+
+<p><a href="https://www.fastly.com/">Fastly</a>社は既知の概念ではCDN業者だが、CDN業者として今まで出来なかったことをやってやる。ってスタンスみたい。</p>
+
+<blockquote>
+<p>Fastlyは便宜上CDNというくくりのサービスということにしていますが、「これまでのCDNができなかったことをやろう」というのが既存のCDNと発想が大きく異なるところです。</p>
+</blockquote>
+
+<p>だからなのか、wikiも</p>
+
+<blockquote>
+<p>Fastly, Inc. is an American cloud computing services provider.</p>
+</blockquote>
+
+<p>となってる</p>
+
+<h3 id="特徴">特徴</h3>
+
+<blockquote>
+<p>インスタント・パージとログのストリーミングができるという点、そして「Varnish」のVCL（Varnish Configuration Language）を使った配信設定のカスタマイズ性の高さですね。この3つが最大の特徴だと考えています。</p>
+</blockquote>
+
+<ol>
+<li><p>instant purge</p>
+
+<ul>
+<li>キャッシュを即時に削除</li>
+<li>従来のCDNではキャッシュ削除に時間を要していたが、マイクロ秒単位で実現可能</li>
+<li>従来では動的コンテンツをキャッシュ化してもコンテンツ更新後にキャッシュの更新に時間がかかっていたが、instant purgeにより、動的コンテンツをキャッシュ化する選択肢が生まれる</li>
+</ul></li>
+
+<li><p>VCL(Varnish Control Language)</p>
+
+<ul>
+<li>設定をDSLで制御</li>
+<li>Fastlyの根幹基盤にてVarnishを使用</li>
+<li>VCLを使用することでC言語ライクの記述で柔軟な設定が可能
+
+<ul>
+<li>ただ、細く設定が行える分、深みまで行うと管理が難しいみたい
+&gt; そんな感じで「VCL最高じゃん」ってなるんですけど、実際の開発はつらくて、なんかもう状態遷移がめちゃくちゃ複雑なんですね。
+&gt; ..フローが難しく..
+&gt; ..変数が限定的にしか使えない..
+&gt; ..リクエストのレスポンスも本体のほうは見ることができなかった..
+&gt; ..for文がないのでループできない..</li>
+</ul></li>
+</ul></li>
+
+<li><p>Realtime Log Streaming</p>
+
+<ul>
+<li>アクセスログを瞬時に取得することができるため、リアルタイムでの傾向分析、障害把握が可能</li>
+</ul></li>
+</ol>
+
+<h2 id="まとめ">まとめ</h2>
+
+<ul>
+<li>Fastlyは先進的な機能を数多く有しており技術的優位が高い</li>
+<li>Fastlyのコア機能となるのがVarnish基盤であるが、OSSであるためFastly経由ではなく自社／自身で導入することも可能</li>
+</ul>
+
+<p>ただ、その分自分達ですべて実装するので当たり前だが技術難易度が高い（日経の記事でFastlyを使用しても？したから？大変だった旨が書かれてる）</p>
+
+<p>どちらにしても、仕事を利用する際は最初からVarnish-cacheで自前ですべて作らずに、Fastlyのサービスを利用して慣れてきてからのほうが良さそう。</p>
+
+<p>ただ、Varnish自体はOSSだし、Fastlyも無料枠があるので、ガンガンtryできる環境はある</p>
+
+<h2 id="reference">Reference</h2>
+
+<ul>
+<li><a href="https://www.fastly.com/blog/benefits-using-varnish">Fastly BLog - The benefits of using Varnish- </a></li>
+<li><a href="https://cloud.nifty.com/navi/tech/fastly_1.htm">爆速サイトだけではない！Fastlyの中の人に聞く！エッジクラウドとしてのFastly活用法（前編）</a></li>
+<li><a href="https://cloud.nifty.com/navi/tech/fastly_2.htm">爆速サイトだけではない！エッジクラウドとしてのFastly活用法（後編）</a></li>
+<li><a href="https://logmi.jp/282375">CDNを使って表示速度を2倍に　日経電子版リニューアルの舞台裏</a></li>
+</ul>
+</div>
+
+    
+    
+
+    
+
+    
+
+        <h4 class="page-header">Comments</h4>
+
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "username" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+
+</main>
+
+        <footer>
+
+            <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a></p>
+
+        </footer>
+       
+    </body>
+
+</html>
+

@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Today I Learned</title>
+    <link>https://snamiki1212.github.io/til/</link>
+    <description>Recent content on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://snamiki1212.github.io/til/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/01_%E3%82%89%E3%81%8F%E3%82%89%E3%81%8F%E9%80%A3%E7%B5%A1%E7%B6%B2%E3%81%8C-elixir-%E3%81%A7%E3%83%AA%E3%82%A2%E3%83%AB%E3%82%BF%E3%82%A4%E3%83%A0%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%83%B3%E3%82%B0%E5%9F%BA%E7%9B%A4%E3%82%92%E5%88%B7%E6%96%B0%E3%81%97%E3%81%9F%E8%A9%B1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/01_%E3%82%89%E3%81%8F%E3%82%89%E3%81%8F%E9%80%A3%E7%B5%A1%E7%B6%B2%E3%81%8C-elixir-%E3%81%A7%E3%83%AA%E3%82%A2%E3%83%AB%E3%82%BF%E3%82%A4%E3%83%A0%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%83%B3%E3%82%B0%E5%9F%BA%E7%9B%A4%E3%82%92%E5%88%B7%E6%96%B0%E3%81%97%E3%81%9F%E8%A9%B1/</guid>
+      <description> 1. 「らくらく連絡網」が Elixir でリアルタイムメッセージング基盤を刷新した話 (rinosamakanata) 概要  ラクラク連絡網
+ メーリングリスト リアルタイムトーク  会社：イオレ
+ Ruby → Elixir
+  クラスタ化 vs 非クラスタ化  クラスタ化してる。なぜなら、quantumnで個別ノードでcron実行できる機能を使いたいから。 peerange 垂直／水平スケール  Frontend  WebView
+ Elm
+ VirtualDOMが高速   調査  ★erlybely recon_ex  監視  zabbix Exometer_zabbixでBEAMのメトリクス  まとめ／QA  Erlangは覚える必要はほぼなし。だが、BEAMについては知っておくべき  QA：BEAMの勉強方法→TheBeamBookがおすすめ  Q.エディタは何使ってる？  A.InteliJ   所感  ゲーム以外の導入事例は初めて見たが、メッセージングサービス／リアルタイムコミュニケーションのWebサービスとPhoenixの相性は確かに良い  あとで調べることまとめ  クラスタ化vs非クラスタ化 BEAMについての勉強を行う InteliJが良さげなら、購入 各種のツールの概要理解 the beam book  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/02_%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AEerlang%E3%82%B5%E3%83%BC%E3%83%90%E9%96%8B%E7%99%BA%E3%81%A8%E9%81%8B%E7%94%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/02_%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AEerlang%E3%82%B5%E3%83%BC%E3%83%90%E9%96%8B%E7%99%BA%E3%81%A8%E9%81%8B%E7%94%A8/</guid>
+      <description> 初めてのErlangサーバ開発と運用 (mookjp) Intro 携わってるサービス
+ Webアプリ開発 チャットシステム  WhyErlang Node  Architecture  イベントループ シングルスレッド  問題発生時  予期せぬ例外で、シングルスレッドなので、プロセスレベルでダウン イベントループに積まれてる未処理の実行が全て破棄される クライアントコネクションが全て切断される   ★被害範囲が大きい
+Erlang  Architecture  メッセージパッシング 軽量マルチプロセス  問題発生時  軽量プロセス単位でダウン Supervisor-treeのStrategyに基づいてダウンしたプロセスに対して再起動などのアクションを起こす   ★被害範囲が小さい
+CaseStudy：Msgつまり BatPattern  メッセージを全体に送信 各プロセスで必要ないメッセージは破棄  →全プロセスに無題にメッセージパッシングされてしまう
+GoodPattern  gprocでメッセージディクショナリー   メッセージをgpocに送信 gprocが送信する対象プロセスをハンドリングして宛先を絞ってくれる  →無駄なメッセージパッシングが減少する
+→ElixirではRegisteryが標準で搭載されている
+まとめ  Erlang in Angerを最初に読むべき　→VMのメモリ確保の挙動 英語力が超必要 公式ドキュメント大事 Erlang Slackチャネルおすすめ→すぐ回答してくれる  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/03_phoenix%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%EF%BC%91%E5%B9%B4%E9%96%93%E9%81%8B%E7%94%A8%E3%81%97%E3%81%A6%E5%88%86%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/03_phoenix%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%EF%BC%91%E5%B9%B4%E9%96%93%E9%81%8B%E7%94%A8%E3%81%97%E3%81%A6%E5%88%86%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8/</guid>
+      <description>Phoenixアプリケーションを１年間運用して分かったこと 想定対象： これから、Elixir/Phoenixを活用していく人に向けて
+Intro  会社  40人位が使用してる 新規事業で多く採用 ゲーム、ID管理 コミュニケーションサービス ECサイト   Game Server Architecture  2server間(API&amp;lt;-&amp;gt;WebSocket)はRPC接続 対戦マッチング用サーバは別に存在  Umbrella Problem ElixirはLV系のスクリプト言語と同等レベルで生産量は極めて高い。がコード量がどうしても多くなると、
+ManyServicesになると、多々の問題が発生。（Deploy時間がかかる、etc&amp;hellip;
+→ではMicroService化する？
+Solution  複数サービスを１レポで管理 サービス間でコード共有
+ Umbrellaプロジェクトを使えば、1repoをアプリケーションレイヤで分割できる
+  Deploy  問題：デプロイのタイミングでsocketが切断される 解決：WebSocketとLogicサーバで分離→socketが切断されなくなる  Compile macroはcompile-timeに評価
+dependenciesが生まれると、関連モジュールもrecompielされる
+問題 問題：１ファイルの修正に伴い、３００ファイル近くがrecompileされる。
+　→生産性が低下
+対象例  __ 構造体 import behavior protocol type spec  原因 循環とは？dependencyの先に更にdependencyが発生していく形。
+循環のコンパイル
+循環を取り除く　＝　無駄なコンパイル依存を削除する　＝　依存を取り除く
+&amp;gt; mix xref graph -format dat  Slow Test Testのロード／コンパイルtimeが長い</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/04_from-python-to-elixir/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/04_from-python-to-elixir/</guid>
+      <description> from Python to Elixir  ゲーム会の基本基盤  python-&amp;gt;elixir  なぜ？  python2020年問題→サポートがdjango2.0→python2系が終わる   FW Phoenix ? 自作WAF?  phoenix辛い  なぜ？ マクロ辛い問題  多段useのため、コード把握が厳しい 書く量が少ないが、読む量が多くなる  暫定は、Phoenixマスターを1人おいて、ごりおし。 今後は、自作FWを作るかも  FWにおける問題は、Webアプリレイヤーではなく、DBへの処理レイヤー 垂直分割  UserDB GuildDB  水平分割  シャーディング  Ecto
+ repo = Database シャーディングに対応してないので作った
+ Yacto ライブラリ
+GAME Project Template to Library   今までテンプレートを作っていたが、メンテ性が悪すぎるのでやめた
+ すべてライブラリ化。
+ 基盤チームとアプリチームで、メンテ者と使用者で分けれるようになった。
+  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/05_%E3%82%B9%E3%83%86%E3%83%BC%E3%83%88%E3%83%95%E3%83%AB%E3%81%A7%E5%A4%A7%E8%A6%8F%E6%A8%A1%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%AE%E3%81%82%E3%82%8Bsoft-realtime%E3%81%AA%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%82%92easy%E3%81%AB%E3%81%A4%E3%81%8F%E3%82%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/05_%E3%82%B9%E3%83%86%E3%83%BC%E3%83%88%E3%83%95%E3%83%AB%E3%81%A7%E5%A4%A7%E8%A6%8F%E6%A8%A1%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%AE%E3%81%82%E3%82%8Bsoft-realtime%E3%81%AA%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%82%92easy%E3%81%AB%E3%81%A4%E3%81%8F%E3%82%8B/</guid>
+      <description>ステートフルで大規模アクセスのあるsoft-realtimeなゲームサーバーをeasyにつくる INTRO  TCG PvP HTML5 Real-time  開発思想／理念  後からメンバがJoinしやすいように、できる限りレールは引いた（libraryの列挙と説明） GenServerでの想定のコツは、多人数のケースを想定せず、２人のケースで想定すれば十分。  設計 Channel  matching Channel PvP Channel  理由；Matching条件が複数あるので、複数あるので、分離したいので。   HotCode HotCodeDeployは行ってない。大変なので。下記で行ってる
+ Deploy処理 各ServerへKill予定の通知 Phoenixへの接続がなくなるまで待つ なくなったら、Deploy  Data  作業内容をすべて履歴として残す。 あとで、joinしたユーザはこの内容を元に描画する（たぶん、イベントソーシング思考ってこと または、この情報をAI化する  Knowledge PhoenixのLoggerが1プロセスしかない。なので、大量Loggingがあると
+ msgが詰まる Log出力の実行プログラムがLog実行と同期的になってしまう。  Compile_time_purgeの設定は大きくしておくと良い。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/06_channel%E5%85%88%E7%94%9F-pubsub%E3%81%8C%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/06_channel%E5%85%88%E7%94%9F-pubsub%E3%81%8C%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99/</guid>
+      <description> Channel先生&amp;hellip;!! PubSubがしたいです&amp;hellip;  phoenixを使用する際の最大の利点はpubsubだと考えている
+ 5min phoenix channel appの内容を元に。
+  pubsub とは？ 購読＝subscribe
+ topicに対して送信 topicから受信  タグ付け、に近い概念。
+PubSub Backend  pg2 redis 3rd party adapterで独自実装  QA  なぜAdapterを作成した？  性能面で。1台のRedisだと要件を満たせられない   </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/09_erlang%E4%BA%8B%E4%BE%8B%E7%B4%B9%E4%BB%8B-%E3%83%A1%E3%83%87%E3%82%A3%E3%82%A2%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%A0%E4%B8%AD%E7%B6%99%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/09_erlang%E4%BA%8B%E4%BE%8B%E7%B4%B9%E4%BB%8B-%E3%83%A1%E3%83%87%E3%82%A3%E3%82%A2%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%A0%E4%B8%AD%E7%B6%99%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0/</guid>
+      <description> Erlang事例紹介: メディアストリーム中継システム - amutake -  生放送の中継、についての話 ニコニコの今後のシステムで採用されるところの話  POINT  各種アルゴリズム比較して、分散システムを構築している。
+ できる限りメッセージパッシングしないように設計する
+ Erlangクラスタにするとフルメッシュ接続になる。今回採用された、HyParViewとは異なる思想なので。
+  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/99_erlangelixir%E3%81%8C%E4%BB%98%E3%81%8D%E3%81%A4%E3%81%91%E3%82%8B%E3%82%82%E3%81%AE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/99_erlangelixir%E3%81%8C%E4%BB%98%E3%81%8D%E3%81%A4%E3%81%91%E3%82%8B%E3%82%82%E3%81%AE/</guid>
+      <description>Erlang/Elixirが付きつけるもの -力武　健次- Intro  OpenErlang20週年  Elixir/Erlangではなく、Beamと表現してほしい旨を受ける Elixir/ Erlangでの融合の時期？   Immutability Erlangメリット  Immutability
+ ディープコピー
+  リストのコピーは、参照ではない
+ 参照がない  Erlangデメリット  遅い
+ 仮想VMが中間層に入っているので 速度で問題が発生したタイミングで機械語を利用するように また、１つの処理を呼び出すのに約数msかかる。  厳格な言語なので、Ruby/PHPのように、ゆるくは書けない
+  特徴  従来の言語の原則  安全よりも効率  ELixir/Erlangの思想  効率よりも安全   ## ALT Erlang
+ LFE efene alpaca cloherl luerl  今後の展開  Erlangの基本理念「ほどほどなのが良い」  安全は高速化に優先  組み込み分野
+ GriSP 組み込みの知識がなくてもErlangの知識があれば導入できる 法律的に国内で利用できな Nerves  全体的</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/summary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/summary/</guid>
+      <description>Title Erlang &amp;amp; Elixir Fest JP 2018 まとめ
+TL;DR 2018/06/16に行われたErlang &amp;amp; Elixir Fest JP 2018の発表内容についてサマっておきました。 基本的には発表者達のオリジナルをご自身で見ていただきたいですが、いかんせんカンファレンスの動画が無く、発表中に口頭で補足されていたところや、私自身の所感も合わせて書かせていただきます。 Elixir/Webエンジニア弱者なので、指摘事項などがあればコメントいただけると助かります。
+冒頭で司会の方が述べられていた、カンファレンスの内容に関する今回と去年の特徴です。 - 2017: これから開発が始まる系が多い - 2018: 実際に使った結果や運用面での話系が多い
+SLIDE  「らくらく連絡網」が Elixir でリアルタイムメッセージング基盤を刷新した話 初めてのErlangサーバ開発と運用 Phoenixアプリケーションを1年間運用して分かったこと from Python to Elixir ステートフルで大規模アクセスのあるsoft-realtimeなゲームサーバーをeasyにつくる Channel先生&amp;hellip;!! PubSubがしたいです&amp;hellip; Antikythera Framework: An Elixir framework for multiple web services 任意のBEAM系言語でプラグインを書ける安定したフレームワークの作りかた Erlang 事例紹介: メディアストリーム中継システム Erlang and Elixir Fest 2018 Keynote  全体を通した所感とか  登壇内容またはQA内容で  クラスタ化 vs 非クラスタ化 hot-deployを行う？    の話が多かったが、大抵 非クラスタ化 / hot-deployはしない の選択肢をとる人が多かった。 その理由も「大変」「時間がない」「複雑になる」「面倒」etcなので、 現状では費用対効果的にここまで作り込むフェーズのサービスが少ない、または、これらの機能の技術的洗練が足りていない段階の可能性があるのかもしれない、と感じた。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://snamiki1212.github.io/til/poem/how-to-study/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/poem/how-to-study/</guid>
+      <description>エンジニアの能力と今どきの難しさを読んで思ったこと 概要 知識範囲を３つに分類してる  上 ↑ 実行環境：実践的知識 … ｜カテゴリ：概念的知識 下 ↓ ベース　：基礎的知識  上のレイヤは実践的だが、移り変わりが早い（キャッチアップコストが高い）
+下のレイヤは教養的な知識だが、移り変わりが遅い
+主張  最近は上から入る人が圧倒的に多い 上から下へ降りる  →下の学習をしながら常に上の知識のメンテが必要なのでシンドイ
+ 下から上へ上がる  →時間はかかるが、腰を据えて進められるので堅実
+思ったこと ①下から上へ 体系的に長期的な学習プランを立てるタイプの人には合うと思う。
+ただし、
+「下の知識が最終的にどのように活かされるのか？」
+というビジョンがわかないため下記可能性をはらんでいる
+ モチベーション枯渇 実践を意識しない知識 上の階層へと繋がらない自己満的知識  ②上から下へ（パラシュート／遅延評価学習法） 大抵の職務で求められるのは実践的な上のレイヤーだ。
+ただし、調査や実装の下のレイヤの知識が必要になるときがある。
+なので、必要になったタイミングで学ぶスタイルが効率的である。
+ただし、経験上、危惧すべき点として
+ 体系的に知識の獲得がし辛い 慣れるまで時間がかかる。なぜなら、学生時の勉学において、このような学習方法による経験は少ないので  自分の考えまとめ 自分はエンジニア初期のとき
+「下から上へ」
+の学習方法のみが正義だと思い、
+またこの方法で学習できない状況にあったので、
+時間を取って腰を据えて学習できる環境を渇望していたが
+「上から下へ」
+の学習を続けるに当たっては、
+実践的知識と非体系的学習能力の向上を得られた。
+重要なのは、どちらから学ぶにしても、
+「反対側にすばやく行ってはすばやく戻ってくること」
+だと思う。
+つまり、
+下から上に行く場合
+→「最終的にどのように実践されるか」を意識するために少しでいいので早い段階でも上のレイヤの知識を使うべき
+上から下に行く場合
+→必要に応じて下のレイヤを学習してそれを上のレイヤに繋げて実際に実務で使う
+上下のどちらから学習を進めるに当たっても共通して使われる知識獲得方法だと思う。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://snamiki1212.github.io/til/study/circuit-breaker-pattern/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/study/circuit-breaker-pattern/</guid>
+      <description> Circuit Breaker Design Pattern  サーキット・ブレーカーという発想のベースにあるアイデアはとてもシンプルです。 プロテクテッドなコール関数をサーキット・ブレーカー・オブジェクトにラップし、そのオブジェクトがコールの結果をモニタリングするのです。
+サーキットブレイカーで設定している閾値に達してしまうと、サーキットブレイカーは自身の処理を切り替え（これをトリップというらしい
+ Implementetion  phoenix/ectoを使っていればtimeoutはconfigで設定されているので、わざわざ実装を行う必要がない？ （また、他の現代WAFなら大抵上記は設定されているので、同上？） WAFを使用しないスクラッチでのDBへのアクセスなどでは上記を利用することを想定しないといけない？  Referencew Circuit breaker  &amp;ldquo;CircuitBreaker&amp;rdquo; - Martin Fowler &amp;ldquo;CircuitBreaker&amp;rdquo; - 日本語訳 サーキットブレイカーパターン：連続して起こる同様の障害への対応策  to use elixir  Automated Fault Tolerance using the Circuit Breaker Pattern  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://snamiki1212.github.io/til/study/cqrs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/study/cqrs/</guid>
+      <description>CQRS CQRSとイベントソーシングの使用法、または「CRUDに何か問題でも？」を呼んだ結果をまとめ
+CRUD Architecutre  昔に比べて行い処理やケースが複雑化(パーミッションなど そもそも、write/readで検討要件が大きく異なる     書き込み 読み込み     データの整合性の維持 データの検索と抽出の効率化   アトミックな更新／トランザクション 導出値（合計など）の算出   バージョン管理（楽観的並行性制御／楽観的ロック） 複数のビューの提供   書き込み権限の管理 行レベル、カラムレベルの権限管理    CQRS（Command Query Responsibility Segregation：コマンドクエリ責務分離）  「Command」と「Query」で分離 &amp;gt; CRUDと違ってCQRSは、データの読み込みと書き込みは違うものだという前提にもとづく考えかたです。   CQRSでは、データベースの操作をコマンド（データを書き換える操作）とクエリ（データを読み込む操作）の二つに分類します。
+コマンドは一般に、操作の成否以上の情報を呼び出し側に返しません。また、クエリは冪等であることが保証されます。
+間にコマンドが挟まらないという前提で、同じクエリを何度実行しても結果は同じになるということです。
+RESTでいうと、コマンドはPUTやPOSTに対応し、クエリはGETに対応するものです。
+  モデルも分離 &amp;gt; データを問い合わせる際に使うUserモデルとコマンドを実行するときに使うモデルとが違っていてもかまわないということです。   ユーザー情報を更新するというのではなく、「メールアドレスを変更する」「請求先情報を変更する」なとどいうコマンドを考えることができるのです。
+呼び出し元が変更しようとしているエンティティのフィールドが本当に変更してよいかどうかをチェックするのではなく、呼び出し元に特定のコマンドを実行する権限があるかどうかだけをチェックすればいいのです。
+ イベントソーシング 具体的な実現アーキテクチャとして - 相性がイベントソーシングと良い &amp;gt; 会計処理では、入出金取引（売上や購入など）を元帳にだけ追記していくのががよいとされています。
+ &amp;hellip;現在の口座残高は、必要に応じて過去のすべての取引から算出します。
+ Storage Middleware(EventStore) 概要  EventStoreは追記限定の不変なストリームとしてイベントを扱います</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://snamiki1212.github.io/til/study/fastly-varnish/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/study/fastly-varnish/</guid>
+      <description>目的 CDN周りで
+ fastly varnish  の単語をよく聞くようになったが、概念レベルにてきちんと理解をしておくための学習履歴メモ
+Varnish  Fastlyのコア機能としてVarnishを使用している  Varnishとは？
+&amp;gt; Varnish is an HTTP accelerator designed for content-heavy dynamic web sites as well as APIs https://en.wikipedia.org/wiki/Varnish_(software) &amp;gt; HTTP accelerator &amp;gt;&amp;gt; A web accelerator is a proxy server that reduces web site access time. https://en.wikipedia.org/wiki/Web_accelerator &amp;gt; Varnish is a caching HTTP reverse proxy. https://varnish-cache.org/docs/trunk/tutorial/introduction.html  つまり、 - 動的大規模コンテンツサイト／API向けのリバースプロキシサーバ - モダンなアーキテクチャを持ちつつパフォーマンスが意識された設計 - OSS
+Fastly Fastly社は既知の概念ではCDN業者だが、CDN業者として今まで出来なかったことをやってやる。ってスタンスみたい。
+ Fastlyは便宜上CDNというくくりのサービスということにしていますが、「これまでのCDNができなかったことをやろう」というのが既存のCDNと発想が大きく異なるところです。
+ だからなのか、wikiも</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://snamiki1212.github.io/til/study/host-to-read-english-doc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/study/host-to-read-english-doc/</guid>
+      <description> 読む速度や能力向上にフォーカスした自分の方法論を整理
+概要  各種ツール  google translate chrome-add-on  目標方針  短期的に「内容を理解する」なら、英文見ないでgoogle翻訳に突っ込む 中長期的に「英単語の発音・意味を正しく理解しつつ英文を読む」なら、わからないものや勘違いしているものは潰しながら読む   All Translate  chrome(right click) -&amp;gt; translate to 日本語  Selecter Translate 選択した部分だけを翻訳する。いろいろadd-onはあると思うので、好きなのを使えばいいんじゃないかな。
+ ImTranslator: Translator, Dictionary, TTS  評価が高くて、発音が確認できる採用
+Speak 発音があやふやなものがあるたびに、選択して翻訳するのは手間に思い始めてきたので、いっそのこと、 「全文朗読させちゃえばよいのでは？」 と思ったので
+ Select and Speak - Text to Speech (SpeakIt!) SpeakIt!  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://snamiki1212.github.io/til/study/str-to-datetime/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/study/str-to-datetime/</guid>
+      <description> 基礎前提知識  例として日本の10:00にDateTimeを表示すると  標準時間：UTC: 2018/06/06T01:00:00+00:00 日本時間：JST: 2018/06/06T10:00:00+09:00   Tips stringからDateTime型などに変換する際に大抵UTCとして変換される。
+なので、stringの時点でTimezoneをstirngで追記しておくと出来上がったデータもJSTとして生成される
+datetime_str = &amp;quot;2018-06-06 10:00:00&amp;quot; {:ok, datetime_ust} = Timex.parse(datetime_str , &amp;quot;{ISO:Extended:Z}&amp;quot;) {:ok, datetime_jst} = Timex.parse(datetime_str &amp;lt;&amp;gt; &amp;quot;+09:00&amp;quot;, &amp;quot;{ISO:Extended:Z}&amp;quot;) datetime_ust # ~N[2018-06-06 10:00:00] # 型がjst/ustで違うけど、重要なのは、timezoneが含まれているか　datetime_jst # #&amp;lt;DateTime(2018-06-06T10:00:00+09:00 Etc/GMT-9)&amp;gt;  Reference  https://hexdocs.pm/timex/basic-usage.html#content  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://snamiki1212.github.io/til/videos/elixir-empex-nyc-conf-2018-dave_thomas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/videos/elixir-empex-nyc-conf-2018-dave_thomas/</guid>
+      <description>[翻訳]EMPEX NYC Conference 2018 (Elixir/Erlang/BEAM): Keynote(Dave Thomas) 下記動画の内容のメモと所感
+ (VIDEO)EMPEX NYC Conference 2018 - Dave Thomas  Attention 英語とElixirの学習用メモなため、解釈に誤りがある可能性があります。
+この内容は参考程度に押さえて基本的に動画を参照してください。
+TL; DR 現状のElixir/Phoenixのアーキテクチャに対しての下記の発表となる。
+ 問題提議
+ その解決方法の提案
+  解決方法は下記の通りの提案となる
+ 考え方：Component Structure 実装：Component / Noddy(発表内にて開発中と言及。2018/6/3時点で未公開)  Content Problem 知っての通りElixir/PhoenixはErlangとRailsを元に作成されている。
+ただ、いくつかの良くないところも継承してしまっているのが現状だ。
+Naming Application Applicationという名称だが、Erlangからこの名称は持ってきたが失敗だ。
+様々な意味を包括していて結局は何を指しているかがわかりにくい
+Dupplication Configuration コンフィグを他のApplicationにも持たせなければならない。
+上記の例で述べるとPaymentMakerのコンフィグをAppOne/AppTwoに持たせないとならない。
+もちろん行いたいのはPaymentMakerにのみコンフィグを持つことだ。
+Dog food GenServer GenServerの実装は１つのModuleに３つの内容を含んでいる
+ API Server Implementation  わかりにくい。俗に言うdog food、つまりゴチャ混ぜなコードだ。
+14:36
+Bad Directory Design 左がRailsで右がPhoenixだ。
+ほぼ同じ構成になっている。ただ、なんでlib？
+wooble.exなんて大抵のprojectではhello worldが書いてあるだけなんじゃないか？</description>
+    </item>
+    
+  </channel>
+</rss>

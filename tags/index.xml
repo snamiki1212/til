@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Today I Learned</title>
+    <link>https://snamiki1212.github.io/tags/</link>
+    <description>Recent content in Tags on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 09 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://snamiki1212.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bookcase</title>
+      <link>https://snamiki1212.github.io/tags/bookcase/</link>
+      <pubDate>Fri, 09 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/tags/bookcase/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lamb</title>
+      <link>https://snamiki1212.github.io/tags/lamb/</link>
+      <pubDate>Fri, 09 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/tags/lamb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nothing</title>
+      <link>https://snamiki1212.github.io/tags/nothing/</link>
+      <pubDate>Fri, 09 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/tags/nothing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shell</title>
+      <link>https://snamiki1212.github.io/tags/shell/</link>
+      <pubDate>Fri, 09 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/tags/shell/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

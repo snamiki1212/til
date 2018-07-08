@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+         
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        
+        <style>
+
+    html body {
+        font-family: 'Raleway', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: red;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="https://snamiki1212.github.io/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scala.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/swift.min.js"></script> 
+
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.42.1" />
+        
+
+        
+    </head>
+
+    
+    
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    <body>
+         
+        <nav class="navbar navbar-default navbar-fixed-top">
+
+            <div class="container">
+
+                <div class="navbar-header">
+
+                    <a class="navbar-brand visible-xs" href="#"></a>
+
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+                <div class="collapse navbar-collapse">
+
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home</a></li>
+                            
+                                <li><a href="/til/elixir/">Elixir</a></li>
+                            
+                                <li><a href="/project/">Projects</a></li>
+                            
+                        </ul>
+                    
+
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="mailto:me@example.com"><i class="fa fa-envelope-o"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://github.com/username/"><i class="fa fa-github"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://twitter.com/username/"><i class="fa fa-twitter"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/username/"><i class="fa fa-linkedin"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.stackoverflow.com/username/"><i class="fa fa-stack-overflow"></i></a></li>
+                            
+                        </ul>
+                    
+
+                </div>
+
+            </div>
+
+        </nav>
+
+
+<main>
+
+    <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/til/videos/elixir-empex-nyc-conf-2018-dave_thomas/"></a></h4>
+    <h5>January 1, 0001</h5>
+    
+
+</div>
+
+
+    <br> <div class="text-justify">
+
+<h2 id="翻訳-empex-nyc-conference-2018-elixir-erlang-beam-keynote-dave-thomas">[翻訳]EMPEX NYC Conference 2018 (Elixir/Erlang/BEAM): Keynote(Dave Thomas)</h2>
+
+<p>下記動画の内容のメモと所感</p>
+
+<ul>
+<li><a href="https://www.youtube.com/watch?v=6U7cLUygMeI&amp;feature=youtu.be">(VIDEO)EMPEX NYC Conference 2018 - Dave Thomas</a></li>
+</ul>
+
+<hr />
+
+<h2 id="attention">Attention</h2>
+
+<p>英語とElixirの学習用メモなため、解釈に誤りがある可能性があります。</p>
+
+<p>この内容は参考程度に押さえて基本的に<a href="https://www.youtube.com/watch?v=6U7cLUygMeI&amp;feature=youtu.be">動画</a>を参照してください。</p>
+
+<hr />
+
+<h2 id="tl-dr">TL; DR</h2>
+
+<p>現状の<code>Elixir/Phoenix</code>のアーキテクチャに対しての下記の発表となる。</p>
+
+<ol>
+<li><p>問題提議</p></li>
+
+<li><p>その解決方法の提案</p></li>
+</ol>
+
+<p>解決方法は下記の通りの提案となる</p>
+
+<ul>
+<li>考え方：Component Structure</li>
+<li>実装：<a href="https://github.com/pragdave/component">Component</a> / Noddy(発表内にて開発中と言及。2018/6/3時点で未公開)</li>
+</ul>
+
+<h2 id="content">Content</h2>
+
+<h3 id="problem">Problem</h3>
+
+<p>知っての通り<code>Elixir/Phoenix</code>は<code>Erlang</code>と<code>Rails</code>を元に作成されている。</p>
+
+<p>ただ、いくつかの良くないところも継承してしまっているのが現状だ。</p>
+
+<h5 id="naming-application">Naming  Application</h5>
+
+<p><code>Application</code>という名称だが、<code>Erlang</code>からこの名称は持ってきたが失敗だ。</p>
+
+<p>様々な意味を包括していて結局は何を指しているかがわかりにくい</p>
+
+<p><img src="https://i.gyazo.com/cacd7687c99459fc5e906c6114086849.png" alt="img" /></p>
+
+<h5 id="dupplication-configuration">Dupplication Configuration</h5>
+
+<p>コンフィグを他の<code>Application</code>にも持たせなければならない。</p>
+
+<p><img src="https://i.gyazo.com/f374b5c59e3ea5aaacadc8ac19281d29.png" alt="img" /></p>
+
+<p>上記の例で述べると<code>PaymentMaker</code>のコンフィグを<code>AppOne</code>/<code>AppTwo</code>に持たせないとならない。</p>
+
+<p>もちろん行いたいのは<code>PaymentMaker</code>にのみコンフィグを持つことだ。</p>
+
+<h5 id="dog-food-genserver">Dog food GenServer</h5>
+
+<p><code>GenServer</code>の実装は１つの<code>Module</code>に３つの内容を含んでいる</p>
+
+<ol>
+<li><code>API</code></li>
+<li><code>Server</code></li>
+<li><code>Implementation</code></li>
+</ol>
+
+<p>わかりにくい。俗に言うdog food、つまりゴチャ混ぜなコードだ。</p>
+
+<p><img src="https://i.gyazo.com/d5fc9488411c63bbb10409a297fe410b.png" alt="img" /></p>
+
+<p>14:36</p>
+
+<h5 id="bad-directory-design">Bad Directory Design</h5>
+
+<p><img src="https://i.gyazo.com/cc8434e960743d04219c471535ad795d.png" alt="img" /></p>
+
+<p>左が<code>Rails</code>で右が<code>Phoenix</code>だ。</p>
+
+<p>ほぼ同じ構成になっている。ただ、なんで<code>lib</code>？</p>
+
+<p><code>wooble.ex</code>なんて大抵のprojectでは<code>hello world</code>が書いてあるだけなんじゃないか？</p>
+
+<p>無駄が多すぎる。</p>
+
+<p><img src="https://i.gyazo.com/71e6bf35f1c4d8f133bbf2f6ae5b5c62.png" alt="img" /></p>
+
+<h2 id="solution">Solution</h2>
+
+<h5 id="new-naming-application">New Naming Application</h5>
+
+<p><code>Component structure</code>では下記のように提議していきたい。</p>
+
+<ol>
+<li><code>Library</code>  … <code>state</code>を持つような<code>process</code> がない</li>
+<li><code>Component</code> … <code>state</code>を持つような<code>process</code>がある</li>
+<li><code>Assembly</code> &hellip; <code>configuration</code> であり、<code>Library</code> / <code>Component</code>を束ねた可搬的なひとまとめ</li>
+</ol>
+
+<p><img src="https://i.gyazo.com/a685d57c2a209e2f90c8a306bf2ce6f6.png" alt="img" />22:23</p>
+
+<p><img src="https://i.gyazo.com/91165e412395e35cbda066c39162b2c7.png" alt="img" /></p>
+
+<p>23:01</p>
+
+<h5 id="phoenix-component">Phoenix Component</h5>
+
+<p>上の規則に従うと <code>Phoenix Application</code>ではなくて、<code>Phoenix Component</code>となる。</p>
+
+<p>また、<code>Phoenix</code>にビジネスロジックが何個あるかべきか？０個だ。</p>
+
+<p><code>Phoenix</code>は純粋な<code>View Layer</code>であるべきだ。</p>
+
+<p>なぜなら　<code>Phoenix</code>は<code>Interface</code>であり、<code>Interface</code>に<code>Business Logic</code>は書かないだろ？</p>
+
+<p>ビジネスロジックである実装は更にバックエンドに記述するべきだ。<code>Phoenix</code>は<code>WebServer</code>なんだ。</p>
+
+<p><img src="https://i.gyazo.com/dbea2fe4e15e7b05b4cd3cc8020d6fe7.png" alt="img" /></p>
+
+<h5 id="component-as-genserver">Component as GenServer</h5>
+
+<p>例として１つのGenServerがある。</p>
+
+<p><img src="https://i.gyazo.com/397bc22f3bf5187d50f52aed0c94c44f.png" alt="img" /></p>
+
+<p><a href="https://github.com/pragdave/component">Component</a>を使えばこれだけで済む。</p>
+
+<p><img src="https://i.gyazo.com/a9c25bbd42b80ae1456e64abe1564b69.png" alt="img" /></p>
+
+<p>内部的には<code>GenServer</code>をジェネレートしているわけだが、コード量は劇的に減少するだろう。</p>
+
+<p>そして、<a href="https://github.com/pragdave/component">Component</a>を使って簡略化しても元のコードからは何も情報は失われていない。</p>
+
+<p>以前として<code>GenServer</code>であるが、すべてを書く必要がなくなるわけだ。</p>
+
+<h5 id="component-directroy-design">Component Directroy Design</h5>
+
+<p><img src="https://i.gyazo.com/84f7080e3b710f8a954be484dde6749d.png" alt="img" /></p>
+
+<p>なんでフォーマット用configファイルである<code>.formatter.exs</code>がtop levelにあって、実装したいメインプログラムである<code>stack.exs</code>がtop levelにないんだ？おかしくないか？</p>
+
+<p><img src="https://i.gyazo.com/686696e82ee4352c80b41768397fac91.png" alt="img" /></p>
+
+<p>これで十分だろう。ただ、もし<code>stack.ex</code>が複雑になってきたらどうするかって？</p>
+
+<p><img src="https://i.gyazo.com/b182704fc4b8f76370aec05148fdff82.png" alt="img" /></p>
+
+<p>そのときになったらサブディレクトリを足して<code>popper.ex</code>や<code>pusher.ex</code>のように機能別にファイルを作っていく？違う。私は１つの<code>stack.ex</code>に収めたいんだ。</p>
+
+<p>もし、<code>stack.ex</code>が複雑になってきたら？<code>component</code>レベルで分割するんだ。</p>
+
+<p>つまり、数多の小さな<code>component</code>を組み合わせていくわけだ。</p>
+
+<p>これによって、再利用性とメンテナンス性があがるはずだ</p>
+
+<h5 id="how-to-deploymnet">How To Deploymnet</h5>
+
+<p><img src="https://i.gyazo.com/6b72b908a067aa95a72937b3159724b0.png" alt="img" /></p>
+
+<p>現状では、<code>component</code>で良いデプロイ方法は<code>Elixir</code> には存在しない。</p>
+
+<p>紹介しよう！Noddyだ！デプロイメントには<code>Noddy</code>(<code>NODe Dynamic management</code>)を使う。</p>
+
+<p>（ここでいうNodeはServer上で稼働しているErlangVM上のNodeで、Serverと考える）</p>
+
+<ul>
+<li>ロギング設定を一元管理</li>
+<li>並列デプロイ</li>
+<li><code>Node</code>毎にどの<code>Component</code>をデプロイするかを定義できる</li>
+</ul>
+
+<h2 id="conclude">Conclude</h2>
+
+<p><code>Elixir</code>での開発課題をより簡単にしていきたい。</p>
+
+<p>最終的には誰もが３分で<code>Component</code>を作成してデプロイでき、そして他の開発者もその<code>Component</code>を再利用できる。そんな未来が来るだろう。</p>
+
+<h1 id="所感">所感</h1>
+
+<ul>
+<li><p><code>GenServer</code>を書いたり読んだりするが、１つのファイルに対してどうしても手続き的なコード量が多くなってしまう問題は以前から感じていただけに、<a href="https://github.com/pragdave/component">Component</a>が実用化されれば<code>GenServer</code>のコード量という問題点はかなり解決できるのではないか、と感じられた。</p></li>
+
+<li><p><code>Component Structure</code>が導入されるためには、現状<code>Noddy</code>も作成中な上、既存の<code>Phoenix</code>の構造から大幅な変更が発生するため、導入障壁と所要時間のハードルが高そうに感じる。</p></li>
+</ul>
+</div>
+
+    
+    
+
+    
+
+    
+
+        <h4 class="page-header">Comments</h4>
+
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "username" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+
+</main>
+
+        <footer>
+
+            <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a></p>
+
+        </footer>
+       
+    </body>
+
+</html>
+
