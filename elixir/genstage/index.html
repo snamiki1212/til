@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+         
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        
+        <style>
+
+    html body {
+        font-family: 'Raleway', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: red;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="https://snamiki1212.github.io/til/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scala.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/swift.min.js"></script> 
+
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.42.1" />
+        
+
+        
+    </head>
+
+    
+    
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    <body>
+         
+        <nav class="navbar navbar-default navbar-fixed-top">
+
+            <div class="container">
+
+                <div class="navbar-header">
+
+                    <a class="navbar-brand visible-xs" href="#"></a>
+
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+                <div class="collapse navbar-collapse">
+
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/til/">Home</a></li>
+                            
+                                <li><a href="/til/elixir/">Elixir</a></li>
+                            
+                                <li><a href="/til/project/">Projects</a></li>
+                            
+                        </ul>
+                    
+
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="mailto:me@example.com"><i class="fa fa-envelope-o"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://github.com/username/"><i class="fa fa-github"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://twitter.com/username/"><i class="fa fa-twitter"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/username/"><i class="fa fa-linkedin"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.stackoverflow.com/username/"><i class="fa fa-stack-overflow"></i></a></li>
+                            
+                        </ul>
+                    
+
+                </div>
+
+            </div>
+
+        </nav>
+
+
+<main>
+
+    <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/til/elixir/genstage/"></a></h4>
+    <h5>January 1, 0001</h5>
+    
+
+</div>
+
+
+    <br> <div class="text-justify">
+
+<h1 id="genstageの学習メモ">GenStageの学習メモ</h1>
+
+<h2 id="概要">概要</h2>
+
+<ul>
+<li>Demand-Driven</li>
+<li>Back-Pressure モデル(Back-Pressureモデルが不要なら、並列処理を行う類似方法は<code>Task.asny_stream/2</code>で行える</li>
+</ul>
+
+<blockquote>
+<p>つまり、GenStageは需要トリガーを元にストリームイベントを処理するライブラリなのです。需要トリガーで供給を引っ張ることを、ストリーム界隈(?)ではバックプレッシャー(背圧)といいます。</p>
+</blockquote>
+
+<ul>
+<li>３つの役割(producer, consumer, producer_consumer)</li>
+<li>起動・構築は下記のどちらかでできる
+
+<ol>
+<li>SupervisorTree経由</li>
+<li>関数での実行経由</li>
+</ol></li>
+<li>send/receiveでステージ毎にデータの授受を行うことで、データフローされる</li>
+<li>producer/consumerは複数持てる</li>
+<li>GenServerのラッピング</li>
+<li>並列処理</li>
+<li>複数step処理にはしないで、3層レイヤに留める
+<code>
+NG: [Producer] -&gt; [Step 1] -&gt; [Step 2] -&gt; [Step 3]
+</code></li>
+</ul>
+
+<pre><code>  OK:
+               [Consumer]
+              /
+  [Producer]-&lt;-[Consumer]
+              \
+               [Consumer]
+</code></pre>
+
+<blockquote>
+<p>if your domain has to process the data in multiple steps, you should write that logic in separate modules and not directly in a GenStage.</p>
+</blockquote>
+
+<h2 id="buffer">Buffer</h2>
+
+<ul>
+<li>event/demandは各stageのqueueにbufferされる</li>
+<li>stageが構築される前に実行された分もキューイングされる。</li>
+<li>例えば、consumerがcrashしてrestartするまでの間のデータをロストしないようにするため。</li>
+</ul>
+
+<h2 id="callback">Callback</h2>
+
+<ul>
+<li>init/1
+下記の役割のうち、どれかを定義
+
+<ol>
+<li>producer</li>
+<li>consumer</li>
+<li>procuer_consumer</li>
+</ol></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>callbacks</th>
+<th>producer</th>
+<th>producerconsumer</th>
+<th>consumer</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>init</code></td>
+<td>must</td>
+<td>must</td>
+<td>must</td>
+</tr>
+
+<tr>
+<td><code>handledemand/2</code></td>
+<td>must</td>
+<td>-</td>
+<td>-</td>
+</tr>
+
+<tr>
+<td><code>handle_event/2</code></td>
+<td>-</td>
+<td>must</td>
+<td>must</td>
+</tr>
+
+<tr>
+<td><em>GenServer&rsquo;s</em></td>
+<td>available</td>
+<td>available</td>
+<td>available</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="producer">Producer</h2>
+
+<ul>
+<li>demandのreceiveをトリガー</li>
+<li>現在の値を保持する(GenServerと同じく値の保持がある)</li>
+</ul>
+
+<h2 id="producerconsumer">ProducerConsumer</h2>
+
+<h2 id="consumer">Consumer</h2>
+
+<h2 id="dispatcher">Dispatcher</h2>
+
+<p>イベントの配布方法。<code>consumer</code>から<code>event</code>が流れることはないので、<code>producer</code>と<code>producer_cosumer</code>にて設定する。
+1. <code>DemandDispatcher</code>: BackPressureによるDemandトリガーなモデル
+2. <code>PartitionDispatcher</code>: Eventに応じてDispatcherを変動
+3. <code>BroadcastDispatcher</code>: 全ConsumerにBroadcast</p>
+
+<h2 id="multiple-consumer">multiple consumer</h2>
+
+<ul>
+<li>デフォルトの振る舞いとして、<code>consumer</code>/<code>producer_consumer</code>は「<code>handle_event</code>の終了タイミング」＝「再度<code>producer</code>への要求タイミング」と認識して、<code>demand</code>を<code>producer</code>へ自動的に投げる</li>
+
+<li><p>複数consumerを定義する場合は、上記処理を手動で行う必要がある</p>
+
+<ul>
+<li><code>handle_subscribe</code>を定義<code>{:manual, event}</code>をreturn。デフォルトは<code>{:automatic, state}</code></li>
+<li><code>handle_subscribe</code>はConsumerがProducerにsubscribeするタイミングに実行されるので、各producer毎に初回の１回ずつのみの実行となる。</li>
+<li><code>Producer</code>への要求は<code>GenStage.ask/3</code>で行う</li>
+<li><code>handle_subscribe</code>を定義</li>
+<li><code>max_demand</code> / <code>min_demand</code> optionを設定すること
+<br /></li>
+</ul></li>
+
+<li><p>Back-Pressureとして、量を調節する機構は<code>Consumer</code>にて行い、レートリミッタとして実現する
+&gt; 時間間隔ごとに限られた数のイベントを処理できるコンシューマを実装しましょう。これらはレートリミッタと呼ばれることがよくあります。</p></li>
+</ul>
+
+<h2 id="youtube">YouTube</h2>
+
+<p><a href="https://www.youtube.com/watch?time_continue=264&amp;v=aZuY5-2lwW4">Elixir London June 2016 w/ José Valim</a>
+- 基本的な流れ
+  <img src="https://user-images.githubusercontent.com/26793088/42125238-c5592b10-7cad-11e8-803a-9eda3e52e668.png" alt="image" /></p>
+
+<ul>
+<li><p>Back-Pressure
+<img src="https://user-images.githubusercontent.com/26793088/42125271-9175f55c-7cae-11e8-8b59-0da77aa952ce.png" alt="image" /></p>
+
+<ol>
+<li>「B←Cにasks10」</li>
+<li>「A←BにAsks10」</li>
+<li>「A→Bにsends max 10」</li>
+<li>「B→Cにsends max 10」
+<br /></li>
+</ol></li>
+</ul>
+
+<p>→後ろから始まるからBack-Pressure</p>
+
+<ul>
+<li>Demand-driven
+<img src="https://user-images.githubusercontent.com/26793088/42125274-9ea3e978-7cae-11e8-93fc-3338b845ceba.png" alt="image" /></li>
+</ul>
+
+<h2 id="reference">Reference</h2>
+
+<ul>
+<li><a href="https://hexdocs.pm/gen_stage/GenStage.html">GenStage - hexdoc</a></li>
+<li><a href="https://elixirschool.com/ja/lessons/advanced/gen-stage/">Elixir School - GenStage</a></li>
+<li><a href="https://qiita.com/twinbee/items/12a61863ceef794996e0?utm_campaign=popular_items&amp;utm_medium=twitter&amp;utm_source=dlvr.it">ElixirのGenStageに入門する #1</a></li>
+<li><a href="https://qiita.com/twinbee/items/eda7f70fa9e4651f2248">ElixirのGenStageに入門する#2 バックプレッシャーを理解する</a></li>
+</ul>
+</div>
+
+    
+    
+
+    
+
+    
+
+        <h4 class="page-header">Comments</h4>
+
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "username" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+
+</main>
+
+        <footer>
+
+            <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a></p>
+
+        </footer>
+       
+    </body>
+
+</html>
+

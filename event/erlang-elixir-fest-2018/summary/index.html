@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+         
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        
+        <style>
+
+    html body {
+        font-family: 'Raleway', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: red;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="https://snamiki1212.github.io/til/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scala.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/swift.min.js"></script> 
+
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.42.1" />
+        
+
+        
+    </head>
+
+    
+    
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    <body>
+         
+        <nav class="navbar navbar-default navbar-fixed-top">
+
+            <div class="container">
+
+                <div class="navbar-header">
+
+                    <a class="navbar-brand visible-xs" href="#"></a>
+
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+                <div class="collapse navbar-collapse">
+
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/til/">Home</a></li>
+                            
+                                <li><a href="/til/elixir/">Elixir</a></li>
+                            
+                                <li><a href="/til/project/">Projects</a></li>
+                            
+                        </ul>
+                    
+
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="mailto:me@example.com"><i class="fa fa-envelope-o"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://github.com/username/"><i class="fa fa-github"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://twitter.com/username/"><i class="fa fa-twitter"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/username/"><i class="fa fa-linkedin"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.stackoverflow.com/username/"><i class="fa fa-stack-overflow"></i></a></li>
+                            
+                        </ul>
+                    
+
+                </div>
+
+            </div>
+
+        </nav>
+
+
+<main>
+
+    <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/til/event/erlang-elixir-fest-2018/summary/"></a></h4>
+    <h5>January 1, 0001</h5>
+    
+
+</div>
+
+
+    <br> <div class="text-justify">
+
+<h2 id="title">Title</h2>
+
+<p>Erlang &amp; Elixir Fest JP 2018 まとめ</p>
+
+<h2 id="tl-dr">TL;DR</h2>
+
+<p><img src="https://user-images.githubusercontent.com/26793088/41524819-af749156-7319-11e8-9e5c-9ff54fc4dd14.png" alt="image" /></p>
+
+<p>2018/06/16に行われた<a href="https://elixir-fest.jp/">Erlang &amp; Elixir Fest JP 2018</a>の発表内容についてサマっておきました。
+基本的には発表者達のオリジナルをご自身で見ていただきたいですが、いかんせんカンファレンスの動画が無く、発表中に口頭で補足されていたところや、私自身の所感も合わせて書かせていただきます。
+Elixir/Webエンジニア弱者なので、指摘事項などがあればコメントいただけると助かります。</p>
+
+<p>冒頭で司会の方が述べられていた、カンファレンスの内容に関する今回と去年の特徴です。
+  - 2017: これから開発が始まる系が多い
+  - 2018: 実際に使った結果や運用面での話系が多い</p>
+
+<h2 id="slide">SLIDE</h2>
+
+<ol>
+<li><a href="https://eole-repos.github.io/public/elixirfest/2018/elixirfest2018-eole-rinosamakanata.pdf">「らくらく連絡網」が Elixir でリアルタイムメッセージング基盤を刷新した話</a></li>
+<li><a href="https://speakerdeck.com/mookjp/chu-metefalseerlangsahakai-fa-toyun-yong?slide=1">初めてのErlangサーバ開発と運用</a></li>
+<li><a href="https://speakerdeck.com/kanmo/keep-phoenix-app-productivity?slide=1">Phoenixアプリケーションを1年間運用して分かったこと</a></li>
+<li>from Python to Elixir</li>
+<li><a href="https://speakerdeck.com/ne_sachirou/sutetohurudeda-gui-mo-akusesufalsearusoft-realtimenagemusabawoeasynitukuru?slide=1">ステートフルで大規模アクセスのあるsoft-realtimeなゲームサーバーをeasyにつくる</a></li>
+<li><a href="https://speakerdeck.com/ohr486/erlangelixirfest2018-ohr486-session">Channel先生&hellip;!! PubSubがしたいです&hellip;</a></li>
+<li>Antikythera Framework: An Elixir framework for multiple web services</li>
+<li><a href="https://niku.name/2018/06/16/slide.html">任意のBEAM系言語でプラグインを書ける安定したフレームワークの作りかた</a></li>
+<li><a href="https://niconare.nicovideo.jp/watch/kn3115">Erlang 事例紹介: メディアストリーム中継システム</a></li>
+<li><a href="https://speakerdeck.com/jj1bdx/erlang-and-elixir-fest-2018-keynote">Erlang and Elixir Fest 2018 Keynote</a></li>
+</ol>
+
+<h2 id="全体を通した所感とか">全体を通した所感とか</h2>
+
+<ul>
+<li>登壇内容またはQA内容で
+
+<ul>
+<li><code>クラスタ化</code> vs <code>非クラスタ化</code></li>
+<li>hot-deployを行う？
+<br /></li>
+</ul></li>
+</ul>
+
+<p>の話が多かったが、大抵
+  <code>非クラスタ化</code> / <code>hot-deployはしない</code>
+  の選択肢をとる人が多かった。
+  その理由も「大変」「時間がない」「複雑になる」「面倒」etcなので、
+  現状では費用対効果的にここまで作り込むフェーズのサービスが少ない、または、これらの機能の技術的洗練が足りていない段階の可能性があるのかもしれない、と感じた。</p>
+
+<ul>
+<li><p>記憶に残ったワード（カンファレンスに行った人ならわかる系の内輪ネタが多くて恐縮ですが）</p>
+
+<ul>
+<li>これから始める人に必要なもの　英語・根性</li>
+<li>「お前disれるほどPhoenixを使ってんの？」</li>
+<li>（PubSubのSupervisorTree見ながら）「どうです？かっこよくないです？」</li>
+<li>効率よりも安全</li>
+<li>Elixirは速くない</li>
+<li>Erlang in Anger</li>
+<li>Elixirﾁｮｯﾄﾃﾞｷﾙ人</li>
+<li>1週間でElixirを完全に理解した</li>
+</ul></li>
+
+<li><p><a href="https://www.erlang-in-anger.com/">Erlang in Anger</a>の話が多すぎて、これを機に<a href="https://twitter.com/seizans/status/1008263285559312384">日本語訳化が行われるかもしれない</a>ので、逆に今読むのは待ったほうが良いかも</p></li>
+</ul>
+
+<h2 id="hands-on">HANDS ON</h2>
+
+<p>ErlangElixirFestHandsOn</p>
+
+<ul>
+<li><p><a href="https://github.com/ohr486/ErlangElixirFestHandsOn">github</a></p></li>
+
+<li><p><a href="https://www.slideshare.net/ohr486?utm_campaign=profiletracking&amp;utm_medium=sssite&amp;utm_source=ssslideview">slide</a></p></li>
+</ul>
+
+<h2 id="twitter">Twitter</h2>
+
+<ul>
+<li><a href="https://twitter.com/hashtag/elixirfestjp?f=tweets&amp;vertical=default&amp;src=hash">#elixirfestjp</a></li>
+</ul>
+</div>
+
+    
+    
+
+    
+
+    
+
+        <h4 class="page-header">Comments</h4>
+
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "username" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+
+</main>
+
+        <footer>
+
+            <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a></p>
+
+        </footer>
+       
+    </body>
+
+</html>
+

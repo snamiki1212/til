@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Studies on Today I Learned</title>
+    <link>https://snamiki1212.github.io/til/study/</link>
+    <description>Recent content in Studies on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://snamiki1212.github.io/til/study/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://snamiki1212.github.io/til/study/circuit-breaker-pattern/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/study/circuit-breaker-pattern/</guid>
+      <description> Circuit Breaker Design Pattern  サーキット・ブレーカーという発想のベースにあるアイデアはとてもシンプルです。 プロテクテッドなコール関数をサーキット・ブレーカー・オブジェクトにラップし、そのオブジェクトがコールの結果をモニタリングするのです。
+サーキットブレイカーで設定している閾値に達してしまうと、サーキットブレイカーは自身の処理を切り替え（これをトリップというらしい
+ Implementetion  phoenix/ectoを使っていればtimeoutはconfigで設定されているので、わざわざ実装を行う必要がない？ （また、他の現代WAFなら大抵上記は設定されているので、同上？） WAFを使用しないスクラッチでのDBへのアクセスなどでは上記を利用することを想定しないといけない？  Referencew Circuit breaker  &amp;ldquo;CircuitBreaker&amp;rdquo; - Martin Fowler &amp;ldquo;CircuitBreaker&amp;rdquo; - 日本語訳 サーキットブレイカーパターン：連続して起こる同様の障害への対応策  to use elixir  Automated Fault Tolerance using the Circuit Breaker Pattern  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://snamiki1212.github.io/til/study/cqrs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/study/cqrs/</guid>
+      <description>CQRS CQRSとイベントソーシングの使用法、または「CRUDに何か問題でも？」を呼んだ結果をまとめ
+CRUD Architecutre  昔に比べて行い処理やケースが複雑化(パーミッションなど そもそも、write/readで検討要件が大きく異なる     書き込み 読み込み     データの整合性の維持 データの検索と抽出の効率化   アトミックな更新／トランザクション 導出値（合計など）の算出   バージョン管理（楽観的並行性制御／楽観的ロック） 複数のビューの提供   書き込み権限の管理 行レベル、カラムレベルの権限管理    CQRS（Command Query Responsibility Segregation：コマンドクエリ責務分離）  「Command」と「Query」で分離 &amp;gt; CRUDと違ってCQRSは、データの読み込みと書き込みは違うものだという前提にもとづく考えかたです。   CQRSでは、データベースの操作をコマンド（データを書き換える操作）とクエリ（データを読み込む操作）の二つに分類します。
+コマンドは一般に、操作の成否以上の情報を呼び出し側に返しません。また、クエリは冪等であることが保証されます。
+間にコマンドが挟まらないという前提で、同じクエリを何度実行しても結果は同じになるということです。
+RESTでいうと、コマンドはPUTやPOSTに対応し、クエリはGETに対応するものです。
+  モデルも分離 &amp;gt; データを問い合わせる際に使うUserモデルとコマンドを実行するときに使うモデルとが違っていてもかまわないということです。   ユーザー情報を更新するというのではなく、「メールアドレスを変更する」「請求先情報を変更する」なとどいうコマンドを考えることができるのです。
+呼び出し元が変更しようとしているエンティティのフィールドが本当に変更してよいかどうかをチェックするのではなく、呼び出し元に特定のコマンドを実行する権限があるかどうかだけをチェックすればいいのです。
+ イベントソーシング 具体的な実現アーキテクチャとして - 相性がイベントソーシングと良い &amp;gt; 会計処理では、入出金取引（売上や購入など）を元帳にだけ追記していくのががよいとされています。
+ &amp;hellip;現在の口座残高は、必要に応じて過去のすべての取引から算出します。
+ Storage Middleware(EventStore) 概要  EventStoreは追記限定の不変なストリームとしてイベントを扱います</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://snamiki1212.github.io/til/study/fastly-varnish/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/study/fastly-varnish/</guid>
+      <description>目的 CDN周りで
+ fastly varnish  の単語をよく聞くようになったが、概念レベルにてきちんと理解をしておくための学習履歴メモ
+Varnish  Fastlyのコア機能としてVarnishを使用している  Varnishとは？
+&amp;gt; Varnish is an HTTP accelerator designed for content-heavy dynamic web sites as well as APIs https://en.wikipedia.org/wiki/Varnish_(software) &amp;gt; HTTP accelerator &amp;gt;&amp;gt; A web accelerator is a proxy server that reduces web site access time. https://en.wikipedia.org/wiki/Web_accelerator &amp;gt; Varnish is a caching HTTP reverse proxy. https://varnish-cache.org/docs/trunk/tutorial/introduction.html  つまり、 - 動的大規模コンテンツサイト／API向けのリバースプロキシサーバ - モダンなアーキテクチャを持ちつつパフォーマンスが意識された設計 - OSS
+Fastly Fastly社は既知の概念ではCDN業者だが、CDN業者として今まで出来なかったことをやってやる。ってスタンスみたい。
+ Fastlyは便宜上CDNというくくりのサービスということにしていますが、「これまでのCDNができなかったことをやろう」というのが既存のCDNと発想が大きく異なるところです。
+ だからなのか、wikiも</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://snamiki1212.github.io/til/study/host-to-read-english-doc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/study/host-to-read-english-doc/</guid>
+      <description> 読む速度や能力向上にフォーカスした自分の方法論を整理
+概要  各種ツール  google translate chrome-add-on  目標方針  短期的に「内容を理解する」なら、英文見ないでgoogle翻訳に突っ込む 中長期的に「英単語の発音・意味を正しく理解しつつ英文を読む」なら、わからないものや勘違いしているものは潰しながら読む   All Translate  chrome(right click) -&amp;gt; translate to 日本語  Selecter Translate 選択した部分だけを翻訳する。いろいろadd-onはあると思うので、好きなのを使えばいいんじゃないかな。
+ ImTranslator: Translator, Dictionary, TTS  評価が高くて、発音が確認できる採用
+Speak 発音があやふやなものがあるたびに、選択して翻訳するのは手間に思い始めてきたので、いっそのこと、 「全文朗読させちゃえばよいのでは？」 と思ったので
+ Select and Speak - Text to Speech (SpeakIt!) SpeakIt!  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://snamiki1212.github.io/til/study/str-to-datetime/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/study/str-to-datetime/</guid>
+      <description> 基礎前提知識  例として日本の10:00にDateTimeを表示すると  標準時間：UTC: 2018/06/06T01:00:00+00:00 日本時間：JST: 2018/06/06T10:00:00+09:00   Tips stringからDateTime型などに変換する際に大抵UTCとして変換される。
+なので、stringの時点でTimezoneをstirngで追記しておくと出来上がったデータもJSTとして生成される
+datetime_str = &amp;quot;2018-06-06 10:00:00&amp;quot; {:ok, datetime_ust} = Timex.parse(datetime_str , &amp;quot;{ISO:Extended:Z}&amp;quot;) {:ok, datetime_jst} = Timex.parse(datetime_str &amp;lt;&amp;gt; &amp;quot;+09:00&amp;quot;, &amp;quot;{ISO:Extended:Z}&amp;quot;) datetime_ust # ~N[2018-06-06 10:00:00] # 型がjst/ustで違うけど、重要なのは、timezoneが含まれているか　datetime_jst # #&amp;lt;DateTime(2018-06-06T10:00:00+09:00 Etc/GMT-9)&amp;gt;  Reference  https://hexdocs.pm/timex/basic-usage.html#content  </description>
+    </item>
+    
+  </channel>
+</rss>

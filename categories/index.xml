@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Today I Learned</title>
-    <link>https://snamiki1212.github.io/categories/</link>
+    <link>https://snamiki1212.github.io/til/categories/</link>
     <description>Recent content in Categories on Today I Learned</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://snamiki1212.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://snamiki1212.github.io/til/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Metaphorsum</title>
-      <link>https://snamiki1212.github.io/categories/metaphorsum/</link>
+      <link>https://snamiki1212.github.io/til/categories/metaphorsum/</link>
       <pubDate>Fri, 09 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://snamiki1212.github.io/categories/metaphorsum/</guid>
+      <guid>https://snamiki1212.github.io/til/categories/metaphorsum/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Post</title>
-      <link>https://snamiki1212.github.io/categories/post/</link>
+      <link>https://snamiki1212.github.io/til/categories/post/</link>
       <pubDate>Fri, 09 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://snamiki1212.github.io/categories/post/</guid>
+      <guid>https://snamiki1212.github.io/til/categories/post/</guid>
       <description></description>
     </item>
     

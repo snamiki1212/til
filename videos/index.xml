@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Videos on Today I Learned</title>
+    <link>https://snamiki1212.github.io/til/videos/</link>
+    <description>Recent content in Videos on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://snamiki1212.github.io/til/videos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://snamiki1212.github.io/til/videos/elixir-empex-nyc-conf-2018-dave_thomas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/videos/elixir-empex-nyc-conf-2018-dave_thomas/</guid>
+      <description>[翻訳]EMPEX NYC Conference 2018 (Elixir/Erlang/BEAM): Keynote(Dave Thomas) 下記動画の内容のメモと所感
+ (VIDEO)EMPEX NYC Conference 2018 - Dave Thomas  Attention 英語とElixirの学習用メモなため、解釈に誤りがある可能性があります。
+この内容は参考程度に押さえて基本的に動画を参照してください。
+TL; DR 現状のElixir/Phoenixのアーキテクチャに対しての下記の発表となる。
+ 問題提議
+ その解決方法の提案
+  解決方法は下記の通りの提案となる
+ 考え方：Component Structure 実装：Component / Noddy(発表内にて開発中と言及。2018/6/3時点で未公開)  Content Problem 知っての通りElixir/PhoenixはErlangとRailsを元に作成されている。
+ただ、いくつかの良くないところも継承してしまっているのが現状だ。
+Naming Application Applicationという名称だが、Erlangからこの名称は持ってきたが失敗だ。
+様々な意味を包括していて結局は何を指しているかがわかりにくい
+Dupplication Configuration コンフィグを他のApplicationにも持たせなければならない。
+上記の例で述べるとPaymentMakerのコンフィグをAppOne/AppTwoに持たせないとならない。
+もちろん行いたいのはPaymentMakerにのみコンフィグを持つことだ。
+Dog food GenServer GenServerの実装は１つのModuleに３つの内容を含んでいる
+ API Server Implementation  わかりにくい。俗に言うdog food、つまりゴチャ混ぜなコードだ。
+14:36
+Bad Directory Design 左がRailsで右がPhoenixだ。
+ほぼ同じ構成になっている。ただ、なんでlib？
+wooble.exなんて大抵のprojectではhello worldが書いてあるだけなんじゃないか？</description>
+    </item>
+    
+  </channel>
+</rss>

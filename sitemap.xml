@@ -8,12 +8,8 @@
   </url>
   
   <url>
-    <loc>https://snamiki1212.github.io/</loc>
-    <lastmod>2018-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://snamiki1212.github.io/til/</loc>
+    <lastmod>2018-02-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -134,49 +130,69 @@
   </url>
   
   <url>
-    <loc>https://snamiki1212.github.io/tags/bookcase/</loc>
+    <loc>https://snamiki1212.github.io/til/tags/bookcase/</loc>
     <lastmod>2018-02-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://snamiki1212.github.io/categories/</loc>
+    <loc>https://snamiki1212.github.io/til/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://snamiki1212.github.io/tags/lamb/</loc>
+    <loc>https://snamiki1212.github.io/til/event/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://snamiki1212.github.io/til/tags/lamb/</loc>
     <lastmod>2018-02-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://snamiki1212.github.io/categories/metaphorsum/</loc>
+    <loc>https://snamiki1212.github.io/til/categories/metaphorsum/</loc>
     <lastmod>2018-02-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://snamiki1212.github.io/tags/nothing/</loc>
+    <loc>https://snamiki1212.github.io/til/tags/nothing/</loc>
     <lastmod>2018-02-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://snamiki1212.github.io/categories/post/</loc>
+    <loc>https://snamiki1212.github.io/til/poem/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://snamiki1212.github.io/til/categories/post/</loc>
     <lastmod>2018-02-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://snamiki1212.github.io/tags/shell/</loc>
+    <loc>https://snamiki1212.github.io/til/tags/shell/</loc>
     <lastmod>2018-02-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://snamiki1212.github.io/tags/</loc>
+    <loc>https://snamiki1212.github.io/til/study/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://snamiki1212.github.io/til/tags/</loc>
     <lastmod>2018-02-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://snamiki1212.github.io/til/videos/</loc>
     <priority>0</priority>
   </url>
   

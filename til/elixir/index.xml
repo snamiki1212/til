@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Today I Learned</title>
-    <link>https://snamiki1212.github.io/til/elixir/</link>
+    <link>https://snamiki1212.github.io/til/til/elixir/</link>
     <description>Recent content on Today I Learned</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 09 Feb 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://snamiki1212.github.io/til/elixir/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://snamiki1212.github.io/til/til/elixir/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Extending this logic</title>
-      <link>https://snamiki1212.github.io/til/elixir/extending-this-logic/</link>
+      <link>https://snamiki1212.github.io/til/til/elixir/extending-this-logic/</link>
       <pubDate>Fri, 09 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://snamiki1212.github.io/til/elixir/extending-this-logic/</guid>
+      <guid>https://snamiki1212.github.io/til/til/elixir/extending-this-logic/</guid>
       <description>https://hexdocs.pm/elixir/Agent.html
 function 大別すると下記の6種類の操作が可能。 1. start系 - link関係: Agent.start_link/{2,4} - 非link関係: Agent.start/{2,4}
  stop系
@@ -29,10 +29,10 @@ iex(24)&amp;gt; Agent.get a, fn x -&amp;gt; x end 5 iex(25)&amp;gt; Agent.cast a
     
     <item>
       <title></title>
-      <link>https://snamiki1212.github.io/til/elixir/catch-msg-when-genserver-killed/</link>
+      <link>https://snamiki1212.github.io/til/til/elixir/catch-msg-when-genserver-killed/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://snamiki1212.github.io/til/elixir/catch-msg-when-genserver-killed/</guid>
+      <guid>https://snamiki1212.github.io/til/til/elixir/catch-msg-when-genserver-killed/</guid>
       <description> SET TO SEND TERMINATE MESSAGE
 ## GENSERVER def init() do ## ... Process.flag(:trap_exit, true) ## ... end  Kill PROCESS
  CATCH
@@ -41,30 +41,30 @@ def terminate(reason, state) do Logger.info(&amp;quot;#{inspect(__MODULE__)} &am
     
     <item>
       <title></title>
-      <link>https://snamiki1212.github.io/til/elixir/debug/</link>
+      <link>https://snamiki1212.github.io/til/til/elixir/debug/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://snamiki1212.github.io/til/elixir/debug/</guid>
+      <guid>https://snamiki1212.github.io/til/til/elixir/debug/</guid>
       <description> binding/0 Content binding/0 or binding/1 returns the binding for the given context as a keyword list.
 How to iex&amp;gt; binding() |&amp;gt; IO.inspect() iex&amp;gt; binding() |&amp;gt; inspect() |&amp;gt; Logger.info()  Reference  Elixir — quick reference for debugging techniques Elixir - binding(context \ nil)  </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://snamiki1212.github.io/til/elixir/genstage/</link>
+      <link>https://snamiki1212.github.io/til/til/elixir/genstage/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://snamiki1212.github.io/til/elixir/genstage/</guid>
+      <guid>https://snamiki1212.github.io/til/til/elixir/genstage/</guid>
       <description>GenStageの学習メモ 概要  Demand-Driven Back-Pressure モデル(Back-Pressureモデルが不要なら、並列処理を行う類似方法はTask.asny_stream/2で行える   つまり、GenStageは需要トリガーを元にストリームイベントを処理するライブラリなのです。需要トリガーで供給を引っ張ることを、ストリーム界隈(?)ではバックプレッシャー(背圧)といいます。
   ３つの役割(producer, consumer, producer_consumer) 起動・構築は下記のどちらかでできる  SupervisorTree経由 関数での実行経由  send/receiveでステージ毎にデータの授受を行うことで、データフローされる producer/consumerは複数持てる GenServerのラッピング 並列処理 複数step処理にはしないで、3層レイヤに留める  NG: [Producer] -&amp;gt; [Step 1] -&amp;gt; [Step 2] -&amp;gt; [Step 3]    OK: [Consumer] / [Producer]-&amp;lt;-[Consumer] \ [Consumer]   if your domain has to process the data in multiple steps, you should write that logic in separate modules and not directly in a GenStage.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://snamiki1212.github.io/til/elixir/how-to-get-may-map/</link>
+      <link>https://snamiki1212.github.io/til/til/elixir/how-to-get-may-map/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://snamiki1212.github.io/til/elixir/how-to-get-may-map/</guid>
+      <guid>https://snamiki1212.github.io/til/til/elixir/how-to-get-may-map/</guid>
       <description>Content mapから値を取り出す際は、[]でデータにアクセスできる。
 iex(5)&amp;gt; map = %{a: 1, b: 10, c: 100} %{a: 1, b: 10, c: 100} iex(6)&amp;gt; map[:a] 1  []なら、仮に対象がnilでも、Exceptionを起こさずにnilを返す。
 iex(10)&amp;gt; map = nil nil iex(11)&amp;gt; map[:abc] nil  パイプライン演算子で引き渡されたmapに対してアクセスして次のパイプに流すようなときは[]は可読性が悪いので、大抵Map.get/3を使う。
@@ -74,19 +74,19 @@ iex(18)&amp;gt; Map.get(nil, :abc) ** (BadMapError) expected a map, got: nil (st
     
     <item>
       <title></title>
-      <link>https://snamiki1212.github.io/til/elixir/how-to-get-opt-as-keywordlist/</link>
+      <link>https://snamiki1212.github.io/til/til/elixir/how-to-get-opt-as-keywordlist/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://snamiki1212.github.io/til/elixir/how-to-get-opt-as-keywordlist/</guid>
+      <guid>https://snamiki1212.github.io/til/til/elixir/how-to-get-opt-as-keywordlist/</guid>
       <description>defmodule Bar do # for size def foo(params, [{:size, size}| rest]) do IO.inspect(&amp;quot;size is #{size}&amp;quot;) foo(params, rest) end # for name def foo(params, [{:name, name}| rest]) do IO.inspect(&amp;quot;name is #{name}&amp;quot;) foo(params, rest) end # ignore not to except options def foo(params, [_| rest]) do foo(params, rest) end # after getting all option def foo(params, []) do IO.inspect(&amp;quot;params is #{params}&amp;quot;) end end ## call params = 1 opts = [name: &amp;quot;foobar&amp;quot;, size: 2, dust: 123] Bar.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://snamiki1212.github.io/til/elixir/how-to-pattern-match-at-the-end-of-string/</link>
+      <link>https://snamiki1212.github.io/til/til/elixir/how-to-pattern-match-at-the-end-of-string/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://snamiki1212.github.io/til/elixir/how-to-pattern-match-at-the-end-of-string/</guid>
+      <guid>https://snamiki1212.github.io/til/til/elixir/how-to-pattern-match-at-the-end-of-string/</guid>
       <description>末尾文字列のpattern-match &amp;lt;&amp;gt;を使用すればシンプルなpattern-matchで実現可能
 iex&amp;gt; origin &amp;quot;2018-07-05T12-2&amp;quot; iex&amp;gt; &amp;quot;2018-07-05T&amp;quot; &amp;lt;&amp;gt; aft = origin &amp;quot;2018-07-05T12-2&amp;quot; iex&amp;gt; aft &amp;quot;12-2&amp;quot;  末尾文字列以外のpattern-match 末尾文字以外は&amp;lt;&amp;gt;を使用したpattern-matchは行えない。
 iex&amp;gt; origin &amp;quot;2018-07-05T12-2&amp;quot; iex&amp;gt; yyyymmdd&amp;lt;&amp;gt;&amp;quot;T&amp;quot;&amp;lt;&amp;gt;aft = origin ** (CompileError) iex:16: a binary field without size is only allowed at the end of a binary pattern  こういうケースは&amp;lt;&amp;lt; &amp;gt;&amp;gt;を使用したbinary-pattern-matchを行える
@@ -95,29 +95,29 @@ binery-pattern-match bytes-sizeが固定ケース iex&amp;gt; origin = &amp;quot
     
     <item>
       <title></title>
-      <link>https://snamiki1212.github.io/til/elixir/iex-useful-commands/</link>
+      <link>https://snamiki1212.github.io/til/til/elixir/iex-useful-commands/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://snamiki1212.github.io/til/elixir/iex-useful-commands/</guid>
+      <guid>https://snamiki1212.github.io/til/til/elixir/iex-useful-commands/</guid>
       <description>Commands Recopmile # recompile all files iex&amp;gt; recompile # recompile specific Module iex&amp;gt; r Foo  Renew iex iex&amp;gt; respawn  # kill this iex process and wake up new iex process. # to use respawn when doing &#39;pry&#39; especially. iex&amp;gt; self #PID&amp;lt;0.23831.8&amp;gt; # &amp;lt;- before iex&amp;gt; respawn Interactive Elixir (1.4.2) - press Ctrl+C to exit (type h() ENTER for help) iex&amp;gt; self #PID&amp;lt;0.23927.8&amp;gt; # &amp;lt;- after  Alias # alias iex&amp;gt; alias Foo.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://snamiki1212.github.io/til/elixir/mix/</link>
+      <link>https://snamiki1212.github.io/til/til/elixir/mix/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://snamiki1212.github.io/til/elixir/mix/</guid>
+      <guid>https://snamiki1212.github.io/til/til/elixir/mix/</guid>
       <description> mix 今まで毎日のようにmixコマンドを使っていたが、改めてこれは何？を口頭で説明できなかったので整理
  主要な役割  compiler 依存性管理 test実行 環境管理  taskという単位で機能を提供している taskにはデフォルトで下記などが提供されている。もちろん、custom taskを定義できる。project毎に作成したり、自分用の便利taskを作っておくと捗る  project生成 compile testの実行    Reference  Introduction to Mix Elixir School - Mix - hex-doc Mix  </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://snamiki1212.github.io/til/elixir/task/</link>
+      <link>https://snamiki1212.github.io/til/til/elixir/task/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://snamiki1212.github.io/til/elixir/task/</guid>
+      <guid>https://snamiki1212.github.io/til/til/elixir/task/</guid>
       <description>ほぼ公式ドキュメントの意訳になってるので基本的には原文参照を推奨
 Task  非同期で処理を行いたい場合かつ結果を利用したい場合に使用  Spawn/send/receiveでも可能だが、これらの処理をラップしたものが、おそらくTaskの位置づけとなる。
  複数非同期処理同士で関連性が無いかつ小規模処理のときに使用される位置づけ  使い方  Supervisorを使わない方法(①)
@@ -128,10 +128,10 @@ Task  非同期で処理を行いたい場合かつ結果を利用したい場�
     
     <item>
       <title></title>
-      <link>https://snamiki1212.github.io/til/elixir/test/</link>
+      <link>https://snamiki1212.github.io/til/til/elixir/test/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://snamiki1212.github.io/til/elixir/test/</guid>
+      <guid>https://snamiki1212.github.io/til/til/elixir/test/</guid>
       <description>ExUnit  Unit testing framework for Elixir
   公式ドキュメントの説明が簡潔・具体列付き・短文で一番概要がわかりやすい。その上で詳細な使い方はExUnit入門を見るとよさげ。
  async option
@@ -142,19 +142,19 @@ Task  非同期で処理を行いたい場合かつ結果を利用したい場�
     
     <item>
       <title></title>
-      <link>https://snamiki1212.github.io/til/elixir/typespecs/</link>
+      <link>https://snamiki1212.github.io/til/til/elixir/typespecs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://snamiki1212.github.io/til/elixir/typespecs/</guid>
+      <guid>https://snamiki1212.github.io/til/til/elixir/typespecs/</guid>
       <description> 詳細はこの公式ドキュメントを参照 厳格さ整理したgist  </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://snamiki1212.github.io/til/elixir/why-need-to-use-tilde-with-ecto-query/</link>
+      <link>https://snamiki1212.github.io/til/til/elixir/why-need-to-use-tilde-with-ecto-query/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://snamiki1212.github.io/til/elixir/why-need-to-use-tilde-with-ecto-query/</guid>
+      <guid>https://snamiki1212.github.io/til/til/elixir/why-need-to-use-tilde-with-ecto-query/</guid>
       <description>Content Ectoモジュールでsql apiを使用するとき、変数を使う場合は^(pin operator)が必要になる。
  ^をつけると、その値はエスケープ処理される。 理由として、sql injection対策のために変数を参照する場合、それがユーザから渡される値であるかどうか、のジャッジのために大きくスコープを取って 「ハードコードではなく、変数に格納された値が引き渡される場合はユーザから引き渡される値の可能性が1%でもありうる＝SQLインジェクションの可能性がある」 という理屈のもととなる。  last_name = &amp;quot;Smith&amp;quot; Friends.Person |&amp;gt; Ecto.Query.where(last_name: ^last_name) |&amp;gt; Friends.Repo.all # ^が必要　Friends.Person |&amp;gt; Ecto.Query.where(last_name: &amp;quot;namiki&amp;quot;) |&amp;gt; Friends.Repo.all # ^が不要  https://hexdocs.pm/ecto/getting-started.html#filtering-results https://github.com/elixir-ecto/ecto/issues/180</description>
     </item>

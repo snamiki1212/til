@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+         
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        
+        <style>
+
+    html body {
+        font-family: 'Raleway', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: red;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="https://snamiki1212.github.io/til/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scala.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/swift.min.js"></script> 
+
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.42.1" />
+        
+
+        
+    </head>
+
+    
+    
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    <body>
+         
+        <nav class="navbar navbar-default navbar-fixed-top">
+
+            <div class="container">
+
+                <div class="navbar-header">
+
+                    <a class="navbar-brand visible-xs" href="#"></a>
+
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+                <div class="collapse navbar-collapse">
+
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/til/">Home</a></li>
+                            
+                                <li><a href="/til/elixir/">Elixir</a></li>
+                            
+                                <li><a href="/til/project/">Projects</a></li>
+                            
+                        </ul>
+                    
+
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="mailto:me@example.com"><i class="fa fa-envelope-o"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://github.com/username/"><i class="fa fa-github"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://twitter.com/username/"><i class="fa fa-twitter"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/username/"><i class="fa fa-linkedin"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.stackoverflow.com/username/"><i class="fa fa-stack-overflow"></i></a></li>
+                            
+                        </ul>
+                    
+
+                </div>
+
+            </div>
+
+        </nav>
+
+
+<main>
+
+    <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/til/elixir/task/"></a></h4>
+    <h5>January 1, 0001</h5>
+    
+
+</div>
+
+
+    <br> <div class="text-justify">
+
+<p>ほぼ<a href="https://hexdocs.pm/elixir/1.4.5/Task.html#await/2">公式ドキュメントの意訳</a>になってるので基本的には原文参照を推奨</p>
+
+<h2 id="task">Task</h2>
+
+<ul>
+<li>非同期で処理を行いたい場合かつ結果を利用したい場合に使用</li>
+</ul>
+
+<p>Spawn/send/receiveでも可能だが、これらの処理をラップしたものが、おそらくTaskの位置づけとなる。</p>
+
+<ul>
+<li>複数非同期処理同士で関連性が無いかつ小規模処理のときに使用される位置づけ</li>
+</ul>
+
+<h2 id="使い方">使い方</h2>
+
+<ul>
+<li><p>Supervisorを使わない方法(①)</p></li>
+
+<li><p>Supervisorを使うなら、</p>
+
+<ul>
+<li>事前に定義しておいたTaskを実行する方法(②)</li>
+</ul>
+
+<p>または</p>
+
+<ul>
+<li>動的にタスクを宣言する方法(③)</li>
+</ul></li>
+</ul>
+
+<h3 id="①-async-and-await">① async and await</h3>
+
+<pre><code class="language-elixir">## (1)非同期用に並列実行プロセスをcallして処理を渡す
+task = Task.async(fn -&gt; do_some_work() end)
+
+## ...他の処理をおこなう
+res  = do_some_other_work()
+
+## (2)並列実行プロセスから結果を貰う
+res + Task.await(task)
+</code></pre>
+
+<ul>
+<li><code>async</code>をする際は必ず<code>await</code>する</li>
+<li>asyncを実行したプロセス（caller）と呼ばれたプロセスは<code>link</code>関係
+
+<ul>
+<li>つまり、どちらかのプロセスがクラッシュしたらもう片方もクラッシュする</li>
+<li><code>link</code>関係にしたくなければ、<code>Task.start/1</code>や<code>Task.Supervisor</code>などを利用するように。</li>
+</ul></li>
+</ul>
+
+<h3 id="②supervised-tasks">②Supervised tasks</h3>
+
+<pre><code class="language-elixir">## Taskをuse
+defmodule MyTask do
+  use Task
+
+  def start_link(arg) do
+    Task.start_link(__MODULE__, :run, [arg])
+  end
+
+  def run(arg) do
+    # ...
+  end
+end
+
+## wakeup
+Supervisor.start_link([MyTask])
+</code></pre>
+
+<p>Task ModuleをuseしたModuleを作成して、Supervisorで起動することで、childにいるTaskとTaskが呼び出す関数を実行する方法</p>
+
+<p>①との違い</p>
+
+<ul>
+<li>Moduleを作成する必要があるため、手軽さがなくなる</li>
+<li>SupervisorにTaskの死活状態を管理させられるので、Task処理がクラッシュしても、メインプログラムも合わせてクラッシュされない</li>
+</ul>
+
+<h3 id="③-dynamically-supervised-tasks">③ Dynamically supervised tasks</h3>
+
+<p>(1) お手軽に書く</p>
+
+<pre><code>## (i)Supervisor起動
+{:ok, pid} = Task.Supervisor.start_link()
+
+## (ii) Task実行
+task = Task.Supervisor.async(pid, fn -&gt;
+  # Do something
+end)
+
+## (iii)Task実行結果取得
+Task.await(task)
+</code></pre>
+
+<p>(2)厳格に書く</p>
+
+<pre><code class="language-elixir">## (i) &lt;MyApp.TaskSupervisor&gt;などの、Task.Supervisorをuseする独自Moduleを作成
+
+## (ii)起動定義
+Supervisor.start_link([
+  {Task.Supervisor, name: MyApp.TaskSupervisor}
+])
+
+## (iii)起動
+Task.Supervisor.start_child(MyApp.TaskSupervisor, fn -&gt;
+  # ...Do something...
+end)
+
+## (iv)Task実行および実行結果取得
+Task.Supervisor.async(MyApp.TaskSupervisor, fn -&gt;
+  # Do something
+end) |&gt; Task.await()
+
+</code></pre>
+
+<h2 id="distributed-tasks">Distributed tasks</h2>
+
+<p>Nodeを跨いだ動的なTaskの生成が可能</p>
+
+<h2 id="まとめ">まとめ</h2>
+
+<ul>
+<li><p>返り値を必要とする並列処理を書く際に自分で実装する場合はspawn/send/receiveを駆使して実装しないといけない。汎用的な並列処理結果の受け取り可能な<code>Task</code>モジュールのおかげでそのあたりの実装が不要</p></li>
+
+<li><p>使い分け</p>
+
+<ul>
+<li><p>返り値を必要とする　並列処理を行いたいは <code>Task.async/1</code>/<code>Task.await/1</code></p></li>
+
+<li><p>返り値を必要としない並列処理を行いたいは <code>Task.start/1</code></p></li>
+</ul>
+
+<p>（内部的にspawnを呼んでいるだけなので、spawnでも良いかも？優位点がわからない。オーバヘッドかかるだけなら、spawnを使うが）</p></li>
+</ul>
+</div>
+
+    
+    
+
+    
+
+    
+
+        <h4 class="page-header">Comments</h4>
+
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "username" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+
+</main>
+
+        <footer>
+
+            <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a></p>
+
+        </footer>
+       
+    </body>
+
+</html>
+
