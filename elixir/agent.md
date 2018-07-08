@@ -1,11 +1,13 @@
-+++
-date = "2018-02-09"
-title = "Extending this logic"
-slug = "extending-this-logic"
-categories = [ "Post", "Metaphorsum" ]
-tags = [ "Lamb", "Shell", "Bookcase", "Nothing" ]
-+++
+---
+date: "2018-02-09"
+last-mod: "2018-02-09"
+title: "Extending this logic"
+slug: "extending-this-logic"
+categories: [ "TIL", "Elixir" ]
+tags: [ "Elixir", "Agent", "build-in" ]
+---
 
+## Agent
 
 https://hexdocs.pm/elixir/Agent.html
 
