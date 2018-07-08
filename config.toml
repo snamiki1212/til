@@ -1,4 +1,4 @@
-baseURL = "https://snamiki1212.github.io/"
+baseURL = "https://snamiki1212.github.io/til"
 languageCode = "en-us"
 title = "Today I Learned"
 theme = "minimal"
@@ -25,6 +25,16 @@ googleAnalytics = ""
 [[menu.main]]
     url = "/til/elixir/"
     name = "Elixir"
+    weight = 2
+
+[[menu.main]]
+    url = "/elixir/"
+    name = "Elixir2"
+    weight = 2
+
+[[menu.main]]
+    url = "/til/til/elixir/"
+    name = "Elixir3"
     weight = 2
 
 [[menu.main]]
