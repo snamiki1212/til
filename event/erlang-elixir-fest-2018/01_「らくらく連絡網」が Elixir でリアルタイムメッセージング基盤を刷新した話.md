@@ -1,3 +1,11 @@
+---
+date: "2018-01-01"
+last-mod: "2018-01-01"
+title: "01_「らくらく連絡網」が Elixir でリアルタイムメッセージング基盤を刷新した話"
+# categories: [ "Event", "erlang-elixir-fest-2018" ]
+# tags: [ "Poem", "erlang-elixir-fest-2018" ]
+---
+
 ## 1.  「らくらく連絡網」が Elixir でリアルタイムメッセージング基盤を刷新した話 (rinosamakanata)
 
 ### 概要

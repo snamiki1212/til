@@ -1,3 +1,12 @@
+---
+date: "2018-01-01"
+last-mod: "2018-01-01"
+title: "How to study"
+# categories: [ "Poem", ]
+# tags: [ "Poem", ]
+---
+
+
 # [エンジニアの能力と今どきの難しさ](https://medium.com/@itog/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AE%E8%83%BD%E5%8A%9B%E3%81%A8%E4%BB%8A%E3%81%A9%E3%81%8D%E3%81%AE%E9%9B%A3%E3%81%97%E3%81%95-ff497711946a)を読んで思ったこと
 
 ## 概要

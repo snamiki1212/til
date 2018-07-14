@@ -1,3 +1,11 @@
+---
+date: "2018-01-01"
+last-mod: "2018-01-01"
+title: "Circuit Breaker Design Pattern"
+# categories: [ "Study", ]
+# tags: [ "Study", ]
+---
+
 ## Circuit Breaker Design Pattern
 
 > サーキット・ブレーカーという発想のベースにあるアイデアはとてもシンプルです。 プロテクテッドなコール関数をサーキット・ブレーカー・オブジェクトにラップし、そのオブジェクトがコールの結果をモニタリングするのです。

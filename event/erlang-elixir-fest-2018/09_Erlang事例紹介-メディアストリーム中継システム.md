@@ -1,3 +1,11 @@
+---
+date: "2018-01-01"
+last-mod: "2018-01-01"
+title: "09_Erlang事例紹介-メディアストリーム中継システム"
+# categories: [ "Event", "erlang-elixir-fest-2018" ]
+# tags: [ "Poem", "erlang-elixir-fest-2018" ]
+---
+
 # Erlang事例紹介: メディアストリーム中継システム - amutake -
 
 - 生放送の中継、についての話

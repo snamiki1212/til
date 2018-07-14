@@ -1,3 +1,11 @@
+---
+date: "2018-01-01"
+last-mod: "2018-01-01"
+title: "summary"
+# categories: [ "Event", "erlang-elixir-fest-2018" ]
+# tags: [ "Poem", "erlang-elixir-fest-2018" ]
+---
+
 ## Title
 Erlang & Elixir Fest JP 2018 まとめ
 

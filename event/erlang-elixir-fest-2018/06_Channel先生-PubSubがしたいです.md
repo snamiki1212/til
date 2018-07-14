@@ -1,3 +1,11 @@
+---
+date: "2018-01-01"
+last-mod: "2018-01-01"
+title: "06_Channel先生-PubSubがしたいです"
+# categories: [ "Event", "erlang-elixir-fest-2018" ]
+# tags: [ "Poem", "erlang-elixir-fest-2018" ]
+---
+
 # Channel先生...!! PubSubがしたいです...
 
 - phoenixを使用する際の最大の利点はpubsubだと考えている

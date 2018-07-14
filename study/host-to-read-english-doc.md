@@ -1,3 +1,11 @@
+---
+date: "2018-01-01"
+last-mod: "2018-01-01"
+title: "how to read en doc"
+# categories: [ "Study", ]
+# tags: [ "Study", ]
+---
+
 読む速度や能力向上にフォーカスした自分の方法論を整理
 
 ## 概要

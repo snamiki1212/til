@@ -1,3 +1,11 @@
+---
+date: "2018-01-01"
+last-mod: "2018-01-01"
+title: "about datatime"
+# categories: [ "Study", ]
+# tags: [ "Study", ]
+---
+
 ## 基礎前提知識
 - 例として日本の10:00に`DateTime`を表示すると
   - 標準時間：UTC: `2018/06/06T01:00:00+00:00`

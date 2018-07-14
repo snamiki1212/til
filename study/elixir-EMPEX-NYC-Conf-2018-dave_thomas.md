@@ -1,3 +1,11 @@
+---
+date: "2018-01-01"
+last-mod: "2018-01-01"
+title: "[翻訳]EMPEX NYC Conference 2018 (Elixir/Erlang/BEAM): Keynote(Dave Thomas)"
+# categories: [ "Study", ]
+# tags: [ "Study", ]
+---
+
 ## [翻訳]EMPEX NYC Conference 2018 (Elixir/Erlang/BEAM): Keynote(Dave Thomas)
 下記動画の内容のメモと所感
 

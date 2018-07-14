@@ -1,3 +1,11 @@
+---
+date: "2018-01-01"
+last-mod: "2018-01-01"
+title: "CQRS"
+# categories: [ "Study", ]
+# tags: [ "Study", ]
+---
+
 ## CQRS
 [CQRSとイベントソーシングの使用法、または「CRUDに何か問題でも？」](https://postd.cc/using-cqrs-with-event-sourcing/)を呼んだ結果をまとめ
 

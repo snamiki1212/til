@@ -1,3 +1,11 @@
+---
+date: "2018-01-01"
+last-mod: "2018-01-01"
+title: "99_Erlang／Elixirが付きつけるもの"
+# categories: [ "Event", "erlang-elixir-fest-2018" ]
+# tags: [ "Poem", "erlang-elixir-fest-2018" ]
+---
+
 # Erlang/Elixirが付きつけるもの -力武　健次-
 
 ## Intro

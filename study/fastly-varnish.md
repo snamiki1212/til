@@ -1,3 +1,11 @@
+---
+date: "2018-01-01"
+last-mod: "2018-01-01"
+title: "what is fastly and varnish"
+# categories: [ "Study", ]
+# tags: [ "Study", ]
+---
+
 ## 目的
 
 CDN周りで

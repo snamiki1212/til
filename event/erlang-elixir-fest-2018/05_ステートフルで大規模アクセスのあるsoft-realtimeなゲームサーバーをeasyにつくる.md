@@ -1,3 +1,11 @@
+---
+date: "2018-01-01"
+last-mod: "2018-01-01"
+title: "05_ステートフルで大規模アクセスのあるsoft-realtimeなゲームサーバーをeasyにつくる"
+# categories: [ "Event", "erlang-elixir-fest-2018" ]
+# tags: [ "Poem", "erlang-elixir-fest-2018" ]
+---
+
 # ステートフルで大規模アクセスのあるsoft-realtimeなゲームサーバーをeasyにつくる
 
 ## INTRO

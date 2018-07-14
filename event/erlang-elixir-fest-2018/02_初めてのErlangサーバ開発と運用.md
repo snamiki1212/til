@@ -1,3 +1,10 @@
+---
+date: "2018-01-01"
+last-mod: "2018-01-01"
+title: "02_初めてのErlangサーバ開発と運用"
+# categories: [ "Event", "erlang-elixir-fest-2018" ]
+# tags: [ "Poem", "erlang-elixir-fest-2018" ]
+---
 
 
 # 初めてのErlangサーバ開発と運用 (mookjp)

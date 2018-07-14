@@ -1,3 +1,11 @@
+---
+date: "2018-01-01"
+last-mod: "2018-01-01"
+title: "03_Phoenixアプリケーションを１年間運用して分かったこと"
+# categories: [ "Event", "erlang-elixir-fest-2018" ]
+# tags: [ "Poem", "erlang-elixir-fest-2018" ]
+---
+
 # Phoenixアプリケーションを１年間運用して分かったこと
 
 想定対象： これから、Elixir/Phoenixを活用していく人に向けて
