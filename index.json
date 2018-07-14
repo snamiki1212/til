@@ -1,0 +1,414 @@
+[
+{
+	"uri": "https://snamiki1212.github.io/til/elixir/",
+	"title": "Elixir",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/",
+	"title": "elixir-jp-fest2018",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/poem/",
+	"title": "Poem",
+	"tags": [],
+	"description": "",
+	"content": "思ったこと\n"
+},
+{
+	"uri": "https://snamiki1212.github.io/til/study/",
+	"title": "Study",
+	"tags": [],
+	"description": "",
+	"content": "日々の勉強結果\n"
+},
+{
+	"uri": "https://snamiki1212.github.io/til/",
+	"title": "I Learned Today",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/event/",
+	"title": "Events",
+	"tags": [],
+	"description": "",
+	"content": "催し物\n"
+},
+{
+	"uri": "https://snamiki1212.github.io/til/elixir/how-to-pattern-match-at-the-end-of-string/",
+	"title": "How to pattern match at the end of string",
+	"tags": ["TIL", "Elixir", "pattern-match", "binary-pattern-match"],
+	"description": "",
+	"content": " 末尾文字列のpattern-match \u0026lt;\u0026gt;を使用すればシンプルなpattern-matchで実現可能\niex\u0026gt; origin \u0026quot;2018-07-05T12-2\u0026quot; iex\u0026gt; \u0026quot;2018-07-05T\u0026quot; \u0026lt;\u0026gt; aft = origin \u0026quot;2018-07-05T12-2\u0026quot; iex\u0026gt; aft \u0026quot;12-2\u0026quot;  末尾文字列以外のpattern-match 末尾文字以外は\u0026lt;\u0026gt;を使用したpattern-matchは行えない。\niex\u0026gt; origin \u0026quot;2018-07-05T12-2\u0026quot; iex\u0026gt; yyyymmdd\u0026lt;\u0026gt;\u0026quot;T\u0026quot;\u0026lt;\u0026gt;aft = origin ** (CompileError) iex:16: a binary field without size is only allowed at the end of a binary pattern  こういうケースは\u0026lt;\u0026lt; \u0026gt;\u0026gt;を使用したbinary-pattern-matchを行える\nbinery-pattern-match bytes-sizeが固定ケース iex\u0026gt; origin = \u0026quot;2018-07-05T12-2\u0026quot; \u0026quot;2018-07-05T12-2\u0026quot; iex\u0026gt; \u0026lt;\u0026lt;yyyymmdd::bytes-size(10)\u0026gt;\u0026gt; \u0026lt;\u0026gt; \u0026quot;T\u0026quot; \u0026lt;\u0026gt; aft = origin \u0026quot;2018-07-05T12-2\u0026quot; # yyyymmdd変数に、byes-size=10(桁)分をpattern-match iex\u0026gt; yyyymmdd \u0026quot;2018-07-05\u0026quot; iex\u0026gt; aft \u0026quot;12-2\u0026quot;  ただし、この記述だと文字列のlengthが事前にわかっている必要がある。\nbytes-sizeが変動ケース 例えば、上記の「aft変数にpattern-matchされた値の12が、zero-paddingされない時間」の場合、その時間が0〜9の時は1桁になってしまう。\nこういうケースは「関数によるpattern-match」や「case文によるpattern-match」などで処理を分岐させる必要がある\n無名関数 iex\u0026gt; func = fn ...\u0026gt; \u0026lt;\u0026lt;yyyymmdd::bytes-size(10)\u0026gt;\u0026gt; \u0026lt;\u0026gt; \u0026quot;T\u0026quot; \u0026lt;\u0026gt; \u0026lt;\u0026lt;h::bytes-size(1)\u0026gt;\u0026gt; \u0026lt;\u0026gt; \u0026quot;-\u0026quot; \u0026lt;\u0026gt; \u0026lt;\u0026lt;mm::bytes-size(1)\u0026gt;\u0026gt; -\u0026gt; [yyyymmdd, h, mm] ...\u0026gt; \u0026lt;\u0026lt;yyyymmdd::bytes-size(10)\u0026gt;\u0026gt; \u0026lt;\u0026gt; \u0026quot;T\u0026quot; \u0026lt;\u0026gt; \u0026lt;\u0026lt;h::bytes-size(2)\u0026gt;\u0026gt; \u0026lt;\u0026gt; \u0026quot;-\u0026quot; \u0026lt;\u0026gt; \u0026lt;\u0026lt;mm::bytes-size(1)\u0026gt;\u0026gt; -\u0026gt; [yyyymmdd, h, mm] ...\u0026gt; end #Function\u0026lt;6.99386804/1 in :erl_eval.expr/5\u0026gt; iex\u0026gt; data12 = \u0026quot;2018-07-05T12-2\u0026quot; \u0026quot;2018-07-05T12-2\u0026quot; iex\u0026gt; data3 = \u0026quot;2018-07-05T3-2\u0026quot; \u0026quot;2018-07-05T3-2\u0026quot; iex\u0026gt; func.(data12) [\u0026quot;2018-07-05\u0026quot;, \u0026quot;12\u0026quot;, \u0026quot;2\u0026quot;] iex\u0026gt; func.(data3) [\u0026quot;2018-07-05\u0026quot;, \u0026quot;3\u0026quot;, \u0026quot;2\u0026quot;]  case iex\u0026gt; case data12 do ...\u0026gt; \u0026lt;\u0026lt;yyyymmdd::bytes-size(10)\u0026gt;\u0026gt; \u0026lt;\u0026gt; \u0026quot;T\u0026quot; \u0026lt;\u0026gt; \u0026lt;\u0026lt;h::bytes-size(1)\u0026gt;\u0026gt; \u0026lt;\u0026gt; \u0026quot;-\u0026quot; \u0026lt;\u0026gt; \u0026lt;\u0026lt;mm::bytes-size(1)\u0026gt;\u0026gt; -\u0026gt; [yyyymmdd, h, mm] ...\u0026gt; \u0026lt;\u0026lt;yyyymmdd::bytes-size(10)\u0026gt;\u0026gt; \u0026lt;\u0026gt; \u0026quot;T\u0026quot; \u0026lt;\u0026gt; \u0026lt;\u0026lt;h::bytes-size(2)\u0026gt;\u0026gt; \u0026lt;\u0026gt; \u0026quot;-\u0026quot; \u0026lt;\u0026gt; \u0026lt;\u0026lt;mm::bytes-size(1)\u0026gt;\u0026gt; -\u0026gt; [yyyymmdd, h, mm] ...\u0026gt; end [\u0026quot;2018-07-05\u0026quot;, \u0026quot;12\u0026quot;, \u0026quot;2\u0026quot;]  function iex\u0026gt; defmodule M do \\ ...\u0026gt; def parse(\u0026lt;\u0026lt;yyyymmdd::bytes-size(10)\u0026gt;\u0026gt; \u0026lt;\u0026gt; \u0026quot;T\u0026quot; \u0026lt;\u0026gt; \u0026lt;\u0026lt;h::bytes-size(1)\u0026gt;\u0026gt; \u0026lt;\u0026gt; \u0026quot;-\u0026quot; \u0026lt;\u0026gt; \u0026lt;\u0026lt;mm::bytes-size(1)\u0026gt;\u0026gt;), do: [yyyymmdd, h, mm] ...\u0026gt; def parse(\u0026lt;\u0026lt;yyyymmdd::bytes-size(10)\u0026gt;\u0026gt; \u0026lt;\u0026gt; \u0026quot;T\u0026quot; \u0026lt;\u0026gt; \u0026lt;\u0026lt;h::bytes-size(2)\u0026gt;\u0026gt; \u0026lt;\u0026gt; \u0026quot;-\u0026quot; \u0026lt;\u0026gt; \u0026lt;\u0026lt;mm::bytes-size(1)\u0026gt;\u0026gt;), do: [yyyymmdd, h, mm] ...\u0026gt; end iex\u0026gt; M.parse(data12) [\u0026quot;2018-07-05\u0026quot;, \u0026quot;12\u0026quot;, \u0026quot;2\u0026quot;] iex\u0026gt; M.parse(data3) [\u0026quot;2018-07-05\u0026quot;, \u0026quot;3\u0026quot;, \u0026quot;2\u0026quot;]  String.split/2 上記ケースだと、どちらにしてもlengthが固定値になり融通が効かなくなるし、見た目もスマートな方法でない。 結局は、素直に文字列を分割してpattern-matchさせたほうがスマートになりそう。\niex\u0026gt; data12 = \u0026quot;2018-07-05T12-2\u0026quot; \u0026quot;2018-07-05T12-2\u0026quot; iex\u0026gt; [yyyymmdd, aft] = String.split(data12, \u0026quot;T\u0026quot;) [\u0026quot;2018-07-05\u0026quot;, \u0026quot;12-2\u0026quot;] iex\u0026gt; [h, m] = String.split(aft, \u0026quot;-\u0026quot;) [\u0026quot;12\u0026quot;, \u0026quot;2\u0026quot;] iex\u0026gt; [yyyymmdd, h, m] [\u0026quot;2018-07-05\u0026quot;, \u0026quot;12\u0026quot;, \u0026quot;2\u0026quot;]  まとめ  末尾文字列以外の文字列はbinary-pattern-matchで実現できるが、String.split/2を使用したほうがスマートになる  Reference  Pattern-matching complex strings  "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/elixir/test/",
+	"title": "test",
+	"tags": ["TIL", "Elixir", "Test", "ExUnit", "Phoenix", "Ecto"],
+	"description": "",
+	"content": " ExUnit  Unit testing framework for Elixir\n  公式ドキュメントの説明が簡潔・具体列付き・短文で一番概要がわかりやすい。その上で詳細な使い方はExUnit入門を見るとよさげ。\n async option\n  asyncoptionをtrueしているすると、非同期実行される。つまり、全テストが並列に実行される。\n ... use ExUnit.Case, async: true ...  Phoenix PhoenixでExUnitをwrappingして使われるのでPhoenix - Introduction to Testingを見ておくとPhoenix経由での使い方の概要がわかる - test/test_helper.exsにてdatabaseのcreate/migrationを行う。mix test毎に行われるので、毎回のテストにてcleanされる。 - test/support配下のmoduleはテスト可能状態にするための機能群で、具体的にはコネクション確立やEctoChangesetのエラー発見？など - mix commands\n## test all files mix test ## test all files under directory-path mix test \u0026lt;directory-path\u0026gt; ## test target file mix test \u0026lt;file-path\u0026gt; ## test target file and target line mix test \u0026lt;file-path\u0026gt;:\u0026lt;line\u0026gt; ## test with this tag mix test --only \u0026lt;tag\u0026gt;  Ecto.Adapters.SQL.Sandbox EctoのAdapterの１つでテスト専用で使用するもの（Adapterは「適合させるもの」の意味のままの通りで、EctoライブラリとSandbox(PostgreSQL or MySQL)を適合させる。他のAdapterにはMySQLや｀PostgreSQLがある）\n A pool for concurrent transactional tests.\n  dbへの並列アクセスを安全に行うための機構  dbへの接続にてcheckoutを明示する connectionをwrapしてる  manual / shared の2modeがある。違いは下記の2点。  cuncurently testable: テスト全体でテストの並列実行の可否 explicit allowances: テスト前にcheckoutしたrepoへのアクセス権を、テスト中にspawnしたprocessに明示的に渡す必要があるか？    | | manualmode(Using allowances) | sharedmode | | \u0026mdash;\u0026mdash; | \u0026mdash;\u0026mdash; | \u0026mdash;\u0026mdash; | | cuncurently testable | 可能 | 不可能 | | explicit allowances | あり | なし |\n サポート  While both PostgreSQL and MySQL support SQL Sandbox, only PostgreSQL supports concurrent tests while running the SQL Sandbox. Therefore, do not run concurrent tests with MySQL as you may run into deadlocks due to its transaction implementation.   ◯：PostgreSQL △：MySQL 並列テストはPostgreSQLではサポートしてるけど、MySQLではサポートしていないので行うな。deadlockが発生するかもしれないから(v2.2.10時点)   Reference ExUnit  公式ドキュメント ExUnit入門  Phoenix / Ecto  Phoenix - Introduction to Testing Ecto - Ecto.Adapters.SQL.Sandbox  doctest  公式ドキュメント（公式日本語訳は無かった） Elixir の doctest 書き方まとめ  "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/elixir/what-is-mix/",
+	"title": "What is mix",
+	"tags": ["TIL", "Elixir", "mix"],
+	"description": "",
+	"content": " mix 今まで毎日のようにmixコマンドを使っていたが、改めてこれは何？を口頭で説明できなかったので整理\n 主要な役割  compiler 依存性管理 test実行 環境管理  taskという単位で機能を提供している taskにはデフォルトで下記などが提供されている。もちろん、custom taskを定義できる。project毎に作成したり、自分用の便利taskを作っておくと捗る  project生成 compile testの実行    Reference  Introduction to Mix Elixir School - Mix - hex-doc Mix  "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/elixir/typespecs/",
+	"title": "typespecs",
+	"tags": ["TIL", "Elixir", "typespecs"],
+	"description": "",
+	"content": " 詳細はこの公式ドキュメントを参照 厳格さ整理したgist  "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/elixir/genstage/",
+	"title": "What is GenStage",
+	"tags": ["TIL", "Elixir", "GenStage"],
+	"description": "",
+	"content": " GenStageの学習メモ 概要  Demand-Driven Back-Pressure モデル(Back-Pressureモデルが不要なら、並列処理を行う類似方法はTask.asny_stream/2で行える   つまり、GenStageは需要トリガーを元にストリームイベントを処理するライブラリなのです。需要トリガーで供給を引っ張ることを、ストリーム界隈(?)ではバックプレッシャー(背圧)といいます。\n  ３つの役割(producer, consumer, producer_consumer) 起動・構築は下記のどちらかでできる  SupervisorTree経由 関数での実行経由  send/receiveでステージ毎にデータの授受を行うことで、データフローされる producer/consumerは複数持てる GenServerのラッピング 並列処理 複数step処理にはしないで、3層レイヤに留める  NG: [Producer] -\u0026gt; [Step 1] -\u0026gt; [Step 2] -\u0026gt; [Step 3]    OK: [Consumer] / [Producer]-\u0026lt;-[Consumer] \\ [Consumer]   if your domain has to process the data in multiple steps, you should write that logic in separate modules and not directly in a GenStage.\n Buffer  event/demandは各stageのqueueにbufferされる stageが構築される前に実行された分もキューイングされる。 例えば、consumerがcrashしてrestartするまでの間のデータをロストしないようにするため。  Callback  init/1 下記の役割のうち、どれかを定義  producer consumer procuer_consumer      callbacks producer producerconsumer consumer     init must must must   handledemand/2 must - -   handle_event/2 - must must   GenServer\u0026rsquo;s available available available    Producer  demandのreceiveをトリガー 現在の値を保持する(GenServerと同じく値の保持がある)  ProducerConsumer Consumer Dispatcher イベントの配布方法。consumerからeventが流れることはないので、producerとproducer_cosumerにて設定する。 1. DemandDispatcher: BackPressureによるDemandトリガーなモデル 2. PartitionDispatcher: Eventに応じてDispatcherを変動 3. BroadcastDispatcher: 全ConsumerにBroadcast\nmultiple consumer  デフォルトの振る舞いとして、consumer/producer_consumerは「handle_eventの終了タイミング」＝「再度producerへの要求タイミング」と認識して、demandをproducerへ自動的に投げる 複数consumerを定義する場合は、上記処理を手動で行う必要がある\n handle_subscribeを定義{:manual, event}をreturn。デフォルトは{:automatic, state} handle_subscribeはConsumerがProducerにsubscribeするタイミングに実行されるので、各producer毎に初回の１回ずつのみの実行となる。 Producerへの要求はGenStage.ask/3で行う handle_subscribeを定義 max_demand / min_demand optionを設定すること   Back-Pressureとして、量を調節する機構はConsumerにて行い、レートリミッタとして実現する \u0026gt; 時間間隔ごとに限られた数のイベントを処理できるコンシューマを実装しましょう。これらはレートリミッタと呼ばれることがよくあります。\n  YouTube Elixir London June 2016 w/ José Valim - 基本的な流れ  Back-Pressure  「B←Cにasks10」 「A←BにAsks10」 「A→Bにsends max 10」 「B→Cにsends max 10」    →後ろから始まるからBack-Pressure\n Demand-driven   Reference  GenStage - hexdoc Elixir School - GenStage ElixirのGenStageに入門する #1 ElixirのGenStageに入門する#2 バックプレッシャーを理解する  "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/elixir/why-need-to-use-tilde-with-ecto-query/",
+	"title": "Why need to use tilde with ecto query",
+	"tags": ["TIL", "Elixir", "Ecto"],
+	"description": "",
+	"content": " Content Ectoモジュールでsql apiを使用するとき、変数を使う場合は^(pin operator)が必要になる。\n ^をつけると、その値はエスケープ処理される。 理由として、sql injection対策のために変数を参照する場合、それがユーザから渡される値であるかどうか、のジャッジのために大きくスコープを取って 「ハードコードではなく、変数に格納された値が引き渡される場合はユーザから引き渡される値の可能性が1%でもありうる＝SQLインジェクションの可能性がある」 という理屈のもととなる。  last_name = \u0026quot;Smith\u0026quot; Friends.Person |\u0026gt; Ecto.Query.where(last_name: ^last_name) |\u0026gt; Friends.Repo.all # ^が必要　Friends.Person |\u0026gt; Ecto.Query.where(last_name: \u0026quot;namiki\u0026quot;) |\u0026gt; Friends.Repo.all # ^が不要  https://hexdocs.pm/ecto/getting-started.html#filtering-results https://github.com/elixir-ecto/ecto/issues/180\n"
+},
+{
+	"uri": "https://snamiki1212.github.io/til/elixir/catch-msg-when-genserver-killed.md/",
+	"title": "Catch msg when gen-server killed",
+	"tags": ["TIL", "Elixir", "GenServer"],
+	"description": "",
+	"content": " How to  SET TO SEND TERMINATE MESSAGE\n## GENSERVER def init() do ## ... Process.flag(:trap_exit, true) ## ... end  Kill PROCESS\n CATCH\ndef terminate(reason, state) do Logger.info(\u0026quot;#{inspect(__MODULE__)} \u0026gt;\u0026gt; terminate| reason: #{inspect(reason)} | state: #{inspect(state)}\u0026quot;) end   "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/elixir/how-to-get-may-map/",
+	"title": "How to get map",
+	"tags": ["TIL", "Elixir", "map"],
+	"description": "",
+	"content": " Content mapから値を取り出す際は、[]でデータにアクセスできる。\niex(5)\u0026gt; map = %{a: 1, b: 10, c: 100} %{a: 1, b: 10, c: 100} iex(6)\u0026gt; map[:a] 1  []なら、仮に対象がnilでも、Exceptionを起こさずにnilを返す。\niex(10)\u0026gt; map = nil nil iex(11)\u0026gt; map[:abc] nil  パイプライン演算子で引き渡されたmapに対してアクセスして次のパイプに流すようなときは[]は可読性が悪いので、大抵Map.get/3を使う。\niex(14)\u0026gt; map = %{a: 1, b: 10, c: 100} %{a: 1, b: 10, c: 100} iex(15)\u0026gt; map |\u0026gt; IO.inspect |\u0026gt; Map.get(:a) |\u0026gt; IO.inspect %{a: 1, b: 10, c: 100} 1 1  だが、Map.get/3にmapではなく、nilを渡してしまうととExceptionを起こしてしまう。\niex(18)\u0026gt; Map.get(nil, :abc) ** (BadMapError) expected a map, got: nil (stdlib) :maps.find(:abc, nil) (elixir) lib/map.ex:234: Map.get/3  パイプラインで引き渡された値が nil or mapのどちらかがわからないケースのときはAccess.get/2を使うと解決する\niex(31)\u0026gt; map_list = [%{v: 1}, %{v: 10}, %{v: 100}] [%{v: 1}, %{v: 10}, %{v: 100}] iex(32)\u0026gt; map_list |\u0026gt; Enum.find(fn x -\u0026gt; x.v == 10 end) |\u0026gt; Map.get(:v) 10 iex(33)\u0026gt; map_list |\u0026gt; Enum.find(fn x -\u0026gt; x.v == 99 end) |\u0026gt; Map.get(:v) ** (BadMapError) expected a map, got: nil (stdlib) :maps.find(:v, nil) (elixir) lib/map.ex:234: Map.get/3 iex(33)\u0026gt; map_list |\u0026gt; Enum.find(fn x -\u0026gt; x.v == 99 end) |\u0026gt; Access.get(:v) nil  ただ、AccessModuleはbehaiverなので、正直使いたくないが、よりよい方法が見つかるまでのTips\n"
+},
+{
+	"uri": "https://snamiki1212.github.io/til/elixir/what-is-agent/",
+	"title": "What is Agent",
+	"tags": ["TIL", "Elixir", "Agent", "build-in"],
+	"description": "",
+	"content": " Agent https://hexdocs.pm/elixir/Agent.html\nfunction 大別すると下記の6種類の操作が可能。 1. start系 - link関係: Agent.start_link/{2,4} - 非link関係: Agent.start/{2,4}\n stop系\nAgentのkill\n get系\n update系(同期的にデータ更新\niex(33)\u0026gt; Agent.get a, fn x -\u0026gt; x end 9 iex(34)\u0026gt; Agent.update a, fn x -\u0026gt; :timer.sleep 5_000; x+1 end, 6_000 ## ここでsleep 5sが行われる :ok iex(35)\u0026gt; Agent.get a, fn x -\u0026gt; x end 10  cast系(非同期的にデータ更新\niex(24)\u0026gt; Agent.get a, fn x -\u0026gt; x end 5 iex(25)\u0026gt; Agent.cast a, fn x -\u0026gt; :timer.sleep 10_000; x+1 end :ok ## ここでsleep10sは行われないで、即時にreturnされる iex(26)\u0026gt; Agent.get a, fn x -\u0026gt; x end ** (exit) exited in: GenServer.call(#PID\u0026lt;0.97.0\u0026gt;, {:get, #Function\u0026lt;6.99386804/1 in :erl_eval.expr/5\u0026gt;}, 5000) ** (EXIT) time out (elixir) lib/gen_server.ex:737: GenServer.call/3 ## Agent.castの実行待ちだが、sleep10sで、Agent.getがのwait_timeが5sなので、タイムアウト iex(26)\u0026gt; Agent.get a, fn x -\u0026gt; x end 6 ## Agent.castの実行後なので、待ち時間が無いので即時に結果を受け取れる   "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/elixir/task/",
+	"title": "task",
+	"tags": ["TIL", "Elixir", "Task"],
+	"description": "",
+	"content": " ほぼ公式ドキュメントの意訳になってるので基本的には原文参照を推奨\nTask  非同期で処理を行いたい場合かつ結果を利用したい場合に使用  Spawn/send/receiveでも可能だが、これらの処理をラップしたものが、おそらくTaskの位置づけとなる。\n 複数非同期処理同士で関連性が無いかつ小規模処理のときに使用される位置づけ  使い方  Supervisorを使わない方法(①)\n Supervisorを使うなら、\n 事前に定義しておいたTaskを実行する方法(②)  または\n 動的にタスクを宣言する方法(③)   ① async and await ## (1)非同期用に並列実行プロセスをcallして処理を渡す task = Task.async(fn -\u0026gt; do_some_work() end) ## ...他の処理をおこなう res = do_some_other_work() ## (2)並列実行プロセスから結果を貰う res + Task.await(task)   asyncをする際は必ずawaitする asyncを実行したプロセス（caller）と呼ばれたプロセスはlink関係  つまり、どちらかのプロセスがクラッシュしたらもう片方もクラッシュする link関係にしたくなければ、Task.start/1やTask.Supervisorなどを利用するように。   ②Supervised tasks ## Taskをuse defmodule MyTask do use Task def start_link(arg) do Task.start_link(__MODULE__, :run, [arg]) end def run(arg) do # ... end end ## wakeup Supervisor.start_link([MyTask])  Task ModuleをuseしたModuleを作成して、Supervisorで起動することで、childにいるTaskとTaskが呼び出す関数を実行する方法\n①との違い\n Moduleを作成する必要があるため、手軽さがなくなる SupervisorにTaskの死活状態を管理させられるので、Task処理がクラッシュしても、メインプログラムも合わせてクラッシュされない  ③ Dynamically supervised tasks (1) お手軽に書く\n## (i)Supervisor起動 {:ok, pid} = Task.Supervisor.start_link() ## (ii) Task実行 task = Task.Supervisor.async(pid, fn -\u0026gt; # Do something end) ## (iii)Task実行結果取得 Task.await(task)  (2)厳格に書く\n## (i) \u0026lt;MyApp.TaskSupervisor\u0026gt;などの、Task.Supervisorをuseする独自Moduleを作成 ## (ii)起動定義 Supervisor.start_link([ {Task.Supervisor, name: MyApp.TaskSupervisor} ]) ## (iii)起動 Task.Supervisor.start_child(MyApp.TaskSupervisor, fn -\u0026gt; # ...Do something... end) ## (iv)Task実行および実行結果取得 Task.Supervisor.async(MyApp.TaskSupervisor, fn -\u0026gt; # Do something end) |\u0026gt; Task.await()  Distributed tasks Nodeを跨いだ動的なTaskの生成が可能\nまとめ  返り値を必要とする並列処理を書く際に自分で実装する場合はspawn/send/receiveを駆使して実装しないといけない。汎用的な並列処理結果の受け取り可能なTaskモジュールのおかげでそのあたりの実装が不要\n 使い分け\n 返り値を必要とする　並列処理を行いたいは Task.async/1/Task.await/1\n 返り値を必要としない並列処理を行いたいは Task.start/1\n  （内部的にspawnを呼んでいるだけなので、spawnでも良いかも？優位点がわからない。オーバヘッドかかるだけなら、spawnを使うが）\n  "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/elixir/how-to-get-opt-as-keywordlist/",
+	"title": "How to get opt as keywordlist",
+	"tags": ["TIL", "Elixir", "Keywordlist"],
+	"description": "",
+	"content": " defmodule Bar do # for size def foo(params, [{:size, size}| rest]) do IO.inspect(\u0026quot;size is #{size}\u0026quot;) foo(params, rest) end # for name def foo(params, [{:name, name}| rest]) do IO.inspect(\u0026quot;name is #{name}\u0026quot;) foo(params, rest) end # ignore not to except options def foo(params, [_| rest]) do foo(params, rest) end # after getting all option def foo(params, []) do IO.inspect(\u0026quot;params is #{params}\u0026quot;) end end ## call params = 1 opts = [name: \u0026quot;foobar\u0026quot;, size: 2, dust: 123] Bar.foo(params, opts)  Reference  The Little Elixir \u0026amp; OTP Guidebook(P125)  "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/elixir/iex-useful-commands/",
+	"title": "iex useful commands",
+	"tags": ["TIL", "Elixir", "iex", "commands"],
+	"description": "",
+	"content": " Commands Recopmile # recompile all files iex\u0026gt; recompile # recompile specific Module iex\u0026gt; r Foo  Renew iex iex\u0026gt; respawn  # kill this iex process and wake up new iex process. # to use respawn when doing 'pry' especially. iex\u0026gt; self #PID\u0026lt;0.23831.8\u0026gt; # \u0026lt;- before iex\u0026gt; respawn Interactive Elixir (1.4.2) - press Ctrl+C to exit (type h() ENTER for help) iex\u0026gt; self #PID\u0026lt;0.23927.8\u0026gt; # \u0026lt;- after  Alias # alias iex\u0026gt; alias Foo.Bar.Hoge, as: H # to use iex\u0026gt; H.xxx() iex\u0026gt; r H  View all params # view all binding params as special syntax keywordlist iex\u0026gt; binding()  iex(1)\u0026gt; map = %{foo: 123, bar: 456} %{bar: 456, foo: 123} iex(2)\u0026gt; int_param = 999 999 iex(3)\u0026gt; string_param = \u0026quot;today i learned\u0026quot; \u0026quot;today i learned\u0026quot; iex(5)\u0026gt; binding() [int_param: 999, map: %{bar: 456, foo: 123}, string_param: \u0026quot;today i learned\u0026quot;]  "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/elixir/debug-tips/",
+	"title": "Debug Tips",
+	"tags": ["TIL", "Elixir", "Debug"],
+	"description": "",
+	"content": " binding/0 Content binding/0 or binding/1 returns the binding for the given context as a keyword list.\nHow to iex\u0026gt; binding() |\u0026gt; IO.inspect() iex\u0026gt; binding() |\u0026gt; inspect() |\u0026gt; Logger.info()  Reference  Elixir — quick reference for debugging techniques Elixir - binding(context \\ nil)  "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/01_%E3%82%89%E3%81%8F%E3%82%89%E3%81%8F%E9%80%A3%E7%B5%A1%E7%B6%B2%E3%81%8C-elixir-%E3%81%A7%E3%83%AA%E3%82%A2%E3%83%AB%E3%82%BF%E3%82%A4%E3%83%A0%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%83%B3%E3%82%B0%E5%9F%BA%E7%9B%A4%E3%82%92%E5%88%B7%E6%96%B0%E3%81%97%E3%81%9F%E8%A9%B1/",
+	"title": "01_「らくらく連絡網」が Elixir でリアルタイムメッセージング基盤を刷新した話",
+	"tags": [],
+	"description": "",
+	"content": " 1. 「らくらく連絡網」が Elixir でリアルタイムメッセージング基盤を刷新した話 (rinosamakanata) 概要  ラクラク連絡網\n メーリングリスト リアルタイムトーク  会社：イオレ\n Ruby → Elixir\n  クラスタ化 vs 非クラスタ化  クラスタ化してる。なぜなら、quantumnで個別ノードでcron実行できる機能を使いたいから。 peerange 垂直／水平スケール  Frontend  WebView\n Elm\n VirtualDOMが高速   調査  ★erlybely recon_ex  監視  zabbix Exometer_zabbixでBEAMのメトリクス  まとめ／QA  Erlangは覚える必要はほぼなし。だが、BEAMについては知っておくべき  QA：BEAMの勉強方法→TheBeamBookがおすすめ  Q.エディタは何使ってる？  A.InteliJ   所感  ゲーム以外の導入事例は初めて見たが、メッセージングサービス／リアルタイムコミュニケーションのWebサービスとPhoenixの相性は確かに良い  あとで調べることまとめ  クラスタ化vs非クラスタ化 BEAMについての勉強を行う InteliJが良さげなら、購入 各種のツールの概要理解 the beam book  "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/02_%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AEerlang%E3%82%B5%E3%83%BC%E3%83%90%E9%96%8B%E7%99%BA%E3%81%A8%E9%81%8B%E7%94%A8/",
+	"title": "02_初めてのErlangサーバ開発と運用",
+	"tags": [],
+	"description": "",
+	"content": " 初めてのErlangサーバ開発と運用 (mookjp) Intro 携わってるサービス\n Webアプリ開発 チャットシステム  WhyErlang Node  Architecture  イベントループ シングルスレッド  問題発生時  予期せぬ例外で、シングルスレッドなので、プロセスレベルでダウン イベントループに積まれてる未処理の実行が全て破棄される クライアントコネクションが全て切断される   ★被害範囲が大きい\nErlang  Architecture  メッセージパッシング 軽量マルチプロセス  問題発生時  軽量プロセス単位でダウン Supervisor-treeのStrategyに基づいてダウンしたプロセスに対して再起動などのアクションを起こす   ★被害範囲が小さい\nCaseStudy：Msgつまり BatPattern  メッセージを全体に送信 各プロセスで必要ないメッセージは破棄  →全プロセスに無題にメッセージパッシングされてしまう\nGoodPattern  gprocでメッセージディクショナリー   メッセージをgpocに送信 gprocが送信する対象プロセスをハンドリングして宛先を絞ってくれる  →無駄なメッセージパッシングが減少する\n→ElixirではRegisteryが標準で搭載されている\nまとめ  Erlang in Angerを最初に読むべき　→VMのメモリ確保の挙動 英語力が超必要 公式ドキュメント大事 Erlang Slackチャネルおすすめ→すぐ回答してくれる  "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/03_phoenix%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%EF%BC%91%E5%B9%B4%E9%96%93%E9%81%8B%E7%94%A8%E3%81%97%E3%81%A6%E5%88%86%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8/",
+	"title": "03_Phoenixアプリケーションを１年間運用して分かったこと",
+	"tags": [],
+	"description": "",
+	"content": " Phoenixアプリケーションを１年間運用して分かったこと 想定対象： これから、Elixir/Phoenixを活用していく人に向けて\nIntro  会社  40人位が使用してる 新規事業で多く採用 ゲーム、ID管理 コミュニケーションサービス ECサイト   Game Server Architecture  2server間(API\u0026lt;-\u0026gt;WebSocket)はRPC接続 対戦マッチング用サーバは別に存在  Umbrella Problem ElixirはLV系のスクリプト言語と同等レベルで生産量は極めて高い。がコード量がどうしても多くなると、\nManyServicesになると、多々の問題が発生。（Deploy時間がかかる、etc\u0026hellip;\n→ではMicroService化する？\nSolution  複数サービスを１レポで管理 サービス間でコード共有\n Umbrellaプロジェクトを使えば、1repoをアプリケーションレイヤで分割できる\n  Deploy  問題：デプロイのタイミングでsocketが切断される 解決：WebSocketとLogicサーバで分離→socketが切断されなくなる  Compile macroはcompile-timeに評価\ndependenciesが生まれると、関連モジュールもrecompielされる\n問題 問題：１ファイルの修正に伴い、３００ファイル近くがrecompileされる。\n　→生産性が低下\n対象例  __ 構造体 import behavior protocol type spec  原因 循環とは？dependencyの先に更にdependencyが発生していく形。\n循環のコンパイル\n循環を取り除く　＝　無駄なコンパイル依存を削除する　＝　依存を取り除く\n\u0026gt; mix xref graph -format dat  Slow Test Testのロード／コンパイルtimeが長い\n最善：プロジェクトを分割するのが良い\nMonitoring  対象  ETS table 各API単位  Tool  Prometeus Grafana  Erlang VM用のGrafnanaDash  調査 よく使うモノ\n recon remsh  Library  所感：現時点で必要なものは一通り揃っている ただ、無いものは作った、もしくば一部変更して使ってる  QA  Q. Phoenix1.4 のContextの導入は？\n A. 今後、追従する。ボリュームは重い。DDDではないので、ゆるく行う予定。  Q. 困ったときのコミュニティは？\n A. ElixirConf主催のTokyoEX、海外のElixirSlackChannel、ErlangFactory  Q. DIalyzerは使用してる？理由は？\n 使用してない。理由は、時間がないｗ、から\n コードが読みやすくなるので、できる限り書きたいとは思ってる。\n   所感  compile-timeの削減のために無駄なdependenciesを削除するのは、恩恵に対して、作業量が多そうなので、品質向上フェーズのタイミングで行うべき作業かと思われる  "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/04_from-python-to-elixir/",
+	"title": "04_from-Python-to-Elixir",
+	"tags": [],
+	"description": "",
+	"content": " from Python to Elixir  ゲーム会の基本基盤  python-\u0026gt;elixir  なぜ？  python2020年問題→サポートがdjango2.0→python2系が終わる   FW Phoenix ? 自作WAF?  phoenix辛い  なぜ？ マクロ辛い問題  多段useのため、コード把握が厳しい 書く量が少ないが、読む量が多くなる  暫定は、Phoenixマスターを1人おいて、ごりおし。 今後は、自作FWを作るかも  FWにおける問題は、Webアプリレイヤーではなく、DBへの処理レイヤー 垂直分割  UserDB GuildDB  水平分割  シャーディング  Ecto\n repo = Database シャーディングに対応してないので作った\n Yacto ライブラリ\nGAME Project Template to Library   今までテンプレートを作っていたが、メンテ性が悪すぎるのでやめた\n すべてライブラリ化。\n 基盤チームとアプリチームで、メンテ者と使用者で分けれるようになった。\n  "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/05_%E3%82%B9%E3%83%86%E3%83%BC%E3%83%88%E3%83%95%E3%83%AB%E3%81%A7%E5%A4%A7%E8%A6%8F%E6%A8%A1%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%AE%E3%81%82%E3%82%8Bsoft-realtime%E3%81%AA%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%82%92easy%E3%81%AB%E3%81%A4%E3%81%8F%E3%82%8B/",
+	"title": "05_ステートフルで大規模アクセスのあるsoft-realtimeなゲームサーバーをeasyにつくる",
+	"tags": [],
+	"description": "",
+	"content": " ステートフルで大規模アクセスのあるsoft-realtimeなゲームサーバーをeasyにつくる INTRO  TCG PvP HTML5 Real-time  開発思想／理念  後からメンバがJoinしやすいように、できる限りレールは引いた（libraryの列挙と説明） GenServerでの想定のコツは、多人数のケースを想定せず、２人のケースで想定すれば十分。  設計 Channel  matching Channel PvP Channel  理由；Matching条件が複数あるので、複数あるので、分離したいので。   HotCode HotCodeDeployは行ってない。大変なので。下記で行ってる\n Deploy処理 各ServerへKill予定の通知 Phoenixへの接続がなくなるまで待つ なくなったら、Deploy  Data  作業内容をすべて履歴として残す。 あとで、joinしたユーザはこの内容を元に描画する（たぶん、イベントソーシング思考ってこと または、この情報をAI化する  Knowledge PhoenixのLoggerが1プロセスしかない。なので、大量Loggingがあると\n msgが詰まる Log出力の実行プログラムがLog実行と同期的になってしまう。  Compile_time_purgeの設定は大きくしておくと良い。\n"
+},
+{
+	"uri": "https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/06_channel%E5%85%88%E7%94%9F-pubsub%E3%81%8C%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99/",
+	"title": "06_Channel先生-PubSubがしたいです",
+	"tags": [],
+	"description": "",
+	"content": " Channel先生\u0026hellip;!! PubSubがしたいです\u0026hellip;  phoenixを使用する際の最大の利点はpubsubだと考えている\n 5min phoenix channel appの内容を元に。\n  pubsub とは？ 購読＝subscribe\n topicに対して送信 topicから受信  タグ付け、に近い概念。\nPubSub Backend  pg2 redis 3rd party adapterで独自実装  QA  なぜAdapterを作成した？  性能面で。1台のRedisだと要件を満たせられない   "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/09_erlang%E4%BA%8B%E4%BE%8B%E7%B4%B9%E4%BB%8B-%E3%83%A1%E3%83%87%E3%82%A3%E3%82%A2%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%A0%E4%B8%AD%E7%B6%99%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0/",
+	"title": "09_Erlang事例紹介-メディアストリーム中継システム",
+	"tags": [],
+	"description": "",
+	"content": " Erlang事例紹介: メディアストリーム中継システム - amutake -  生放送の中継、についての話 ニコニコの今後のシステムで採用されるところの話  POINT  各種アルゴリズム比較して、分散システムを構築している。\n できる限りメッセージパッシングしないように設計する\n Erlangクラスタにするとフルメッシュ接続になる。今回採用された、HyParViewとは異なる思想なので。\n  "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/99_erlangelixir%E3%81%8C%E4%BB%98%E3%81%8D%E3%81%A4%E3%81%91%E3%82%8B%E3%82%82%E3%81%AE/",
+	"title": "99_Erlang／Elixirが付きつけるもの",
+	"tags": [],
+	"description": "",
+	"content": " Erlang/Elixirが付きつけるもの -力武　健次- Intro  OpenErlang20週年  Elixir/Erlangではなく、Beamと表現してほしい旨を受ける Elixir/ Erlangでの融合の時期？   Immutability Erlangメリット  Immutability\n ディープコピー\n  リストのコピーは、参照ではない\n 参照がない  Erlangデメリット  遅い\n 仮想VMが中間層に入っているので 速度で問題が発生したタイミングで機械語を利用するように また、１つの処理を呼び出すのに約数msかかる。  厳格な言語なので、Ruby/PHPのように、ゆるくは書けない\n  特徴  従来の言語の原則  安全よりも効率  ELixir/Erlangの思想  効率よりも安全   ## ALT Erlang\n LFE efene alpaca cloherl luerl  今後の展開  Erlangの基本理念「ほどほどなのが良い」  安全は高速化に優先  組み込み分野\n GriSP 組み込みの知識がなくてもErlangの知識があれば導入できる 法律的に国内で利用できな Nerves  全体的\n 大規模クラスタ：昔は１００ノードどうする？だったが、今では１０００ノードどうする？ ブロックチェーン： Gradual Type System：型検査 Language Server Protocol：エディタなどでのエラー発生を言語間でも統一する   QA  Q. なんでErlangはあの文法？  A. prologの影響? A. ドイツ語が読める人間的には読みやすいとか?   所感  「効率よりも安全」を何度も強調していたのが印象深い 「Erlang/Elixirが早いということは絶対にありえない」と強調していたのも印象深い。おそらく一時期バズった記事で「Elxiirが早い」という記事が挙がった過去もあったので強調主張していたのかと思われ。  "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/study/cqrs/",
+	"title": "CQRS",
+	"tags": [],
+	"description": "",
+	"content": " CQRS CQRSとイベントソーシングの使用法、または「CRUDに何か問題でも？」を呼んだ結果をまとめ\nCRUD Architecutre  昔に比べて行い処理やケースが複雑化(パーミッションなど そもそも、write/readで検討要件が大きく異なる     書き込み 読み込み     データの整合性の維持 データの検索と抽出の効率化   アトミックな更新／トランザクション 導出値（合計など）の算出   バージョン管理（楽観的並行性制御／楽観的ロック） 複数のビューの提供   書き込み権限の管理 行レベル、カラムレベルの権限管理    CQRS（Command Query Responsibility Segregation：コマンドクエリ責務分離）  「Command」と「Query」で分離 \u0026gt; CRUDと違ってCQRSは、データの読み込みと書き込みは違うものだという前提にもとづく考えかたです。   CQRSでは、データベースの操作をコマンド（データを書き換える操作）とクエリ（データを読み込む操作）の二つに分類します。\nコマンドは一般に、操作の成否以上の情報を呼び出し側に返しません。また、クエリは冪等であることが保証されます。\n間にコマンドが挟まらないという前提で、同じクエリを何度実行しても結果は同じになるということです。\nRESTでいうと、コマンドはPUTやPOSTに対応し、クエリはGETに対応するものです。\n  モデルも分離 \u0026gt; データを問い合わせる際に使うUserモデルとコマンドを実行するときに使うモデルとが違っていてもかまわないということです。   ユーザー情報を更新するというのではなく、「メールアドレスを変更する」「請求先情報を変更する」なとどいうコマンドを考えることができるのです。\n呼び出し元が変更しようとしているエンティティのフィールドが本当に変更してよいかどうかをチェックするのではなく、呼び出し元に特定のコマンドを実行する権限があるかどうかだけをチェックすればいいのです。\n イベントソーシング 具体的な実現アーキテクチャとして - 相性がイベントソーシングと良い \u0026gt; 会計処理では、入出金取引（売上や購入など）を元帳にだけ追記していくのががよいとされています。\n \u0026hellip;現在の口座残高は、必要に応じて過去のすべての取引から算出します。\n Storage Middleware(EventStore) 概要  EventStoreは追記限定の不変なストリームとしてイベントを扱います\n メリット  あらゆる更新に対応できるような単一のクエリモデルを維持する必要はありません。 「ユーザーの詳細情報の表示」「一日あたりのアクティブユーザー数のレポート出力」など、用途にあわせて最適化したクエリモデルをいくつでも作れるのです。\n  実際の使い方のQiita記事(EventStoreをMicroservicesとして実装するときのプロトコルの案)  メリット(Pickup)  write queryはeventとして必ず残っているので  実証可能な監査証跡を残せる 履歴データに基づいて過去に存在したクエリモデルを作れる（\u0026hellip;メリットがよくわからない） 副作用を気にせずに済む(\u0026hellip;説明がよくわからない) トラブルシューティングやデバッグの助けになる イベントをコピーしてリプレイすれば 問題の再現性が簡単になる テスト自動化が簡単になる   所感  CQRSはテクニックだと思っていただ、アーキテクチャレベルで異なる実現方法だった 現時点では文献も少なく、DDD conference 2018でも研究実験段階のよう  "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/study/circuit-breaker-pattern/",
+	"title": "Circuit Breaker Design Pattern",
+	"tags": [],
+	"description": "",
+	"content": " Circuit Breaker Design Pattern  サーキット・ブレーカーという発想のベースにあるアイデアはとてもシンプルです。 プロテクテッドなコール関数をサーキット・ブレーカー・オブジェクトにラップし、そのオブジェクトがコールの結果をモニタリングするのです。\nサーキットブレイカーで設定している閾値に達してしまうと、サーキットブレイカーは自身の処理を切り替え（これをトリップというらしい\n Implementetion  phoenix/ectoを使っていればtimeoutはconfigで設定されているので、わざわざ実装を行う必要がない？ （また、他の現代WAFなら大抵上記は設定されているので、同上？） WAFを使用しないスクラッチでのDBへのアクセスなどでは上記を利用することを想定しないといけない？  Referencew Circuit breaker  \u0026ldquo;CircuitBreaker\u0026rdquo; - Martin Fowler \u0026ldquo;CircuitBreaker\u0026rdquo; - 日本語訳 サーキットブレイカーパターン：連続して起こる同様の障害への対応策  to use elixir  Automated Fault Tolerance using the Circuit Breaker Pattern  "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/poem/how-to-study/",
+	"title": "How to study",
+	"tags": [],
+	"description": "",
+	"content": " エンジニアの能力と今どきの難しさを読んで思ったこと 概要 知識範囲を３つに分類してる  上 ↑ 実行環境：実践的知識 … ｜カテゴリ：概念的知識 下 ↓ ベース　：基礎的知識  上のレイヤは実践的だが、移り変わりが早い（キャッチアップコストが高い）\n下のレイヤは教養的な知識だが、移り変わりが遅い\n主張  最近は上から入る人が圧倒的に多い 上から下へ降りる  →下の学習をしながら常に上の知識のメンテが必要なのでシンドイ\n 下から上へ上がる  →時間はかかるが、腰を据えて進められるので堅実\n思ったこと ①下から上へ 体系的に長期的な学習プランを立てるタイプの人には合うと思う。\nただし、\n「下の知識が最終的にどのように活かされるのか？」\nというビジョンがわかないため下記可能性をはらんでいる\n モチベーション枯渇 実践を意識しない知識 上の階層へと繋がらない自己満的知識  ②上から下へ（パラシュート／遅延評価学習法） 大抵の職務で求められるのは実践的な上のレイヤーだ。\nただし、調査や実装の下のレイヤの知識が必要になるときがある。\nなので、必要になったタイミングで学ぶスタイルが効率的である。\nただし、経験上、危惧すべき点として\n 体系的に知識の獲得がし辛い 慣れるまで時間がかかる。なぜなら、学生時の勉学において、このような学習方法による経験は少ないので  自分の考えまとめ 自分はエンジニア初期のとき\n「下から上へ」\nの学習方法のみが正義だと思い、\nまたこの方法で学習できない状況にあったので、\n時間を取って腰を据えて学習できる環境を渇望していたが\n「上から下へ」\nの学習を続けるに当たっては、\n実践的知識と非体系的学習能力の向上を得られた。\n重要なのは、どちらから学ぶにしても、\n「反対側にすばやく行ってはすばやく戻ってくること」\nだと思う。\nつまり、\n下から上に行く場合\n→「最終的にどのように実践されるか」を意識するために少しでいいので早い段階でも上のレイヤの知識を使うべき\n上から下に行く場合\n→必要に応じて下のレイヤを学習してそれを上のレイヤに繋げて実際に実務で使う\n上下のどちらから学習を進めるに当たっても共通して使われる知識獲得方法だと思う。\n"
+},
+{
+	"uri": "https://snamiki1212.github.io/til/study/elixir-empex-nyc-conf-2018-dave_thomas/",
+	"title": "[翻訳]EMPEX NYC Conference 2018 (Elixir/Erlang/BEAM): Keynote(Dave Thomas)",
+	"tags": [],
+	"description": "",
+	"content": " [翻訳]EMPEX NYC Conference 2018 (Elixir/Erlang/BEAM): Keynote(Dave Thomas) 下記動画の内容のメモと所感\n (VIDEO)EMPEX NYC Conference 2018 - Dave Thomas  Attention 英語とElixirの学習用メモなため、解釈に誤りがある可能性があります。\nこの内容は参考程度に押さえて基本的に動画を参照してください。\nTL; DR 現状のElixir/Phoenixのアーキテクチャに対しての下記の発表となる。\n 問題提議\n その解決方法の提案\n  解決方法は下記の通りの提案となる\n 考え方：Component Structure 実装：Component / Noddy(発表内にて開発中と言及。2018/6/3時点で未公開)  Content Problem 知っての通りElixir/PhoenixはErlangとRailsを元に作成されている。\nただ、いくつかの良くないところも継承してしまっているのが現状だ。\nNaming Application Applicationという名称だが、Erlangからこの名称は持ってきたが失敗だ。\n様々な意味を包括していて結局は何を指しているかがわかりにくい\nDupplication Configuration コンフィグを他のApplicationにも持たせなければならない。\n上記の例で述べるとPaymentMakerのコンフィグをAppOne/AppTwoに持たせないとならない。\nもちろん行いたいのはPaymentMakerにのみコンフィグを持つことだ。\nDog food GenServer GenServerの実装は１つのModuleに３つの内容を含んでいる\n API Server Implementation  わかりにくい。俗に言うdog food、つまりゴチャ混ぜなコードだ。\n14:36\nBad Directory Design 左がRailsで右がPhoenixだ。\nほぼ同じ構成になっている。ただ、なんでlib？\nwooble.exなんて大抵のprojectではhello worldが書いてあるだけなんじゃないか？\n無駄が多すぎる。\nSolution New Naming Application Component structureでは下記のように提議していきたい。\n Library … stateを持つようなprocess がない Component … stateを持つようなprocessがある Assembly \u0026hellip; configuration であり、Library / Componentを束ねた可搬的なひとまとめ  22:23\n23:01\nPhoenix Component 上の規則に従うと Phoenix Applicationではなくて、Phoenix Componentとなる。\nまた、Phoenixにビジネスロジックが何個あるかべきか？０個だ。\nPhoenixは純粋なView Layerであるべきだ。\nなぜなら　PhoenixはInterfaceであり、InterfaceにBusiness Logicは書かないだろ？\nビジネスロジックである実装は更にバックエンドに記述するべきだ。PhoenixはWebServerなんだ。\nComponent as GenServer 例として１つのGenServerがある。\nComponentを使えばこれだけで済む。\n内部的にはGenServerをジェネレートしているわけだが、コード量は劇的に減少するだろう。\nそして、Componentを使って簡略化しても元のコードからは何も情報は失われていない。\n以前としてGenServerであるが、すべてを書く必要がなくなるわけだ。\nComponent Directroy Design なんでフォーマット用configファイルである.formatter.exsがtop levelにあって、実装したいメインプログラムであるstack.exsがtop levelにないんだ？おかしくないか？\nこれで十分だろう。ただ、もしstack.exが複雑になってきたらどうするかって？\nそのときになったらサブディレクトリを足してpopper.exやpusher.exのように機能別にファイルを作っていく？違う。私は１つのstack.exに収めたいんだ。\nもし、stack.exが複雑になってきたら？componentレベルで分割するんだ。\nつまり、数多の小さなcomponentを組み合わせていくわけだ。\nこれによって、再利用性とメンテナンス性があがるはずだ\nHow To Deploymnet 現状では、componentで良いデプロイ方法はElixir には存在しない。\n紹介しよう！Noddyだ！デプロイメントにはNoddy(NODe Dynamic management)を使う。\n（ここでいうNodeはServer上で稼働しているErlangVM上のNodeで、Serverと考える）\n ロギング設定を一元管理 並列デプロイ Node毎にどのComponentをデプロイするかを定義できる  Conclude Elixirでの開発課題をより簡単にしていきたい。\n最終的には誰もが３分でComponentを作成してデプロイでき、そして他の開発者もそのComponentを再利用できる。そんな未来が来るだろう。\n所感  GenServerを書いたり読んだりするが、１つのファイルに対してどうしても手続き的なコード量が多くなってしまう問題は以前から感じていただけに、Componentが実用化されればGenServerのコード量という問題点はかなり解決できるのではないか、と感じられた。\n Component Structureが導入されるためには、現状Noddyも作成中な上、既存のPhoenixの構造から大幅な変更が発生するため、導入障壁と所要時間のハードルが高そうに感じる。\n  "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/study/str-to-datetime/",
+	"title": "about datatime",
+	"tags": [],
+	"description": "",
+	"content": " 基礎前提知識  例として日本の10:00にDateTimeを表示すると  標準時間：UTC: 2018/06/06T01:00:00+00:00 日本時間：JST: 2018/06/06T10:00:00+09:00   Tips stringからDateTime型などに変換する際に大抵UTCとして変換される。\nなので、stringの時点でTimezoneをstirngで追記しておくと出来上がったデータもJSTとして生成される\ndatetime_str = \u0026quot;2018-06-06 10:00:00\u0026quot; {:ok, datetime_ust} = Timex.parse(datetime_str , \u0026quot;{ISO:Extended:Z}\u0026quot;) {:ok, datetime_jst} = Timex.parse(datetime_str \u0026lt;\u0026gt; \u0026quot;+09:00\u0026quot;, \u0026quot;{ISO:Extended:Z}\u0026quot;) datetime_ust # ~N[2018-06-06 10:00:00] # 型がjst/ustで違うけど、重要なのは、timezoneが含まれているか　datetime_jst # #\u0026lt;DateTime(2018-06-06T10:00:00+09:00 Etc/GMT-9)\u0026gt;  Reference  https://hexdocs.pm/timex/basic-usage.html#content  "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/study/host-to-read-english-doc/",
+	"title": "how to read en doc",
+	"tags": [],
+	"description": "",
+	"content": " 読む速度や能力向上にフォーカスした自分の方法論を整理\n概要  各種ツール  google translate chrome-add-on  目標方針  短期的に「内容を理解する」なら、英文見ないでgoogle翻訳に突っ込む 中長期的に「英単語の発音・意味を正しく理解しつつ英文を読む」なら、わからないものや勘違いしているものは潰しながら読む   All Translate  chrome(right click) -\u0026gt; translate to 日本語  Selecter Translate 選択した部分だけを翻訳する。いろいろadd-onはあると思うので、好きなのを使えばいいんじゃないかな。\n ImTranslator: Translator, Dictionary, TTS  評価が高くて、発音が確認できる採用\nSpeak 発音があやふやなものがあるたびに、選択して翻訳するのは手間に思い始めてきたので、いっそのこと、 「全文朗読させちゃえばよいのでは？」 と思ったので\n Select and Speak - Text to Speech (SpeakIt!) SpeakIt!  "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/event/erlang-elixir-fest-2018/summary/",
+	"title": "summary",
+	"tags": [],
+	"description": "",
+	"content": " Title Erlang \u0026amp; Elixir Fest JP 2018 まとめ\nTL;DR 2018/06/16に行われたErlang \u0026amp; Elixir Fest JP 2018の発表内容についてサマっておきました。 基本的には発表者達のオリジナルをご自身で見ていただきたいですが、いかんせんカンファレンスの動画が無く、発表中に口頭で補足されていたところや、私自身の所感も合わせて書かせていただきます。 Elixir/Webエンジニア弱者なので、指摘事項などがあればコメントいただけると助かります。\n冒頭で司会の方が述べられていた、カンファレンスの内容に関する今回と去年の特徴です。 - 2017: これから開発が始まる系が多い - 2018: 実際に使った結果や運用面での話系が多い\nSLIDE  「らくらく連絡網」が Elixir でリアルタイムメッセージング基盤を刷新した話 初めてのErlangサーバ開発と運用 Phoenixアプリケーションを1年間運用して分かったこと from Python to Elixir ステートフルで大規模アクセスのあるsoft-realtimeなゲームサーバーをeasyにつくる Channel先生\u0026hellip;!! PubSubがしたいです\u0026hellip; Antikythera Framework: An Elixir framework for multiple web services 任意のBEAM系言語でプラグインを書ける安定したフレームワークの作りかた Erlang 事例紹介: メディアストリーム中継システム Erlang and Elixir Fest 2018 Keynote  全体を通した所感とか  登壇内容またはQA内容で  クラスタ化 vs 非クラスタ化 hot-deployを行う？    の話が多かったが、大抵 非クラスタ化 / hot-deployはしない の選択肢をとる人が多かった。 その理由も「大変」「時間がない」「複雑になる」「面倒」etcなので、 現状では費用対効果的にここまで作り込むフェーズのサービスが少ない、または、これらの機能の技術的洗練が足りていない段階の可能性があるのかもしれない、と感じた。\n 記憶に残ったワード（カンファレンスに行った人ならわかる系の内輪ネタが多くて恐縮ですが）\n これから始める人に必要なもの　英語・根性 「お前disれるほどPhoenixを使ってんの？」 （PubSubのSupervisorTree見ながら）「どうです？かっこよくないです？」 効率よりも安全 Elixirは速くない Erlang in Anger Elixirﾁｮｯﾄﾃﾞｷﾙ人 1週間でElixirを完全に理解した  Erlang in Angerの話が多すぎて、これを機に日本語訳化が行われるかもしれないので、逆に今読むのは待ったほうが良いかも\n  HANDS ON ErlangElixirFestHandsOn\n github\n slide\n  Twitter  #elixirfestjp  "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/study/fastly-varnish/",
+	"title": "what is fastly and varnish",
+	"tags": [],
+	"description": "",
+	"content": " 目的 CDN周りで\n fastly varnish  の単語をよく聞くようになったが、概念レベルにてきちんと理解をしておくための学習履歴メモ\nVarnish  Fastlyのコア機能としてVarnishを使用している  Varnishとは？\n\u0026gt; Varnish is an HTTP accelerator designed for content-heavy dynamic web sites as well as APIs https://en.wikipedia.org/wiki/Varnish_(software) \u0026gt; HTTP accelerator \u0026gt;\u0026gt; A web accelerator is a proxy server that reduces web site access time. https://en.wikipedia.org/wiki/Web_accelerator \u0026gt; Varnish is a caching HTTP reverse proxy. https://varnish-cache.org/docs/trunk/tutorial/introduction.html  つまり、 - 動的大規模コンテンツサイト／API向けのリバースプロキシサーバ - モダンなアーキテクチャを持ちつつパフォーマンスが意識された設計 - OSS\nFastly Fastly社は既知の概念ではCDN業者だが、CDN業者として今まで出来なかったことをやってやる。ってスタンスみたい。\n Fastlyは便宜上CDNというくくりのサービスということにしていますが、「これまでのCDNができなかったことをやろう」というのが既存のCDNと発想が大きく異なるところです。\n だからなのか、wikiも\n Fastly, Inc. is an American cloud computing services provider.\n となってる\n特徴  インスタント・パージとログのストリーミングができるという点、そして「Varnish」のVCL（Varnish Configuration Language）を使った配信設定のカスタマイズ性の高さですね。この3つが最大の特徴だと考えています。\n  instant purge\n キャッシュを即時に削除 従来のCDNではキャッシュ削除に時間を要していたが、マイクロ秒単位で実現可能 従来では動的コンテンツをキャッシュ化してもコンテンツ更新後にキャッシュの更新に時間がかかっていたが、instant purgeにより、動的コンテンツをキャッシュ化する選択肢が生まれる  VCL(Varnish Control Language)\n 設定をDSLで制御 Fastlyの根幹基盤にてVarnishを使用 VCLを使用することでC言語ライクの記述で柔軟な設定が可能  ただ、細く設定が行える分、深みまで行うと管理が難しいみたい \u0026gt; そんな感じで「VCL最高じゃん」ってなるんですけど、実際の開発はつらくて、なんかもう状態遷移がめちゃくちゃ複雑なんですね。 \u0026gt; ..フローが難しく.. \u0026gt; ..変数が限定的にしか使えない.. \u0026gt; ..リクエストのレスポンスも本体のほうは見ることができなかった.. \u0026gt; ..for文がないのでループできない..   Realtime Log Streaming\n アクセスログを瞬時に取得することができるため、リアルタイムでの傾向分析、障害把握が可能   まとめ  Fastlyは先進的な機能を数多く有しており技術的優位が高い Fastlyのコア機能となるのがVarnish基盤であるが、OSSであるためFastly経由ではなく自社／自身で導入することも可能  ただ、その分自分達ですべて実装するので当たり前だが技術難易度が高い（日経の記事でFastlyを使用しても？したから？大変だった旨が書かれてる）\nどちらにしても、仕事を利用する際は最初からVarnish-cacheで自前ですべて作らずに、Fastlyのサービスを利用して慣れてきてからのほうが良さそう。\nただ、Varnish自体はOSSだし、Fastlyも無料枠があるので、ガンガンtryできる環境はある\nReference  Fastly BLog - The benefits of using Varnish-  爆速サイトだけではない！Fastlyの中の人に聞く！エッジクラウドとしてのFastly活用法（前編） 爆速サイトだけではない！エッジクラウドとしてのFastly活用法（後編） CDNを使って表示速度を2倍に　日経電子版リニューアルの舞台裏  "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/tags/agent/",
+	"title": "Agent",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/tags/binary-pattern-match/",
+	"title": "Binary Pattern Match",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/tags/build-in/",
+	"title": "Build In",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/tags/commands/",
+	"title": "Commands",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/tags/debug/",
+	"title": "Debug",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/tags/ecto/",
+	"title": "Ecto",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/tags/elixir/",
+	"title": "Elixir",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/categories/elixir/",
+	"title": "Elixir",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/tags/exunit/",
+	"title": "Exunit",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/tags/genserver/",
+	"title": "Genserver",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/tags/genstage/",
+	"title": "Genstage",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/tags/iex/",
+	"title": "Iex",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/tags/keywordlist/",
+	"title": "Keywordlist",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/tags/map/",
+	"title": "Map",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/tags/mix/",
+	"title": "Mix",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/tags/pattern-match/",
+	"title": "Pattern Match",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/tags/phoenix/",
+	"title": "Phoenix",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/tags/task/",
+	"title": "Task",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/tags/test/",
+	"title": "Test",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/tags/til/",
+	"title": "Til",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/categories/til/",
+	"title": "Til",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/tags/typespecs/",
+	"title": "Typespecs",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

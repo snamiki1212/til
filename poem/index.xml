@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Poems on Today I Learned</title>
+    <title>Poem on Today I Learned</title>
     <link>https://snamiki1212.github.io/til/poem/</link>
-    <description>Recent content in Poems on Today I Learned</description>
+    <description>Recent content in Poem on Today I Learned</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Mon, 01 Jan 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://snamiki1212.github.io/til/poem/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title></title>
+      <title>How to study</title>
       <link>https://snamiki1212.github.io/til/poem/how-to-study/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://snamiki1212.github.io/til/poem/how-to-study/</guid>
       <description>エンジニアの能力と今どきの難しさを読んで思ったこと 概要 知識範囲を３つに分類してる  上 ↑ 実行環境：実践的知識 … ｜カテゴリ：概念的知識 下 ↓ ベース　：基礎的知識  上のレイヤは実践的だが、移り変わりが早い（キャッチアップコストが高い）

@@ -1,30 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Studies on Today I Learned</title>
+    <title>Study on Today I Learned</title>
     <link>https://snamiki1212.github.io/til/study/</link>
-    <description>Recent content in Studies on Today I Learned</description>
+    <description>Recent content in Study on Today I Learned</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Mon, 01 Jan 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://snamiki1212.github.io/til/study/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title></title>
-      <link>https://snamiki1212.github.io/til/study/circuit-breaker-pattern/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://snamiki1212.github.io/til/study/circuit-breaker-pattern/</guid>
-      <description> Circuit Breaker Design Pattern  サーキット・ブレーカーという発想のベースにあるアイデアはとてもシンプルです。 プロテクテッドなコール関数をサーキット・ブレーカー・オブジェクトにラップし、そのオブジェクトがコールの結果をモニタリングするのです。
-サーキットブレイカーで設定している閾値に達してしまうと、サーキットブレイカーは自身の処理を切り替え（これをトリップというらしい
- Implementetion  phoenix/ectoを使っていればtimeoutはconfigで設定されているので、わざわざ実装を行う必要がない？ （また、他の現代WAFなら大抵上記は設定されているので、同上？） WAFを使用しないスクラッチでのDBへのアクセスなどでは上記を利用することを想定しないといけない？  Referencew Circuit breaker  &amp;ldquo;CircuitBreaker&amp;rdquo; - Martin Fowler &amp;ldquo;CircuitBreaker&amp;rdquo; - 日本語訳 サーキットブレイカーパターン：連続して起こる同様の障害への対応策  to use elixir  Automated Fault Tolerance using the Circuit Breaker Pattern  </description>
-    </item>
-    
-    <item>
-      <title></title>
+      <title>CQRS</title>
       <link>https://snamiki1212.github.io/til/study/cqrs/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://snamiki1212.github.io/til/study/cqrs/</guid>
       <description>CQRS CQRSとイベントソーシングの使用法、または「CRUDに何か問題でも？」を呼んだ結果をまとめ
@@ -40,24 +30,59 @@ RESTでいうと、コマンドはPUTやPOSTに対応し、クエリはGETに対
     </item>
     
     <item>
-      <title></title>
-      <link>https://snamiki1212.github.io/til/study/fastly-varnish/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Circuit Breaker Design Pattern</title>
+      <link>https://snamiki1212.github.io/til/study/circuit-breaker-pattern/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://snamiki1212.github.io/til/study/fastly-varnish/</guid>
-      <description>目的 CDN周りで
- fastly varnish  の単語をよく聞くようになったが、概念レベルにてきちんと理解をしておくための学習履歴メモ
-Varnish  Fastlyのコア機能としてVarnishを使用している  Varnishとは？
-&amp;gt; Varnish is an HTTP accelerator designed for content-heavy dynamic web sites as well as APIs https://en.wikipedia.org/wiki/Varnish_(software) &amp;gt; HTTP accelerator &amp;gt;&amp;gt; A web accelerator is a proxy server that reduces web site access time. https://en.wikipedia.org/wiki/Web_accelerator &amp;gt; Varnish is a caching HTTP reverse proxy. https://varnish-cache.org/docs/trunk/tutorial/introduction.html  つまり、 - 動的大規模コンテンツサイト／API向けのリバースプロキシサーバ - モダンなアーキテクチャを持ちつつパフォーマンスが意識された設計 - OSS
-Fastly Fastly社は既知の概念ではCDN業者だが、CDN業者として今まで出来なかったことをやってやる。ってスタンスみたい。
- Fastlyは便宜上CDNというくくりのサービスということにしていますが、「これまでのCDNができなかったことをやろう」というのが既存のCDNと発想が大きく異なるところです。
- だからなのか、wikiも</description>
+      <guid>https://snamiki1212.github.io/til/study/circuit-breaker-pattern/</guid>
+      <description> Circuit Breaker Design Pattern  サーキット・ブレーカーという発想のベースにあるアイデアはとてもシンプルです。 プロテクテッドなコール関数をサーキット・ブレーカー・オブジェクトにラップし、そのオブジェクトがコールの結果をモニタリングするのです。
+サーキットブレイカーで設定している閾値に達してしまうと、サーキットブレイカーは自身の処理を切り替え（これをトリップというらしい
+ Implementetion  phoenix/ectoを使っていればtimeoutはconfigで設定されているので、わざわざ実装を行う必要がない？ （また、他の現代WAFなら大抵上記は設定されているので、同上？） WAFを使用しないスクラッチでのDBへのアクセスなどでは上記を利用することを想定しないといけない？  Referencew Circuit breaker  &amp;ldquo;CircuitBreaker&amp;rdquo; - Martin Fowler &amp;ldquo;CircuitBreaker&amp;rdquo; - 日本語訳 サーキットブレイカーパターン：連続して起こる同様の障害への対応策  to use elixir  Automated Fault Tolerance using the Circuit Breaker Pattern  </description>
     </item>
     
     <item>
-      <title></title>
+      <title>[翻訳]EMPEX NYC Conference 2018 (Elixir/Erlang/BEAM): Keynote(Dave Thomas)</title>
+      <link>https://snamiki1212.github.io/til/study/elixir-empex-nyc-conf-2018-dave_thomas/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/study/elixir-empex-nyc-conf-2018-dave_thomas/</guid>
+      <description>[翻訳]EMPEX NYC Conference 2018 (Elixir/Erlang/BEAM): Keynote(Dave Thomas) 下記動画の内容のメモと所感
+ (VIDEO)EMPEX NYC Conference 2018 - Dave Thomas  Attention 英語とElixirの学習用メモなため、解釈に誤りがある可能性があります。
+この内容は参考程度に押さえて基本的に動画を参照してください。
+TL; DR 現状のElixir/Phoenixのアーキテクチャに対しての下記の発表となる。
+ 問題提議
+ その解決方法の提案
+  解決方法は下記の通りの提案となる
+ 考え方：Component Structure 実装：Component / Noddy(発表内にて開発中と言及。2018/6/3時点で未公開)  Content Problem 知っての通りElixir/PhoenixはErlangとRailsを元に作成されている。
+ただ、いくつかの良くないところも継承してしまっているのが現状だ。
+Naming Application Applicationという名称だが、Erlangからこの名称は持ってきたが失敗だ。
+様々な意味を包括していて結局は何を指しているかがわかりにくい
+Dupplication Configuration コンフィグを他のApplicationにも持たせなければならない。
+上記の例で述べるとPaymentMakerのコンフィグをAppOne/AppTwoに持たせないとならない。
+もちろん行いたいのはPaymentMakerにのみコンフィグを持つことだ。
+Dog food GenServer GenServerの実装は１つのModuleに３つの内容を含んでいる
+ API Server Implementation  わかりにくい。俗に言うdog food、つまりゴチャ混ぜなコードだ。
+14:36
+Bad Directory Design 左がRailsで右がPhoenixだ。
+ほぼ同じ構成になっている。ただ、なんでlib？
+wooble.exなんて大抵のprojectではhello worldが書いてあるだけなんじゃないか？</description>
+    </item>
+    
+    <item>
+      <title>about datatime</title>
+      <link>https://snamiki1212.github.io/til/study/str-to-datetime/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/study/str-to-datetime/</guid>
+      <description> 基礎前提知識  例として日本の10:00にDateTimeを表示すると  標準時間：UTC: 2018/06/06T01:00:00+00:00 日本時間：JST: 2018/06/06T10:00:00+09:00   Tips stringからDateTime型などに変換する際に大抵UTCとして変換される。
+なので、stringの時点でTimezoneをstirngで追記しておくと出来上がったデータもJSTとして生成される
+datetime_str = &amp;quot;2018-06-06 10:00:00&amp;quot; {:ok, datetime_ust} = Timex.parse(datetime_str , &amp;quot;{ISO:Extended:Z}&amp;quot;) {:ok, datetime_jst} = Timex.parse(datetime_str &amp;lt;&amp;gt; &amp;quot;+09:00&amp;quot;, &amp;quot;{ISO:Extended:Z}&amp;quot;) datetime_ust # ~N[2018-06-06 10:00:00] # 型がjst/ustで違うけど、重要なのは、timezoneが含まれているか　datetime_jst # #&amp;lt;DateTime(2018-06-06T10:00:00+09:00 Etc/GMT-9)&amp;gt;  Reference  https://hexdocs.pm/timex/basic-usage.html#content  </description>
+    </item>
+    
+    <item>
+      <title>how to read en doc</title>
       <link>https://snamiki1212.github.io/til/study/host-to-read-english-doc/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://snamiki1212.github.io/til/study/host-to-read-english-doc/</guid>
       <description> 読む速度や能力向上にフォーカスした自分の方法論を整理
@@ -68,14 +93,18 @@ Speak 発音があやふやなものがあるたびに、選択して翻訳す�
     </item>
     
     <item>
-      <title></title>
-      <link>https://snamiki1212.github.io/til/study/str-to-datetime/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>what is fastly and varnish</title>
+      <link>https://snamiki1212.github.io/til/study/fastly-varnish/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://snamiki1212.github.io/til/study/str-to-datetime/</guid>
-      <description> 基礎前提知識  例として日本の10:00にDateTimeを表示すると  標準時間：UTC: 2018/06/06T01:00:00+00:00 日本時間：JST: 2018/06/06T10:00:00+09:00   Tips stringからDateTime型などに変換する際に大抵UTCとして変換される。
-なので、stringの時点でTimezoneをstirngで追記しておくと出来上がったデータもJSTとして生成される
-datetime_str = &amp;quot;2018-06-06 10:00:00&amp;quot; {:ok, datetime_ust} = Timex.parse(datetime_str , &amp;quot;{ISO:Extended:Z}&amp;quot;) {:ok, datetime_jst} = Timex.parse(datetime_str &amp;lt;&amp;gt; &amp;quot;+09:00&amp;quot;, &amp;quot;{ISO:Extended:Z}&amp;quot;) datetime_ust # ~N[2018-06-06 10:00:00] # 型がjst/ustで違うけど、重要なのは、timezoneが含まれているか　datetime_jst # #&amp;lt;DateTime(2018-06-06T10:00:00+09:00 Etc/GMT-9)&amp;gt;  Reference  https://hexdocs.pm/timex/basic-usage.html#content  </description>
+      <guid>https://snamiki1212.github.io/til/study/fastly-varnish/</guid>
+      <description>目的 CDN周りで
+ fastly varnish  の単語をよく聞くようになったが、概念レベルにてきちんと理解をしておくための学習履歴メモ
+Varnish  Fastlyのコア機能としてVarnishを使用している  Varnishとは？
+&amp;gt; Varnish is an HTTP accelerator designed for content-heavy dynamic web sites as well as APIs https://en.wikipedia.org/wiki/Varnish_(software) &amp;gt; HTTP accelerator &amp;gt;&amp;gt; A web accelerator is a proxy server that reduces web site access time. https://en.wikipedia.org/wiki/Web_accelerator &amp;gt; Varnish is a caching HTTP reverse proxy. https://varnish-cache.org/docs/trunk/tutorial/introduction.html  つまり、 - 動的大規模コンテンツサイト／API向けのリバースプロキシサーバ - モダンなアーキテクチャを持ちつつパフォーマンスが意識された設計 - OSS
+Fastly Fastly社は既知の概念ではCDN業者だが、CDN業者として今まで出来なかったことをやってやる。ってスタンスみたい。
+ Fastlyは便宜上CDNというくくりのサービスということにしていますが、「これまでのCDNができなかったことをやろう」というのが既存のCDNと発想が大きく異なるところです。
+ だからなのか、wikiも</description>
     </item>
     
   </channel>

@@ -1,266 +1,1485 @@
 <!DOCTYPE html>
-<html lang="en-us">
-    <head>
-         
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Elixir</title>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Hugo 0.42.1" />
+    <meta name="description" content="">
+
+
+    <link rel="shortcut icon" href="/til/images/favicon.png" type="image/x-icon" />
+<link rel="icon" href="/til/images/favicon.png" type="image/x-icon" />
+    <title>Elixir :: Today I Learned</title>
+    
+    
+    <link href="/til/css/nucleus.css?1531553104" rel="stylesheet">
+    <link href="/til/css/font-awesome.min.css?1531553104" rel="stylesheet">
+    <link href="/til/css/hybrid.css?1531553104" rel="stylesheet">
+    <link href="/til/css/featherlight.min.css?1531553104" rel="stylesheet">
+    <link href="/til/css/perfect-scrollbar.min.css?1531553104" rel="stylesheet">
+    <link href="/til/css/auto-complete.css?1531553104" rel="stylesheet">
+    <link href="/til/css/theme.css?1531553104" rel="stylesheet">
+    <link href="/til/css/hugo-theme.css?1531553104" rel="stylesheet">
+    
+
+    <script src="/til/js/jquery-2.x.min.js?1531553104"></script>
+    
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left{ 
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/til/tags/elixir/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="http://getgrav.org">
+  <svg id="grav-logo" width="100%" height="100%" viewBox="0 0 504 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <path d="M235.832,71.564l-7.98,-0.001c-1.213,0.001 -2.197,0.987 -2.197,2.204l0,15.327l-0.158,0.132c-4.696,3.962 -10.634,6.14 -16.719,6.14c-14.356,0 -26.034,-11.68 -26.034,-26.037c0,-14.358 11.678,-26.035 26.034,-26.035c5.582,0 10.919,1.767 15.437,5.113c0.877,0.649 2.093,0.56 2.866,-0.211l5.69,-5.69c0.444,-0.442 0.675,-1.055 0.639,-1.681c-0.034,-0.627 -0.336,-1.206 -0.828,-1.597c-6.76,-5.363 -15.214,-8.314 -23.805,-8.314c-21.18,0 -38.414,17.233 -38.414,38.415c0,21.183 17.234,38.415 38.414,38.415c10.937,0 21.397,-4.705 28.698,-12.914c0.358,-0.403 0.556,-0.921 0.556,-1.46l0,-19.603c0,-1.217 -0.985,-2.203 -2.2,-2.203"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M502.794,34.445c-0.408,-0.616 -1.1,-0.989 -1.838,-0.989l-8.684,0c-0.879,0 -1.673,0.522 -2.022,1.329l-24.483,56.839l-24.92,-56.852c-0.352,-0.799 -1.142,-1.316 -2.012,-1.316l-8.713,0c-0.744,0 -1.44,0.373 -1.843,0.995c-0.408,0.623 -0.476,1.408 -0.174,2.09l30.186,68.858c0.352,0.799 1.143,1.317 2.017,1.317l10.992,0c0.879,0 1.673,-0.527 2.021,-1.329l29.655,-68.861c0.289,-0.68 0.222,-1.461 -0.182,-2.081"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M388.683,34.772c-0.353,-0.798 -1.142,-1.316 -2.017,-1.316l-10.988,0c-0.879,0 -1.673,0.522 -2.021,1.329l-29.655,68.861c-0.294,0.675 -0.226,1.46 0.182,2.077c0.407,0.619 1.096,0.993 1.838,0.993l8.684,0c0.879,0 1.673,-0.526 2.022,-1.329l24.478,-56.842l24.92,56.854c0.353,0.798 1.143,1.317 2.013,1.317l8.717,0c0.744,0 1.44,-0.374 1.843,-0.993c0.408,-0.624 0.471,-1.41 0.174,-2.094l-30.19,-68.857Z"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M309.196,81.525l0.476,-0.229c8.675,-4.191 14.279,-13.087 14.279,-22.667c0,-13.881 -11.295,-25.174 -25.176,-25.174l-31.863,0c-1.214,0 -2.199,0.988 -2.199,2.202l0,68.855c0,1.219 0.985,2.204 2.199,2.204l7.979,0c1.214,0 2.2,-0.985 2.2,-2.204l0,-58.679l21.684,0c7.059,0 12.799,5.739 12.799,12.796c0,5.885 -3.996,10.989 -9.728,12.408c-1.032,0.261 -2.064,0.393 -3.071,0.393l-7.977,0c-0.829,0 -1.585,0.467 -1.959,1.205c-0.378,0.74 -0.305,1.625 0.187,2.296l22.62,30.884c0.412,0.566 1.07,0.901 1.771,0.901l9.915,0c0.827,0 1.587,-0.467 1.96,-1.207c0.378,-0.742 0.302,-1.629 -0.186,-2.296l-15.91,-21.688Z"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M107.191,80.969c-7.255,-4.794 -11.4,-8.845 -15.011,-16.109c-2.47,4.977 -8.236,12.376 -17.962,18.198c-4.856,15.106 -27.954,44.015 -35.43,39.916c-2.213,-1.212 -2.633,-2.808 -2.133,-4.456c0.536,-4.129 9.078,-13.62 9.078,-13.62c0,0 0.18,1.992 2.913,6.187c-3.609,-11.205 5.965,-25.031 8.5,-29.738c3.985,-1.269 4.274,-6.387 4.274,-6.387c0.255,-7.909 -3.278,-13.635 -6.701,-17.059c2.459,3.002 3.255,7.539 3.372,11.694l0,0.023c0.012,0.469 0.012,0.93 0.011,1.39c-0.117,3.439 -1.157,8.19 -3.383,8.19l0.006,0.03c-2.289,-0.098 -5.115,0.391 -7.639,1.18l-5.582,1.334c0,0 2.977,-0.136 4.584,1.252c-1.79,2.915 -5.769,6.533 -10.206,8.588c-6.457,2.995 -8.312,-2.964 -5.034,-6.838c0.805,-0.946 1.618,-1.745 2.387,-2.399c-0.495,-0.513 -0.807,-1.198 -0.889,-2.068c-0.001,-0.005 -0.004,-0.009 -0.005,-0.013c-0.45,-1.977 -0.202,-4.543 2.596,-8.623c0.551,-0.863 1.214,-1.748 2.007,-2.647c0.025,-0.031 0.046,-0.059 0.072,-0.089c0.034,-0.042 0.072,-0.08 0.108,-0.121c0.02,-0.023 0.039,-0.045 0.059,-0.068c0.2,-0.228 0.413,-0.45 0.639,-0.663c3.334,-3.414 8.599,-6.966 16.897,-10.152c9.675,-14.223 13.219,-16.89 13.219,-16.89c1.071,-1.096 2.943,-2.458 3.632,-2.805c-5.053,-8.781 -6.074,-21.158 -4.75,-24.493c-0.107,0.18 -0.206,0.365 -0.287,0.556c0.49,-1.143 0.819,-1.509 1.328,-2.111c1.381,-1.632 6.058,-2.488 7.737,0.971c0.895,1.844 1.063,4.232 1.034,6.023c-3.704,-0.193 -7.063,4.036 -7.063,4.036c0,0 3.067,-1.448 6.879,-1.473c0,0 1.015,0.883 2.283,2.542c-1.712,3.213 -4.524,10.021 -2.488,17.168c0.338,1.408 0.849,2.619 1.483,3.648c0.024,0.045 0.044,0.089 0.069,0.135c0.051,0.066 0.096,0.122 0.144,0.183c3.368,5.072 9.542,5.665 9.542,5.665c-2.906,-1.45 -5.274,-3.76 -6.816,-6.56c-0.8,-1.498 -1.291,-2.762 -1.592,-3.761c-1.636,-6.313 0.771,-9.999 2.149,-12.471c3.17,-4.917 8.944,-7.893 15.151,-7.185c8.712,0.995 14.968,8.862 13.973,17.571c-0.608,5.321 -3.781,9.723 -8.142,12.117c1.049,2.839 -0.073,6.28 -0.073,6.28c2.642,3.323 2.758,5.238 2.667,7.017c-3.357,-0.565 -6.618,1.701 -6.618,1.701c0,0 6.476,-1.546 10.238,1.81c2.446,2.631 4.078,5.009 5.051,6.766c1.393,2.505 7.859,2.683 7.123,7.188c-0.737,4.499 -5.669,4.542 -13.401,-0.56M69.571,0c-38.424,0 -69.571,31.148 -69.571,69.567c0,38.422 31.147,69.573 69.571,69.573c38.42,0 69.568,-31.151 69.568,-69.573c0,-38.42 -31.148,-69.567 -69.568,-69.567"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M73.796,51.693c0.813,-0.814 0.813,-2.134 0,-2.947c-0.815,-0.814 -2.133,-0.814 -2.947,0c-0.815,0.813 -0.815,2.133 0,2.947c0.814,0.813 2.132,0.813 2.947,0" style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M66.445,53.149c-0.814,0.813 -0.814,2.133 0,2.947c0.813,0.814 2.133,0.814 2.947,0c0.813,-0.814 0.813,-2.134 0,-2.947c-0.814,-0.813 -2.134,-0.813 -2.947,0" style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M79.231,54.233c-1.274,-1.274 -3.339,-1.272 -4.611,0l-2.713,2.712c-1.274,1.275 -1.274,3.339 0,4.612l2.978,2.978c1.274,1.275 3.338,1.274 4.611,0l2.712,-2.712c1.274,-1.274 1.274,-3.339 0,-4.612l-2.977,-2.978Z" style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M95.759,41.445c-2.151,-2.578 1.869,-7.257 4.391,-4.463c4.645,5.148 -2.237,7.041 -4.391,4.463M105.004,44.132c3.442,-6.553 -1.427,-10.381 -4.773,-13.523c-5.36,-5.039 -10.706,-7.217 -16.811,-0.241c-6.102,6.977 -2.226,15.068 3.356,19.061c5.584,3.994 14.782,1.255 18.228,-5.297"
+      style="fill:#000;fill-rule:nonzero;"></path>
+  </svg>
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fa fa-search"></i></label>
+    <input data-search-input id="search-by" type="text" placeholder="Search...">
+    <span data-search-clear=""><i class="fa fa-close"></i></span>
+</div>
+
+<script type="text/javascript" src="/til/js/lunr.min.js?1531553104"></script>
+<script type="text/javascript" src="/til/js/auto-complete.js?1531553104"></script>
+<script type="text/javascript">
+    
+        var baseurl = '\/til\/';
+    
+</script>
+<script type="text/javascript" src="/til/js/search.js?1531553104"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
         
-        <style>
-
-    html body {
-        font-family: 'Raleway', sans-serif;
-        background-color: white;
-    }
-
-    :root {
-        --accent: red;
-        --border-width:  5px ;
-    }
-
-</style>
+          
+          
 
 
-<link rel="stylesheet" href="https://snamiki1212.github.io/til/css/main.css">
+ 
+  
+    
+    <li data-nav-id="/til/elixir/" title="Elixir" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/til/elixir/">
+          Elixir
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
 
 
-
-
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-
-
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
-
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+  
+    
+      <li data-nav-id="/til/elixir/how-to-pattern-match-at-the-end-of-string/" title="How to pattern match at the end of string" class="dd-item ">
+        <a href="/til/elixir/how-to-pattern-match-at-the-end-of-string/">
+        How to pattern match at the end of string
+        
+        </a>
+    </li>
+     
+  
  
 
+            
+          
+            
+            
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scala.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/swift.min.js"></script> 
+ 
+  
+    
+      <li data-nav-id="/til/elixir/test/" title="test" class="dd-item ">
+        <a href="/til/elixir/test/">
+        test
+        
+        </a>
+    </li>
+     
+  
+ 
 
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/elixir/what-is-mix/" title="What is mix" class="dd-item ">
+        <a href="/til/elixir/what-is-mix/">
+        What is mix
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/elixir/typespecs/" title="typespecs" class="dd-item ">
+        <a href="/til/elixir/typespecs/">
+        typespecs
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/elixir/genstage/" title="What is GenStage" class="dd-item ">
+        <a href="/til/elixir/genstage/">
+        What is GenStage
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/elixir/why-need-to-use-tilde-with-ecto-query/" title="Why need to use tilde with ecto query" class="dd-item ">
+        <a href="/til/elixir/why-need-to-use-tilde-with-ecto-query/">
+        Why need to use tilde with ecto query
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/elixir/catch-msg-when-genserver-killed.md/" title="Catch msg when gen-server killed" class="dd-item ">
+        <a href="/til/elixir/catch-msg-when-genserver-killed.md/">
+        Catch msg when gen-server killed
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/elixir/how-to-get-may-map/" title="How to get map" class="dd-item ">
+        <a href="/til/elixir/how-to-get-may-map/">
+        How to get map
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/elixir/what-is-agent/" title="What is Agent" class="dd-item ">
+        <a href="/til/elixir/what-is-agent/">
+        What is Agent
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/elixir/task/" title="task" class="dd-item ">
+        <a href="/til/elixir/task/">
+        task
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/elixir/how-to-get-opt-as-keywordlist/" title="How to get opt as keywordlist" class="dd-item ">
+        <a href="/til/elixir/how-to-get-opt-as-keywordlist/">
+        How to get opt as keywordlist
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/elixir/iex-useful-commands/" title="iex useful commands" class="dd-item ">
+        <a href="/til/elixir/iex-useful-commands/">
+        iex useful commands
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/elixir/debug-tips/" title="Debug Tips" class="dd-item ">
+        <a href="/til/elixir/debug-tips/">
+        Debug Tips
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/til/poem/" title="Poem" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/til/poem/">
+          Poem
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/poem/how-to-study/" title="How to study" class="dd-item ">
+        <a href="/til/poem/how-to-study/">
+        How to study
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/til/study/" title="Study" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/til/study/">
+          Study
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/study/cqrs/" title="CQRS" class="dd-item ">
+        <a href="/til/study/cqrs/">
+        CQRS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/study/circuit-breaker-pattern/" title="Circuit Breaker Design Pattern" class="dd-item ">
+        <a href="/til/study/circuit-breaker-pattern/">
+        Circuit Breaker Design Pattern
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/study/elixir-empex-nyc-conf-2018-dave_thomas/" title="[翻訳]EMPEX NYC Conference 2018 (Elixir/Erlang/BEAM): Keynote(Dave Thomas)" class="dd-item ">
+        <a href="/til/study/elixir-empex-nyc-conf-2018-dave_thomas/">
+        [翻訳]EMPEX NYC Conference 2018 (Elixir/Erlang/BEAM): Keynote(Dave Thomas)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/study/str-to-datetime/" title="about datatime" class="dd-item ">
+        <a href="/til/study/str-to-datetime/">
+        about datatime
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/study/host-to-read-english-doc/" title="how to read en doc" class="dd-item ">
+        <a href="/til/study/host-to-read-english-doc/">
+        how to read en doc
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/study/fastly-varnish/" title="what is fastly and varnish" class="dd-item ">
+        <a href="/til/study/fastly-varnish/">
+        what is fastly and varnish
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/til/event/" title="Events" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/til/event/">
+          Events
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/til/event/erlang-elixir-fest-2018/" title="elixir-jp-fest2018" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/til/event/erlang-elixir-fest-2018/">
+          elixir-jp-fest2018
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/event/erlang-elixir-fest-2018/01_%E3%82%89%E3%81%8F%E3%82%89%E3%81%8F%E9%80%A3%E7%B5%A1%E7%B6%B2%E3%81%8C-elixir-%E3%81%A7%E3%83%AA%E3%82%A2%E3%83%AB%E3%82%BF%E3%82%A4%E3%83%A0%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%83%B3%E3%82%B0%E5%9F%BA%E7%9B%A4%E3%82%92%E5%88%B7%E6%96%B0%E3%81%97%E3%81%9F%E8%A9%B1/" title="01_「らくらく連絡網」が Elixir でリアルタイムメッセージング基盤を刷新した話" class="dd-item ">
+        <a href="/til/event/erlang-elixir-fest-2018/01_%E3%82%89%E3%81%8F%E3%82%89%E3%81%8F%E9%80%A3%E7%B5%A1%E7%B6%B2%E3%81%8C-elixir-%E3%81%A7%E3%83%AA%E3%82%A2%E3%83%AB%E3%82%BF%E3%82%A4%E3%83%A0%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%83%B3%E3%82%B0%E5%9F%BA%E7%9B%A4%E3%82%92%E5%88%B7%E6%96%B0%E3%81%97%E3%81%9F%E8%A9%B1/">
+        01_「らくらく連絡網」が Elixir でリアルタイムメッセージング基盤を刷新した話
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/event/erlang-elixir-fest-2018/02_%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AEerlang%E3%82%B5%E3%83%BC%E3%83%90%E9%96%8B%E7%99%BA%E3%81%A8%E9%81%8B%E7%94%A8/" title="02_初めてのErlangサーバ開発と運用" class="dd-item ">
+        <a href="/til/event/erlang-elixir-fest-2018/02_%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AEerlang%E3%82%B5%E3%83%BC%E3%83%90%E9%96%8B%E7%99%BA%E3%81%A8%E9%81%8B%E7%94%A8/">
+        02_初めてのErlangサーバ開発と運用
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/event/erlang-elixir-fest-2018/03_phoenix%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%EF%BC%91%E5%B9%B4%E9%96%93%E9%81%8B%E7%94%A8%E3%81%97%E3%81%A6%E5%88%86%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8/" title="03_Phoenixアプリケーションを１年間運用して分かったこと" class="dd-item ">
+        <a href="/til/event/erlang-elixir-fest-2018/03_phoenix%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%EF%BC%91%E5%B9%B4%E9%96%93%E9%81%8B%E7%94%A8%E3%81%97%E3%81%A6%E5%88%86%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8/">
+        03_Phoenixアプリケーションを１年間運用して分かったこと
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/event/erlang-elixir-fest-2018/04_from-python-to-elixir/" title="04_from-Python-to-Elixir" class="dd-item ">
+        <a href="/til/event/erlang-elixir-fest-2018/04_from-python-to-elixir/">
+        04_from-Python-to-Elixir
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/event/erlang-elixir-fest-2018/05_%E3%82%B9%E3%83%86%E3%83%BC%E3%83%88%E3%83%95%E3%83%AB%E3%81%A7%E5%A4%A7%E8%A6%8F%E6%A8%A1%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%AE%E3%81%82%E3%82%8Bsoft-realtime%E3%81%AA%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%82%92easy%E3%81%AB%E3%81%A4%E3%81%8F%E3%82%8B/" title="05_ステートフルで大規模アクセスのあるsoft-realtimeなゲームサーバーをeasyにつくる" class="dd-item ">
+        <a href="/til/event/erlang-elixir-fest-2018/05_%E3%82%B9%E3%83%86%E3%83%BC%E3%83%88%E3%83%95%E3%83%AB%E3%81%A7%E5%A4%A7%E8%A6%8F%E6%A8%A1%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%AE%E3%81%82%E3%82%8Bsoft-realtime%E3%81%AA%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%82%92easy%E3%81%AB%E3%81%A4%E3%81%8F%E3%82%8B/">
+        05_ステートフルで大規模アクセスのあるsoft-realtimeなゲームサーバーをeasyにつくる
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/event/erlang-elixir-fest-2018/06_channel%E5%85%88%E7%94%9F-pubsub%E3%81%8C%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99/" title="06_Channel先生-PubSubがしたいです" class="dd-item ">
+        <a href="/til/event/erlang-elixir-fest-2018/06_channel%E5%85%88%E7%94%9F-pubsub%E3%81%8C%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99/">
+        06_Channel先生-PubSubがしたいです
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/event/erlang-elixir-fest-2018/09_erlang%E4%BA%8B%E4%BE%8B%E7%B4%B9%E4%BB%8B-%E3%83%A1%E3%83%87%E3%82%A3%E3%82%A2%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%A0%E4%B8%AD%E7%B6%99%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0/" title="09_Erlang事例紹介-メディアストリーム中継システム" class="dd-item ">
+        <a href="/til/event/erlang-elixir-fest-2018/09_erlang%E4%BA%8B%E4%BE%8B%E7%B4%B9%E4%BB%8B-%E3%83%A1%E3%83%87%E3%82%A3%E3%82%A2%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%A0%E4%B8%AD%E7%B6%99%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0/">
+        09_Erlang事例紹介-メディアストリーム中継システム
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/event/erlang-elixir-fest-2018/99_erlangelixir%E3%81%8C%E4%BB%98%E3%81%8D%E3%81%A4%E3%81%91%E3%82%8B%E3%82%82%E3%81%AE/" title="99_Erlang／Elixirが付きつけるもの" class="dd-item ">
+        <a href="/til/event/erlang-elixir-fest-2018/99_erlangelixir%E3%81%8C%E4%BB%98%E3%81%8D%E3%81%A4%E3%81%91%E3%82%8B%E3%82%82%E3%81%AE/">
+        99_Erlang／Elixirが付きつけるもの
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/event/erlang-elixir-fest-2018/summary/" title="summary" class="dd-item ">
+        <a href="/til/event/erlang-elixir-fest-2018/summary/">
+        summary
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fa fa-heart"></i></a> from <a href="http://getgrav.org">Grav</a> and <a href="http://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fa fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                    
+          
+          
+            Elixir
+          
+           
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+
+        
+        <div id="body-inner">
+          
+            <h1>Elixir</h1>
+          
+
+        
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+        
+        
+            <a class="nav nav-next" href="/til/elixir/" title="Elixir" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/til/js/clipboard.min.js?1531553104"></script>
+    <script src="/til/js/perfect-scrollbar.min.js?1531553104"></script>
+    <script src="/til/js/perfect-scrollbar.jquery.min.js?1531553104"></script>
+    <script src="/til/js/jquery.sticky.js?1531553104"></script>
+    <script src="/til/js/featherlight.min.js?1531553104"></script>
+    <script src="/til/js/html5shiv-printshiv.min.js?1531553104"></script>
+    <script src="/til/js/highlight.pack.js?1531553104"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/til/js/modernizr.custom.71422.js?1531553104"></script>
+    <script src="/til/js/learn.js?1531553104"></script>
+    <script src="/til/js/hugo-learn.js?1531553104"></script>
 
-
-
-
-
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-
-<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.42.1" />
-        
-        <link href="https://snamiki1212.github.io/til/tags/elixir/index.xml" rel="alternate" type="application/rss+xml" title="Today I Learned" />
-        <link href="https://snamiki1212.github.io/til/tags/elixir/index.xml" rel="feed" type="application/rss+xml" title="Today I Learned" />
-        
-
-        
-    </head>
-
-    
-    
-    <script type="text/javascript" async
-      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    <link href="/til/mermaid/mermaid.css?1531553104" type="text/css" rel="stylesheet" />
+    <script src="/til/mermaid/mermaid.js?1531553104"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
     </script>
     
 
-    <body>
-         
-        <nav class="navbar navbar-default navbar-fixed-top">
-
-            <div class="container">
-
-                <div class="navbar-header">
-
-                    <a class="navbar-brand visible-xs" href="#">Elixir</a>
-
-                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                </div>
-
-                <div class="collapse navbar-collapse">
-
-                    
-                        <ul class="nav navbar-nav">
-                            
-                                <li><a href="/til/">Home</a></li>
-                            
-                                <li><a href="/til/elixir/">Elixir</a></li>
-                            
-                        </ul>
-                    
-
-                    
-                        <ul class="nav navbar-nav navbar-right">
-                            
-                                <li class="navbar-icon"><a href="mailto:snamiki1212@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
-                            
-                                <li class="navbar-icon"><a href="https://github.com/snamiki1212/"><i class="fa fa-github"></i></a></li>
-                            
-                                <li class="navbar-icon"><a href="https://twitter.com/snamiki1212/"><i class="fa fa-twitter"></i></a></li>
-                            
-                        </ul>
-                    
-
-                </div>
-
-            </div>
-
-        </nav>
-
-
-<main>
-
-    <h2>Elixir</h2>
-
-     <div class="item">
-
-    
-    
-    
-
-    
-    
-
-    <h4><a href="/til/elixir/how-to-pattern-match-at-the-end-of-string/">How to pattern match at the end of string</a></h4>
-    <h5>July 5, 2018</h5>
-    
-    <a href="https://snamiki1212.github.io/til/tags/til"><kbd class="item-tag">TIL</kbd></a>
-    
-    <a href="https://snamiki1212.github.io/til/tags/elixir"><kbd class="item-tag">Elixir</kbd></a>
-    
-    <a href="https://snamiki1212.github.io/til/tags/pattern-match"><kbd class="item-tag">pattern-match</kbd></a>
-    
-    <a href="https://snamiki1212.github.io/til/tags/binary-pattern-match"><kbd class="item-tag">binary-pattern-match</kbd></a>
-    
-
-</div>
-  <div class="item">
-
-    
-    
-    
-
-    
-    
-
-    <h4><a href="/til/elixir/test/">test</a></h4>
-    <h5>July 5, 2018</h5>
-    
-    <a href="https://snamiki1212.github.io/til/tags/til"><kbd class="item-tag">TIL</kbd></a>
-    
-    <a href="https://snamiki1212.github.io/til/tags/elixir"><kbd class="item-tag">Elixir</kbd></a>
-    
-    <a href="https://snamiki1212.github.io/til/tags/test"><kbd class="item-tag">Test</kbd></a>
-    
-    <a href="https://snamiki1212.github.io/til/tags/exunit"><kbd class="item-tag">ExUnit</kbd></a>
-    
-    <a href="https://snamiki1212.github.io/til/tags/phoenix"><kbd class="item-tag">Phoenix</kbd></a>
-    
-    <a href="https://snamiki1212.github.io/til/tags/ecto"><kbd class="item-tag">Ecto</kbd></a>
-    
-
-</div>
-  <div class="item">
-
-    
-    
-    
-
-    
-    
-
-    <h4><a href="/til/elixir/what-is-mix/">What is mix</a></h4>
-    <h5>July 4, 2018</h5>
-    
-    <a href="https://snamiki1212.github.io/til/tags/til"><kbd class="item-tag">TIL</kbd></a>
-    
-    <a href="https://snamiki1212.github.io/til/tags/elixir"><kbd class="item-tag">Elixir</kbd></a>
-    
-    <a href="https://snamiki1212.github.io/til/tags/mix"><kbd class="item-tag">mix</kbd></a>
-    
-
-</div>
-  <div class="item">
-
-    
-    
-    
-
-    
-    
-
-    <h4><a href="/til/elixir/typespecs/">typespecs</a></h4>
-    <h5>July 4, 2018</h5>
-    
-    <a href="https://snamiki1212.github.io/til/tags/til"><kbd class="item-tag">TIL</kbd></a>
-    
-    <a href="https://snamiki1212.github.io/til/tags/elixir"><kbd class="item-tag">Elixir</kbd></a>
-    
-    <a href="https://snamiki1212.github.io/til/tags/typespecs"><kbd class="item-tag">typespecs</kbd></a>
-    
-
-</div>
-  <div class="item">
-
-    
-    
-    
-
-    
-    
-
-    <h4><a href="/til/elixir/genstage/">What is GenStage</a></h4>
-    <h5>June 28, 2018</h5>
-    
-    <a href="https://snamiki1212.github.io/til/tags/til"><kbd class="item-tag">TIL</kbd></a>
-    
-    <a href="https://snamiki1212.github.io/til/tags/elixir"><kbd class="item-tag">Elixir</kbd></a>
-    
-    <a href="https://snamiki1212.github.io/til/tags/genstage"><kbd class="item-tag">GenStage</kbd></a>
-    
-
-</div>
- 
-
-</main>
-
-
-
-<div class="pages">
-
-     
-    <a class="icon pages-icon" href="/til/tags/elixir/page/2/" rel="next">
-        <i class="fa fa-arrow-right"></i>
-    </a>
-    
-
-</div>
-
-
-
-        <footer>
-
-            <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a></p>
-
-        </footer>
-       
-    </body>
-
+  </body>
 </html>
-
