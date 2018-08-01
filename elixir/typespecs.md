@@ -108,7 +108,7 @@ defmodule M3 do
 end
 ```
 
-## `type attribute(引数あり)`のtypespec
+### `type attribute(引数あり)`のtypespec
 
 - `type attribute`を実装した`Struct`を作成し、その`Struct`を`typespec`で定義
 - `Struct2`の構造体は決まっているが、実行される関数によって要素の型や使われる要素が変動するケースで利用できる。ただ、記載が複雑だし、ここまで厳格に書くことは少ないと思うし、そもそも、そのようなケースの場合は、やはり引数に要素を明示して厳格さを保つほうがベターだと思う。
