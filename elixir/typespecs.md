@@ -12,7 +12,7 @@ tags: [ "TIL", "Elixir", "typespecs"]
 
 - `@type <type name>`は型指定で使用する特殊な記法。慣習として、`<type name>`は`t`で記載されることが多い。
 
-  例) `@type t :: :dev | :stg | :pro`
+  - 例) `@type t :: :dev | :stg | :pro`
   
 - `typespec`は厳格さを保証してくれない。厳格にさせたい場合は`Dializer`などを使う必要がある。ただし、実行自体に時間がかかるようなので、プロジェクト規模やメンバ感で相談して導入検討を行うとよいと思う
 
