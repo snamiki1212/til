@@ -54,7 +54,7 @@ defmodule M do
 end
 ```
 
-### type attribute
+### `type attribute`による`typespec`
 
 - `type attribute`を使用して独自型を作成
 - 同一の`Module`に定義できるので手軽に記載できる
