@@ -4,7 +4,7 @@ last-mod: "2018-06-21"
 title: "gigalixir"
 slug: "gigalixir.md"
 categories: [ "TIL", "Elixir" ]
-tags: [ "TIL", "Elixir", "GenServer" "PaaS"]
+tags: [ "TIL", "Elixir", "GenServer", "PaaS"]
 ---
 
 #
