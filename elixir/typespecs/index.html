@@ -12,17 +12,17 @@
     <title>typespecs :: Today I Learned</title>
     
     
-    <link href="/til/css/nucleus.css?1531553104" rel="stylesheet">
-    <link href="/til/css/font-awesome.min.css?1531553104" rel="stylesheet">
-    <link href="/til/css/hybrid.css?1531553104" rel="stylesheet">
-    <link href="/til/css/featherlight.min.css?1531553104" rel="stylesheet">
-    <link href="/til/css/perfect-scrollbar.min.css?1531553104" rel="stylesheet">
-    <link href="/til/css/auto-complete.css?1531553104" rel="stylesheet">
-    <link href="/til/css/theme.css?1531553104" rel="stylesheet">
-    <link href="/til/css/hugo-theme.css?1531553104" rel="stylesheet">
+    <link href="/til/css/nucleus.css?1533126586" rel="stylesheet">
+    <link href="/til/css/font-awesome.min.css?1533126586" rel="stylesheet">
+    <link href="/til/css/hybrid.css?1533126586" rel="stylesheet">
+    <link href="/til/css/featherlight.min.css?1533126586" rel="stylesheet">
+    <link href="/til/css/perfect-scrollbar.min.css?1533126586" rel="stylesheet">
+    <link href="/til/css/auto-complete.css?1533126586" rel="stylesheet">
+    <link href="/til/css/theme.css?1533126586" rel="stylesheet">
+    <link href="/til/css/hugo-theme.css?1533126586" rel="stylesheet">
     
 
-    <script src="/til/js/jquery-2.x.min.js?1531553104"></script>
+    <script src="/til/js/jquery-2.x.min.js?1533126586"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -67,14 +67,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/til/js/lunr.min.js?1531553104"></script>
-<script type="text/javascript" src="/til/js/auto-complete.js?1531553104"></script>
+<script type="text/javascript" src="/til/js/lunr.min.js?1533126586"></script>
+<script type="text/javascript" src="/til/js/auto-complete.js?1533126586"></script>
 <script type="text/javascript">
     
         var baseurl = '\/til\/';
     
 </script>
-<script type="text/javascript" src="/til/js/search.js?1531553104"></script>
+<script type="text/javascript" src="/til/js/search.js?1533126586"></script>
 
     
   </div>
@@ -107,6 +107,44 @@
           
           
         
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/elixir/presence/" title="Presence" class="dd-item ">
+        <a href="/til/elixir/presence/">
+        Presence
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/elixir/ok-library/" title="OK elixir Library" class="dd-item ">
+        <a href="/til/elixir/ok-library/">
+        OK elixir Library
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
           
             
             
@@ -437,6 +475,63 @@
           
           
         
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/study/heroku-getting-started.md/" title="memo: Getting Started on Heroku with PHP" class="dd-item ">
+        <a href="/til/study/heroku-getting-started.md/">
+        memo: Getting Started on Heroku with PHP
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/study/memo-about-tour-of-go/" title="memo about A Tour of go" class="dd-item ">
+        <a href="/til/study/memo-about-tour-of-go/">
+        memo about A Tour of go
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/til/study/gigalixir.md/" title="gigalixir" class="dd-item ">
+        <a href="/til/study/gigalixir.md/">
+        gigalixir
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
           
             
             
@@ -858,7 +953,28 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#基本">基本</a>
+<ul>
+<li><a href="#map-typespec"><code>map</code> typespec</a></li>
+</ul></li>
+<li><a href="#よく使う">よく使う</a>
+<ul>
+<li><a href="#type-attribute-struct-による-typespec"><code>type attribute Struct</code>による<code>typespec</code></a></li>
+<li><a href="#type-attribute">type attribute</a></li>
+</ul></li>
+<li><a href="#あまり使わない">あまり使わない</a>
+<ul>
+<li><a href="#詳細-map-typespec">詳細<code>map</code> typespec</a></li>
+<li><a href="#struct-で定義したtypespec"><code>Struct</code>で定義したtypespec</a></li>
+</ul></li>
+<li><a href="#type-attribute-引数あり-のtypespec"><code>type attribute(引数あり)</code>のtypespec</a></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -876,10 +992,142 @@
         
 
 
+
+
+<p><a href="https://hexdocs.pm/elixir/typespecs.html#types-and-their-syntax">公式ドキュメント</a>や、コード見ていて知った型定義の方法をまとめ</p>
+
 <ul>
-<li>詳細は<a href="https://hexdocs.pm/elixir/typespecs.html#types-and-their-syntax">この公式ドキュメント</a>を参照</li>
-<li><a href="https://gist.github.com/snamiki1212/a3171cb8a0c4c667d30b27dfb308b448">厳格さ整理したgist</a></li>
+<li><code>@type &lt;type name&gt;</code>は型指定で使用する特殊な記法。慣習として、<code>&lt;type name&gt;</code>は<code>t</code>で記載されることが多い。</li>
 </ul>
+
+<p>例) <code>@type t :: :dev | :stg | :pro</code></p>
+
+<ul>
+<li><code>typespec</code>は厳格さを保証してくれない。厳格にさせたい場合は<code>Dializer</code>などを使う必要がある。ただし、実行自体に時間がかかるようなので、プロジェクト規模やメンバ感で相談して導入検討を行うとよいと思う</li>
+</ul>
+
+<h2 id="基本">基本</h2>
+
+<h3 id="map-typespec"><code>map</code> typespec</h3>
+
+<ul>
+<li><code>map</code>としてtypespec定義</li>
+<li>内部に何が入るかは、内部コードのロジックを追わないとわからない</li>
+</ul>
+
+<pre><code class="language-elixir">defmodule M1 do
+  @spec sum(map) :: integer
+  def sum(params) do
+    %{a: a, b: b} = params
+    a + b
+  end
+end
+</code></pre>
+
+<h2 id="よく使う">よく使う</h2>
+
+<h3 id="type-attribute-struct-による-typespec"><code>type attribute Struct</code>による<code>typespec</code></h3>
+
+<ul>
+<li><code>type attribute</code>を実装した<code>Struct</code>を作成し、その<code>Struct</code>を<code>typespec</code>で定義</li>
+<li><code>Struct</code>要素の型の責任を<code>Struct3</code>に持たせられる
+
+<ul>
+<li>他の関数でも使い回しが行いやすい</li>
+</ul></li>
+</ul>
+
+<pre><code class="language-elixir">defmodule Struct3 do
+  defstruct a: 999, b: 888
+  @type t :: %Struct3{a: integer, b: integer}   
+end
+
+defmodule M do
+  @spec sum(Struct3.t) :: integer
+  def sum(params) do
+    %{a: a, b: b} = params
+    a + b
+  end
+end
+</code></pre>
+
+<h3 id="type-attribute">type attribute</h3>
+
+<ul>
+<li><code>type attribute</code>を使用して独自型を作成</li>
+<li>同一の<code>Module</code>に定義できるので手軽に記載できる</li>
+</ul>
+
+<pre><code class="language-elixir">defmodule M5 do
+  @type type :: :sum | :diff
+
+  @spec calc(type, map) :: integer
+  def calc(type, %{a: a, b: b} = _maps) do
+    case type do
+      :sum -&gt;  a + b
+      :diff -&gt; a - b
+    end
+  end
+end
+</code></pre>
+
+<h2 id="あまり使わない">あまり使わない</h2>
+
+<h3 id="詳細-map-typespec">詳細<code>map</code> typespec</h3>
+
+<ul>
+<li>mapの内部構造をspecで定義</li>
+<li>cons：要素を<code>typespec</code>で定義するくらいなら、関数に直接定義したほうが厳格さも出せるので
+<br /></li>
+</ul>
+
+<pre><code class="language-elixir">defmodule M2 do
+  @spec sum(%{a: integer, b: integer}) :: integer
+  def sum(params) do
+    %{a: a, b: b} = params
+    a + b
+  end
+end
+</code></pre>
+
+<h3 id="struct-で定義したtypespec"><code>Struct</code>で定義したtypespec</h3>
+
+<ul>
+<li><code>Struct</code>を作成し、その<code>Struct</code>を<code>typespec</code>で定義</li>
+<li>cons：要素を記載しないといけないので、複数関数で使い回すことが出来ないので</li>
+</ul>
+
+<pre><code class="language-elixir">defmodule Struct3 do
+  defstruct [:a, :b]
+end
+defmodule M3 do
+  @spec sum(%Struct3{a: integer, b: integer}) :: integer
+  def sum(params) do
+    %{a: a, b: b} = params
+    a + b
+  end
+end
+</code></pre>
+
+<h2 id="type-attribute-引数あり-のtypespec"><code>type attribute(引数あり)</code>のtypespec</h2>
+
+<ul>
+<li><code>type attribute</code>を実装した<code>Struct</code>を作成し、その<code>Struct</code>を<code>typespec</code>で定義</li>
+<li><code>Struct2</code>の構造体は決まっているが、実行される関数によって要素の型や使われる要素が変動するケースで利用できる。ただ、記載が複雑だし、ここまで厳格に書くことは少ないと思うし、そもそも、そのようなケースの場合は、やはり引数に要素を明示して厳格さを保つほうがベターだと思う。</li>
+</ul>
+
+<pre><code class="language-elixir">defmodule Struct2 do
+  defstruct [:a, :b]
+  @type t(a, b) :: %Struct2{a: a, b: b}
+end
+defmodule M4 do
+  @spec sum(Struct2.t(integer, integer)) :: integer
+  def sum(params) do
+    %{a: a, b: b} = params
+    a + b
+  end
+end
+</code></pre>
 
 
 <footer class=" footline" >
@@ -983,6 +1231,38 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -1189,6 +1469,54 @@
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -1486,20 +1814,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/til/js/clipboard.min.js?1531553104"></script>
-    <script src="/til/js/perfect-scrollbar.min.js?1531553104"></script>
-    <script src="/til/js/perfect-scrollbar.jquery.min.js?1531553104"></script>
-    <script src="/til/js/jquery.sticky.js?1531553104"></script>
-    <script src="/til/js/featherlight.min.js?1531553104"></script>
-    <script src="/til/js/html5shiv-printshiv.min.js?1531553104"></script>
-    <script src="/til/js/highlight.pack.js?1531553104"></script>
+    <script src="/til/js/clipboard.min.js?1533126586"></script>
+    <script src="/til/js/perfect-scrollbar.min.js?1533126586"></script>
+    <script src="/til/js/perfect-scrollbar.jquery.min.js?1533126586"></script>
+    <script src="/til/js/jquery.sticky.js?1533126586"></script>
+    <script src="/til/js/featherlight.min.js?1533126586"></script>
+    <script src="/til/js/html5shiv-printshiv.min.js?1533126586"></script>
+    <script src="/til/js/highlight.pack.js?1533126586"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/til/js/modernizr.custom.71422.js?1531553104"></script>
-    <script src="/til/js/learn.js?1531553104"></script>
-    <script src="/til/js/hugo-learn.js?1531553104"></script>
+    <script src="/til/js/modernizr.custom.71422.js?1533126586"></script>
+    <script src="/til/js/learn.js?1533126586"></script>
+    <script src="/til/js/hugo-learn.js?1533126586"></script>
 
-    <link href="/til/mermaid/mermaid.css?1531553104" type="text/css" rel="stylesheet" />
-    <script src="/til/mermaid/mermaid.js?1531553104"></script>
+    <link href="/til/mermaid/mermaid.css?1533126586" type="text/css" rel="stylesheet" />
+    <script src="/til/mermaid/mermaid.js?1533126586"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

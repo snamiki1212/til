@@ -42,6 +42,34 @@
 	"content": "催し物\n"
 },
 {
+	"uri": "https://snamiki1212.github.io/til/elixir/presence/",
+	"title": "Presence",
+	"tags": ["TIL", "Elixir", "Presence"],
+	"description": "",
+	"content": " Phoenix - hex - doc - Phoenix.Presence behaviourを読んだ結果のまとめ  topic毎のpresence(出欠席＝join/leave)をリアルタイムに管理 実装の流れ\n Phoenix.PresenceをuseしたModuleを実装 MyAppのsupervisor-treeに登録して起動 MyChannelにてMyPresenceを実行(MyPresence経由でPhoenix.Presenceで用意されているfunctionを実行)   Reference  Phoenix - hex - doc - Phoenix.Presence behaviour\n  "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/study/heroku-getting-started.md/",
+	"title": "memo: Getting Started on Heroku with PHP",
+	"tags": ["TIL", "Heroku"],
+	"description": "",
+	"content": " Getting Started on Heroku with PHPを行った際のメモ\ndyno  heroku platform上で扱われるコンテナシステムの名称またはコンテナ自体を指す。 \u0026lt;~root_dir\u0026gt;/Procfileの値を元に構築される herokuコマンドで操作可能  heroku ps  deploy  gitを使ってデプロイする remote repositoryにherokuを登録する heroku remote repositoryにpushすることで、deployが行われる  # register heroku as remote repository heroku create # deploy git push heroku master # open page heroku open  ssh connect # heroku run \u0026lt;command\u0026gt; heroku run \u0026quot;php -a\u0026quot; heroku run bash  Env # localで定義の設定 heroku config:set TIMES=20 # 上記で定義したenvをdeploy heroku config  add-on  3rd-party service群 databaseの作成もadd-on内の仕組みで行う  その他 getting started tutorialのdependency項目で表示される結果確認ページがかわいい "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/elixir/ok-library/",
+	"title": "OK elixir Library",
+	"tags": ["TIL", "Elixir", "OK", "library"],
+	"description": "",
+	"content": " context ジョインしたプロジェクトにてOK - LibraryをラッピングしたModuleを使用してるので、機能理解のために調べた内容のメモを落としておく。\nwhats is ok library?  Elegant error/exception handling in Elixir, with result monads.\n  error/exceptionのハンドリング用のライブラリ result monadsを取り扱う  result monads とは、下記のことを指す。と考えておく。\n{:ok, value} | {:error, reason}  OK library の設計思想 このライブラリの設計思想について、Handling Errors in Elixir, No one say Monad.に書いてあるが、わかりやすいように、要約と適当にピックアップする\nすべての返り値はResult Monadで返すべきだ  Tempted to say all elixir funcs should return a result tuple.\n 「すべての関数の返り値をresult tuple (= result monads)で返すべきだ」という少しばかり極端な思想が元になっている。\nだが、この思想を実現するのが、OKライブラリになる。\n具体的には下記の様になる\n# 理想 case MyModule.flaky_method do {:ok, value} -\u0026gt; IO.puts \u0026quot;All good value was: #{value}.\u0026quot; {:error, reason} -\u0026gt; IO.puts \u0026quot;Uh oh! Failed due to #{reason}.\u0026quot; end  もちろん、IO.puts/1の返り値は:okなので、上記をiexとかで動かしてもパターンマッチでerrorとなる。 ひとまず、ゴールは「どのような関数を実行しても、result monad形式でreturnして処理をハンドリングする」ことだと考えるとわかりやすい。\nerror handling そもそも、error/exceptionのハンドリングの主要なやりかたは大きく分けて２つの方法がある。\n monad raise  わかりやすい例として、Poisonライブラリで例にとる。\nエンコード処理を行う関数encode はPoison.encode/1 / Poison.encode!/1の2つが用意されている。\n下記の通りとなる。\n# monad iex\u0026gt; case Poison.encode \u0026quot;asd\u0026quot; do ...\u0026gt; {:ok, value} -\u0026gt; value ...\u0026gt; {:error, value} -\u0026gt; value ...\u0026gt; end \u0026quot;\\\u0026quot;asd\\\u0026quot;\u0026quot; # 処理が失敗しても、raiseしないで結果はresult monad形式でreturnするので、その結果をpattern-matchなどで補足して処理を分岐する # raise iex\u0026gt; try do ...\u0026gt; Poison.encode! {1,2} ...\u0026gt; rescue ...\u0026gt; e -\u0026gt; IO.inspect \u0026quot;error happen!!\u0026quot; ...\u0026gt; end \u0026quot;error happen!!\u0026quot; # 処理が失敗したら、raiseするので、catch/rescueなどで補足して処理を分岐する  Elixirはfuncのreturnの形式をresult monadに強制することはなく、利用者にて好きな方を利用できるようなデザインが好まれる。\nHow to use OK Library \u0026hellip;ここに続き書く\n"
+},
+{
+	"uri": "https://snamiki1212.github.io/til/study/memo-about-tour-of-go/",
+	"title": "memo about A Tour of go",
+	"tags": [],
+	"description": "",
+	"content": "  A tour of goを呼んだ結果の雑なまとめ The Go Playground＝実行環境  Memo  package   名前空間のこと\n Exported name   最初の文字が大文字で始まる名前は、外部のパッケージから参照できるエクスポート（公開）された名前( exported name )です\n  function  func \u0026lt;func_name\u0026gt;(\u0026lt;arg_name\u0026gt; \u0026lt;arg_type\u0026gt;, ...) \u0026lt;return_type\u0026gt; { // ... } func add(atai1 int, atai2 int) int { return atai1 + atai2 }   Multiple results   関数は複数の戻り値を返すことができます。\n  Named return values   Goでの戻り値となる変数に名前をつける( named return value )ことができます。\n func split(sum int) (x, y int) { // ...   variables   var ステートメントは変数( variable )を宣言します。 関数の引数リストと同様に、複数の変数の最後に型を書くことで、変数のリストを宣言できます。\n ... var i int ...   Short variable declarations   関数の中では、 var 宣言の代わりに、短い := の代入文を使い、暗黙的な型宣言ができます。\n // 宣言していないが、int型で保存 k := 3 // intなら再代入可能 k = 4 // 型は変えられない k = \u0026quot;4\u0026quot; prog.go:8:6: cannot use \u0026quot;4\u0026quot; (type string) as type int in assignment   If with a short statement\nif \u0026lt;short-statement\u0026gt;; \u0026lt;if-condition\u0026gt; { // ... }  if v := math.Pow(x, n); v \u0026lt; lim { // ... }  switch\n   Go では選択された case だけを実行してそれに続く全ての case は実行されません。\n条件のないswitchは、 switch true と書くことと同じです。\n  defer    defer ステートメントは、 defer へ渡した関数の実行を、呼び出し元の関数の終わり(returnする)まで遅延させるものです。\ndefer へ渡した関数が複数ある場合、その呼び出しはスタック( stack )されます。 呼び出し元の関数がreturnするとき、 defer へ渡した関数は LIFO(last-in-first-out) の順番で実行されます。\n  Pointer    Goはポインタを扱います。 ポインタは値のメモリアドレスを指します。\n \u0026gt; \u0026amp; オペレータは、そのオペランド( operand )へのポインタを引き出します。 \u0026gt; * オペレータは、ポインタの指す先の変数を示します。   なお、C言語とは異なり、ポインタ演算はありません。\n  struct\n structのフィールドは、ドット( . )を用いてアクセスします。   // out function type Vertex struct { X int Y int }   Struct Literals   structリテラルは、フィールドの値を列挙することで新しいstructの初期値の割り当てを示しています。\n // out function var ( v1 = Vertex{1, 2} // has type Vertex v2 = Vertex{X: 1} // Y:0 is implicit v3 = Vertex{} // X:0 and Y:0 p = \u0026amp;Vertex{1, 2} // has type *Vertex )   Arrays  var a [10]int   配列のサイズを変えることはできません。\n  Slices\n 可変長    a[1:4]  最初は可変長の型のarrayだと考えておくとわかりやすい。実態は違うみたいだけど。\n スライスは配列への参照のようなものです。\nスライスは長さ( length )と容量( capacity )の両方を持っています。 スライス s の長さと容量は len(s) と cap(s) という式を使用して得ることができます。\n  Creating a slice with make\n スライスは、組み込みの make 関数を使用して作成することができます。 これは、動的サイズの配列を作成する方法です。\n   スライスは、他のスライスを含む任意の型を含むことができます。\n  Appending to a slice   スライスへ新しい要素を追加するには、Goの組み込みの append を使います。\n func append(s []T, vs ...T) []T // 最初のパラメータ s は、追加元となる T 型のスライスです。 残りの vs は、追加する T 型の変数群   Range   for ループに利用する range は、スライスや、マップ( map )をひとつずつ反復処理するために使います。\n var list = []string{\u0026quot;a\u0026quot;, \u0026quot;b\u0026quot;, \u0026quot;c\u0026quot;, \u0026quot;d\u0026quot;} for k, v := range list { // }   map\n 型    map はキーと値とを関連付けます(マップします)。\n  Map literals\nvar m = map[string]Vertex{ \u0026quot;Bell Labs\u0026quot;: Vertex{ 40.68433, -74.39967, },  syntax\n  // get elem = m[key] // delete delete(m, key) // exist? elem, ok = m[key] // もし、 m に key があれば、変数 ok は true となり、存在しなければ、 ok は false となります。   Function values   関数も変数です。他の変数のように関数を渡すことができます。 関数値( function value )は、関数の引数に取ることもできますし、戻り値としても利用できます。\n 次、Methodsから見る\n"
+},
+{
 	"uri": "https://snamiki1212.github.io/til/elixir/how-to-pattern-match-at-the-end-of-string/",
 	"title": "How to pattern match at the end of string",
 	"tags": ["TIL", "Elixir", "pattern-match", "binary-pattern-match"],
@@ -67,7 +95,7 @@
 	"title": "typespecs",
 	"tags": ["TIL", "Elixir", "typespecs"],
 	"description": "",
-	"content": " 詳細はこの公式ドキュメントを参照 厳格さ整理したgist  "
+	"content": " 公式ドキュメントや、コード見ていて知った型定義の方法をまとめ\n @type \u0026lt;type name\u0026gt;は型指定で使用する特殊な記法。慣習として、\u0026lt;type name\u0026gt;はtで記載されることが多い。  例) @type t :: :dev | :stg | :pro\n typespecは厳格さを保証してくれない。厳格にさせたい場合はDializerなどを使う必要がある。ただし、実行自体に時間がかかるようなので、プロジェクト規模やメンバ感で相談して導入検討を行うとよいと思う  基本 map typespec  mapとしてtypespec定義 内部に何が入るかは、内部コードのロジックを追わないとわからない  defmodule M1 do @spec sum(map) :: integer def sum(params) do %{a: a, b: b} = params a + b end end  よく使う type attribute Structによるtypespec  type attributeを実装したStructを作成し、そのStructをtypespecで定義 Struct要素の型の責任をStruct3に持たせられる  他の関数でも使い回しが行いやすい   defmodule Struct3 do defstruct a: 999, b: 888 @type t :: %Struct3{a: integer, b: integer} end defmodule M do @spec sum(Struct3.t) :: integer def sum(params) do %{a: a, b: b} = params a + b end end  type attribute  type attributeを使用して独自型を作成 同一のModuleに定義できるので手軽に記載できる  defmodule M5 do @type type :: :sum | :diff @spec calc(type, map) :: integer def calc(type, %{a: a, b: b} = _maps) do case type do :sum -\u0026gt; a + b :diff -\u0026gt; a - b end end end  あまり使わない 詳細map typespec  mapの内部構造をspecで定義 cons：要素をtypespecで定義するくらいなら、関数に直接定義したほうが厳格さも出せるので   defmodule M2 do @spec sum(%{a: integer, b: integer}) :: integer def sum(params) do %{a: a, b: b} = params a + b end end  Structで定義したtypespec  Structを作成し、そのStructをtypespecで定義 cons：要素を記載しないといけないので、複数関数で使い回すことが出来ないので  defmodule Struct3 do defstruct [:a, :b] end defmodule M3 do @spec sum(%Struct3{a: integer, b: integer}) :: integer def sum(params) do %{a: a, b: b} = params a + b end end  type attribute(引数あり)のtypespec  type attributeを実装したStructを作成し、そのStructをtypespecで定義 Struct2の構造体は決まっているが、実行される関数によって要素の型や使われる要素が変動するケースで利用できる。ただ、記載が複雑だし、ここまで厳格に書くことは少ないと思うし、そもそも、そのようなケースの場合は、やはり引数に要素を明示して厳格さを保つほうがベターだと思う。  defmodule Struct2 do defstruct [:a, :b] @type t(a, b) :: %Struct2{a: a, b: b} end defmodule M4 do @spec sum(Struct2.t(integer, integer)) :: integer def sum(params) do %{a: a, b: b} = params a + b end end  "
 },
 {
 	"uri": "https://snamiki1212.github.io/til/elixir/genstage/",
@@ -89,6 +117,13 @@
 	"tags": ["TIL", "Elixir", "GenServer"],
 	"description": "",
 	"content": " How to  SET TO SEND TERMINATE MESSAGE\n## GENSERVER def init() do ## ... Process.flag(:trap_exit, true) ## ... end  Kill PROCESS\n CATCH\ndef terminate(reason, state) do Logger.info(\u0026quot;#{inspect(__MODULE__)} \u0026gt;\u0026gt; terminate| reason: #{inspect(reason)} | state: #{inspect(state)}\u0026quot;) end   "
+},
+{
+	"uri": "https://snamiki1212.github.io/til/study/gigalixir.md/",
+	"title": "gigalixir",
+	"tags": ["TIL", "Elixir", "GenServer", "PaaS"],
+	"description": "",
+	"content": " # Gigalixirを使用した際のメモ\ngigalixirのファウンダーのJesse Shieh曰く、elixirのプロジェクトを本番稼働させるに当たった今まで多くのコストが掛かっていた分をアプリケーション開発に集中させたいという思いを元に作成したとのこと。\nちなみに、gigalixirを進めるケースについても、Phoenixの公式ドキュメントにも書いてある。\n導入 Getting startedが用意されているので、これ通りに進めれば基本的に問題ない。\n導入時のケース\n 新規プロジェクト\n新規プロジェクト用に提供されているrepositoryを使う。\nメリットとして、cloneすれば良いのでセットアップが一瞬で終わる。\nデメリットとして、プロジェクト名が*GettingStartedGigalixir*になってしまう。\n 既存プロジェクト\n既存のプロジェクトに対してセットアップを行っていく。\n  既存プロジェクトの際の手順も用意されている難しくないので、学習を兼ねて2がおすすめ。\n注意点 MySQLは対応外 gigalixirが提供しているdatabase as a serviceのはpostgresq一択でmysqlが対応していない。 もし、mysqlを使いたい場合は、 - gigalixirではないcloud service - sqlは外部servieを参照する という2択になる。\nRedisなどのキャッシュサービスは提供していない 理由は、「基本的にはElixirのAgent/ETSなどのオンキャッシュを使えばcache serviceは使用する必要がない」から、とのこと\nReference  Gigalixir Gigalixir Documentaion Gigalixir: Platform-as-a-Service designed just for Elixir/Phoenix - Elixir Chat - Elixir Forum Phoenix - hex - Deploying on Heroku  "
 },
 {
 	"uri": "https://snamiki1212.github.io/til/elixir/how-to-get-may-map/",
@@ -294,14 +329,14 @@
 	"content": ""
 },
 {
-	"uri": "https://snamiki1212.github.io/til/tags/elixir/",
+	"uri": "https://snamiki1212.github.io/til/categories/elixir/",
 	"title": "Elixir",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "https://snamiki1212.github.io/til/categories/elixir/",
+	"uri": "https://snamiki1212.github.io/til/tags/elixir/",
 	"title": "Elixir",
 	"tags": [],
 	"description": "",
@@ -329,6 +364,20 @@
 	"content": ""
 },
 {
+	"uri": "https://snamiki1212.github.io/til/categories/heroku/",
+	"title": "Heroku",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/tags/heroku/",
+	"title": "Heroku",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://snamiki1212.github.io/til/tags/iex/",
 	"title": "Iex",
 	"tags": [],
@@ -338,6 +387,13 @@
 {
 	"uri": "https://snamiki1212.github.io/til/tags/keywordlist/",
 	"title": "Keywordlist",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/tags/library/",
+	"title": "Library",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -357,6 +413,20 @@
 	"content": ""
 },
 {
+	"uri": "https://snamiki1212.github.io/til/tags/ok/",
+	"title": "Ok",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/tags/paas/",
+	"title": "Paas",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://snamiki1212.github.io/til/tags/pattern-match/",
 	"title": "Pattern Match",
 	"tags": [],
@@ -366,6 +436,13 @@
 {
 	"uri": "https://snamiki1212.github.io/til/tags/phoenix/",
 	"title": "Phoenix",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://snamiki1212.github.io/til/tags/presence/",
+	"title": "Presence",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -392,14 +469,14 @@
 	"content": ""
 },
 {
-	"uri": "https://snamiki1212.github.io/til/tags/til/",
+	"uri": "https://snamiki1212.github.io/til/categories/til/",
 	"title": "Til",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "https://snamiki1212.github.io/til/categories/til/",
+	"uri": "https://snamiki1212.github.io/til/tags/til/",
 	"title": "Til",
 	"tags": [],
 	"description": "",

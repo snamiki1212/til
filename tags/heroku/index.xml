@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Heroku on Today I Learned</title>
+    <link>https://snamiki1212.github.io/til/tags/heroku/</link>
+    <description>Recent content in Heroku on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 19 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://snamiki1212.github.io/til/tags/heroku/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>memo: Getting Started on Heroku with PHP</title>
+      <link>https://snamiki1212.github.io/til/study/heroku-getting-started.md/</link>
+      <pubDate>Thu, 19 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/study/heroku-getting-started.md/</guid>
+      <description> Getting Started on Heroku with PHPを行った際のメモ
+dyno  heroku platform上で扱われるコンテナシステムの名称またはコンテナ自体を指す。 &amp;lt;~root_dir&amp;gt;/Procfileの値を元に構築される herokuコマンドで操作可能  heroku ps  deploy  gitを使ってデプロイする remote repositoryにherokuを登録する heroku remote repositoryにpushすることで、deployが行われる  # register heroku as remote repository heroku create # deploy git push heroku master # open page heroku open  ssh connect # heroku run &amp;lt;command&amp;gt; heroku run &amp;quot;php -a&amp;quot; heroku run bash  Env # localで定義の設定 heroku config:set TIMES=20 # 上記で定義したenvをdeploy heroku config  add-on  3rd-party service群 databaseの作成もadd-on内の仕組みで行う  その他 getting started tutorialのdependency項目で表示される結果確認ページがかわいい </description>
+    </item>
+    
+  </channel>
+</rss>

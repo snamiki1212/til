@@ -6,10 +6,38 @@
     <description>Recent content in Elixir on Today I Learned</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 28 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://snamiki1212.github.io/til/categories/elixir/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Presence</title>
+      <link>https://snamiki1212.github.io/til/elixir/presence/</link>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/elixir/presence/</guid>
+      <description> Phoenix - hex - doc - Phoenix.Presence behaviourを読んだ結果のまとめ  topic毎のpresence(出欠席＝join/leave)をリアルタイムに管理 実装の流れ
+ Phoenix.PresenceをuseしたModuleを実装 MyAppのsupervisor-treeに登録して起動 MyChannelにてMyPresenceを実行(MyPresence経由でPhoenix.Presenceで用意されているfunctionを実行)   Reference  Phoenix - hex - doc - Phoenix.Presence behaviour
+  </description>
+    </item>
+    
+    <item>
+      <title>OK elixir Library</title>
+      <link>https://snamiki1212.github.io/til/elixir/ok-library/</link>
+      <pubDate>Wed, 18 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/elixir/ok-library/</guid>
+      <description>context ジョインしたプロジェクトにてOK - LibraryをラッピングしたModuleを使用してるので、機能理解のために調べた内容のメモを落としておく。
+whats is ok library?  Elegant error/exception handling in Elixir, with result monads.
+  error/exceptionのハンドリング用のライブラリ result monadsを取り扱う  result monads とは、下記のことを指す。と考えておく。
+{:ok, value} | {:error, reason}  OK library の設計思想 このライブラリの設計思想について、Handling Errors in Elixir, No one say Monad.に書いてあるが、わかりやすいように、要約と適当にピックアップする
+すべての返り値はResult Monadで返すべきだ  Tempted to say all elixir funcs should return a result tuple.
+ 「すべての関数の返り値をresult tuple (= result monads)で返すべきだ」という少しばかり極端な思想が元になっている。
+だが、この思想を実現するのが、OKライブラリになる。
+具体的には下記の様になる
+# 理想 case MyModule.flaky_method do {:ok, value} -&amp;gt; IO.</description>
+    </item>
     
     <item>
       <title>How to pattern match at the end of string</title>
@@ -53,7 +81,9 @@ binery-pattern-match bytes-sizeが固定ケース iex&amp;gt; origin = &amp;quot
       <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://snamiki1212.github.io/til/elixir/typespecs/</guid>
-      <description> 詳細はこの公式ドキュメントを参照 厳格さ整理したgist  </description>
+      <description>公式ドキュメントや、コード見ていて知った型定義の方法をまとめ
+ @type &amp;lt;type name&amp;gt;は型指定で使用する特殊な記法。慣習として、&amp;lt;type name&amp;gt;はtで記載されることが多い。  例) @type t :: :dev | :stg | :pro
+ typespecは厳格さを保証してくれない。厳格にさせたい場合はDializerなどを使う必要がある。ただし、実行自体に時間がかかるようなので、プロジェクト規模やメンバ感で相談して導入検討を行うとよいと思う  基本 map typespec  mapとしてtypespec定義 内部に何が入るかは、内部コードのロジックを追わないとわからない  defmodule M1 do @spec sum(map) :: integer def sum(params) do %{a: a, b: b} = params a + b end end  よく使う type attribute Structによるtypespec  type attributeを実装したStructを作成し、そのStructをtypespecで定義 Struct要素の型の責任をStruct3に持たせられる  他の関数でも使い回しが行いやすい   defmodule Struct3 do defstruct a: 999, b: 888 @type t :: %Struct3{a: integer, b: integer} end defmodule M do @spec sum(Struct3.</description>
     </item>
     
     <item>
@@ -86,6 +116,29 @@ binery-pattern-match bytes-sizeが固定ケース iex&amp;gt; origin = &amp;quot
 ## GENSERVER def init() do ## ... Process.flag(:trap_exit, true) ## ... end  Kill PROCESS
  CATCH
 def terminate(reason, state) do Logger.info(&amp;quot;#{inspect(__MODULE__)} &amp;gt;&amp;gt; terminate| reason: #{inspect(reason)} | state: #{inspect(state)}&amp;quot;) end   </description>
+    </item>
+    
+    <item>
+      <title>gigalixir</title>
+      <link>https://snamiki1212.github.io/til/study/gigalixir.md/</link>
+      <pubDate>Wed, 20 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/study/gigalixir.md/</guid>
+      <description> # Gigalixirを使用した際のメモ
+gigalixirのファウンダーのJesse Shieh曰く、elixirのプロジェクトを本番稼働させるに当たった今まで多くのコストが掛かっていた分をアプリケーション開発に集中させたいという思いを元に作成したとのこと。
+ちなみに、gigalixirを進めるケースについても、Phoenixの公式ドキュメントにも書いてある。
+導入 Getting startedが用意されているので、これ通りに進めれば基本的に問題ない。
+導入時のケース
+ 新規プロジェクト
+新規プロジェクト用に提供されているrepositoryを使う。
+メリットとして、cloneすれば良いのでセットアップが一瞬で終わる。
+デメリットとして、プロジェクト名が*GettingStartedGigalixir*になってしまう。
+ 既存プロジェクト
+既存のプロジェクトに対してセットアップを行っていく。
+  既存プロジェクトの際の手順も用意されている難しくないので、学習を兼ねて2がおすすめ。
+注意点 MySQLは対応外 gigalixirが提供しているdatabase as a serviceのはpostgresq一択でmysqlが対応していない。 もし、mysqlを使いたい場合は、 - gigalixirではないcloud service - sqlは外部servieを参照する という2択になる。
+Redisなどのキャッシュサービスは提供していない 理由は、「基本的にはElixirのAgent/ETSなどのオンキャッシュを使えばcache serviceは使用する必要がない」から、とのこと
+Reference  Gigalixir Gigalixir Documentaion Gigalixir: Platform-as-a-Service designed just for Elixir/Phoenix - Elixir Chat - Elixir Forum Phoenix - hex - Deploying on Heroku  </description>
     </item>
     
     <item>

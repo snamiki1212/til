@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ok on Today I Learned</title>
+    <link>https://snamiki1212.github.io/til/tags/ok/</link>
+    <description>Recent content in Ok on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 18 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://snamiki1212.github.io/til/tags/ok/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>OK elixir Library</title>
+      <link>https://snamiki1212.github.io/til/elixir/ok-library/</link>
+      <pubDate>Wed, 18 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/elixir/ok-library/</guid>
+      <description>context ジョインしたプロジェクトにてOK - LibraryをラッピングしたModuleを使用してるので、機能理解のために調べた内容のメモを落としておく。
+whats is ok library?  Elegant error/exception handling in Elixir, with result monads.
+  error/exceptionのハンドリング用のライブラリ result monadsを取り扱う  result monads とは、下記のことを指す。と考えておく。
+{:ok, value} | {:error, reason}  OK library の設計思想 このライブラリの設計思想について、Handling Errors in Elixir, No one say Monad.に書いてあるが、わかりやすいように、要約と適当にピックアップする
+すべての返り値はResult Monadで返すべきだ  Tempted to say all elixir funcs should return a result tuple.
+ 「すべての関数の返り値をresult tuple (= result monads)で返すべきだ」という少しばかり極端な思想が元になっている。
+だが、この思想を実現するのが、OKライブラリになる。
+具体的には下記の様になる
+# 理想 case MyModule.flaky_method do {:ok, value} -&amp;gt; IO.</description>
+    </item>
+    
+  </channel>
+</rss>

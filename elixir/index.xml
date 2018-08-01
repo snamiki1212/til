@@ -6,10 +6,38 @@
     <description>Recent content in Elixir on Today I Learned</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 28 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://snamiki1212.github.io/til/elixir/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Presence</title>
+      <link>https://snamiki1212.github.io/til/elixir/presence/</link>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/elixir/presence/</guid>
+      <description> Phoenix - hex - doc - Phoenix.Presence behaviourを読んだ結果のまとめ  topic毎のpresence(出欠席＝join/leave)をリアルタイムに管理 実装の流れ
+ Phoenix.PresenceをuseしたModuleを実装 MyAppのsupervisor-treeに登録して起動 MyChannelにてMyPresenceを実行(MyPresence経由でPhoenix.Presenceで用意されているfunctionを実行)   Reference  Phoenix - hex - doc - Phoenix.Presence behaviour
+  </description>
+    </item>
+    
+    <item>
+      <title>OK elixir Library</title>
+      <link>https://snamiki1212.github.io/til/elixir/ok-library/</link>
+      <pubDate>Wed, 18 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://snamiki1212.github.io/til/elixir/ok-library/</guid>
+      <description>context ジョインしたプロジェクトにてOK - LibraryをラッピングしたModuleを使用してるので、機能理解のために調べた内容のメモを落としておく。
+whats is ok library?  Elegant error/exception handling in Elixir, with result monads.
+  error/exceptionのハンドリング用のライブラリ result monadsを取り扱う  result monads とは、下記のことを指す。と考えておく。
+{:ok, value} | {:error, reason}  OK library の設計思想 このライブラリの設計思想について、Handling Errors in Elixir, No one say Monad.に書いてあるが、わかりやすいように、要約と適当にピックアップする
+すべての返り値はResult Monadで返すべきだ  Tempted to say all elixir funcs should return a result tuple.
+ 「すべての関数の返り値をresult tuple (= result monads)で返すべきだ」という少しばかり極端な思想が元になっている。
+だが、この思想を実現するのが、OKライブラリになる。
+具体的には下記の様になる
+# 理想 case MyModule.flaky_method do {:ok, value} -&amp;gt; IO.</description>
+    </item>
     
     <item>
       <title>How to pattern match at the end of string</title>
@@ -53,7 +81,9 @@ binery-pattern-match bytes-sizeが固定ケース iex&amp;gt; origin = &amp;quot
       <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://snamiki1212.github.io/til/elixir/typespecs/</guid>
-      <description> 詳細はこの公式ドキュメントを参照 厳格さ整理したgist  </description>
+      <description>公式ドキュメントや、コード見ていて知った型定義の方法をまとめ
+ @type &amp;lt;type name&amp;gt;は型指定で使用する特殊な記法。慣習として、&amp;lt;type name&amp;gt;はtで記載されることが多い。  例) @type t :: :dev | :stg | :pro
+ typespecは厳格さを保証してくれない。厳格にさせたい場合はDializerなどを使う必要がある。ただし、実行自体に時間がかかるようなので、プロジェクト規模やメンバ感で相談して導入検討を行うとよいと思う  基本 map typespec  mapとしてtypespec定義 内部に何が入るかは、内部コードのロジックを追わないとわからない  defmodule M1 do @spec sum(map) :: integer def sum(params) do %{a: a, b: b} = params a + b end end  よく使う type attribute Structによるtypespec  type attributeを実装したStructを作成し、そのStructをtypespecで定義 Struct要素の型の責任をStruct3に持たせられる  他の関数でも使い回しが行いやすい   defmodule Struct3 do defstruct a: 999, b: 888 @type t :: %Struct3{a: integer, b: integer} end defmodule M do @spec sum(Struct3.</description>
     </item>
     
     <item>
