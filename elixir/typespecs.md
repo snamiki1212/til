@@ -16,6 +16,8 @@ tags: [ "TIL", "Elixir", "typespecs"]
   
 - `typespec`は厳格さを保証してくれない。厳格にさせたい場合は`Dializer`などを使う必要がある。ただし、実行自体に時間がかかるようなので、プロジェクト規模やメンバ感で相談して導入検討を行うとよいと思う
 
+- `@spec`内にて、`@type`の代わりに`::`を使用してもその場で型を指定出来る
+
 ## 基本
 ### `map` typespec
 - `map`としてtypespec定義
@@ -72,6 +74,28 @@ defmodule M5 do
   end
 end
 ```
+
+`@type attribute`での定義すら面倒なら次のやり方
+
+### `@spec`内で`::`による`typespec`
+
+- `type attribute`を使用するほどではないが、型に名前をつけたい
+- 特に実装内で引数は命名されるが戻り値は命名されないので、`typespec`で戻り値の命名がつけられて便利
+- 読みやすいように`()`をつけているが、省略も可能
+- 同一の`Module`に定義できるので手軽に記載できる
+
+```elixir
+defmodule M5 do
+  @spec calc(type :: (:sum | :diff), map) :: (result :: integer)
+  def calc(type, %{a: a, b: b} = _maps) do
+    case type do
+      :sum ->  a + b
+      :diff -> a - b
+    end
+  end
+end
+```
+
 
 ## あまり使わない
 
