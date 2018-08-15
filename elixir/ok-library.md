@@ -37,22 +37,20 @@ tags: [ "TIL", "Elixir", "OK", "library" ]
 
 「すべての関数の返り値をresult tuple (= result monads)で返すべきだ」という少しばかり極端な思想が元になっている。
 
-だが、この思想を実現するのが、`OK`ライブラリになる。
+そして、そのresult monadsをキレイにさばく仕事をしてくれるのが`OK`ライブラリになる。
 
-具体的には下記の様になる
+具体的には下記を担ってくれる。
+1. 呼び出す関数の返り値がresult monad形式のみであることを保証
+2. 呼び出した関数のresult monads返り値の変数へのbindを省略化
+3. 呼び出した関数がerror monadだったときのエラー処理の最適化
 
-```elixir
-# 理想
-case MyModule.flaky_method do
-  {:ok, value} -> IO.puts "All good value was: #{value}."
-  {:error, reason} -> IO.puts "Uh oh! Failed due to #{reason}."
-end
-```
+## How to use OK Library
+...ここに続き書く
 
-もちろん、`IO.puts/1`の返り値は`:ok`なので、上記をiexとかで動かしてもパターンマッチでerrorとなる。
-ひとまず、ゴールは「どのような関数を実行しても、result monad形式でreturnして処理をハンドリングする」ことだと考えるとわかりやすい。
 
-## error handling
+---
+
+## Error handling
 
 そもそも、error/exceptionのハンドリングの主要なやりかたは大きく分けて２つの方法がある。
 
@@ -83,8 +81,3 @@ iex> try do
 ```
 
 Elixirはfuncのreturnの形式をresult monadに強制することはなく、利用者にて好きな方を利用できるようなデザインが好まれる。
-
-
-## How to use OK Library
-
-...ここに続き書く
