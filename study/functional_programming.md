@@ -36,8 +36,12 @@ tags: [ "TIL", "FP"]
 - currying(カーリー化)
 - partial application(部分適用)
 - recursive(再帰)
-- Lazy evaluation(遅延評価)
 - Tail-call optimization(末尾最適)
+
+## Monad
+  - Fanctor
+  - Applicative
+  - Monad
 
 ## その他用語
 
@@ -53,4 +57,9 @@ tags: [ "TIL", "FP"]
 - Express(文)
   戻り値がないようなもの。
  
-  
+- Evaluation Strategy(評価戦略)
+- Lazy evaluation(遅延評価)
+- Eager evaluation(積極評価)
+- thunk(サンク)
+
+  計算予定の未評価オブジェクト
