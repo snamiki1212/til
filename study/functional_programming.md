@@ -20,21 +20,24 @@ tags: [ "TIL", "FP"]
 
 ## 関数型について
 
-- ラムダ
+- Lamda(ラムダ式)
 
   無名関数。関数名を省くことで、関数名を抽象化。
 
-- 副作用
-- サンク
-- ストリーム
-- 高階関数
-- 純粋
-- 参照透過性
+- side effect(副作用)
+- Stream(無限列)
+- Higher-order function(高階関数)
+- pure(純粋)
+- ReferencialTransparency(参照透過性)
 - Monad
-- 束縛と代入
-- 破壊的代入・再代入
-- イミュータブル
-- パターンマッチング
+- bind vs substitue(束縛と代入の違い)
+- ???(破壊的代入・再代入)
+- pattern matching(パターンマッチング)
+- currying(カーリー化)
+- partial application(部分適用)
+- recursive(再帰)
+- Lazy evaluation(遅延評価)
+- Tail-call optimization(末尾最適)
 
 ## その他用語
 
@@ -44,10 +47,10 @@ tags: [ "TIL", "FP"]
 - シンタックス
   構文
 
-- 式：コンテキスト
+- Context(式)
   戻り値があるようなもの。
 
-- 文：Express
+- Express(文)
   戻り値がないようなもの。
  
   
