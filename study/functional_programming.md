@@ -7,6 +7,7 @@ categories: [ "TIL", "FP" ]
 tags: [ "TIL", "FP"]
 ---
 
+#TODO: qiitaにののせる
 ## 勉強方針
 
 - 概念理解
