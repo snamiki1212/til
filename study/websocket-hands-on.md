@@ -13,16 +13,14 @@ tags: [ "TIL", "WebSocket"]
 2. HandsOn Client側
 3. HandsOn Server側
 
-## Reference
-
-1. 
+### 1. WebSocketの概念理解
 - [RFC 6455, The WebSocket Protocol](https://triple-underscore.github.io/RFC6455-ja.html)
 
   概念／概要の仕様などについては、ここを参照。
   ただ、いきなりこれから見始めると、辛いのでわかりやすいスライドとか探して見ると良い。  
   わかりやすいスライドはググればいろいろ出る。
 
-2.
+### 2. HandsOn Client側
 - [websocket.org](https://websocket.org/echo.html)
   
   モックサーバ。WebSocketが動く環境を自前で用意する前に、まずはこれに投げて練習する。
@@ -37,7 +35,7 @@ tags: [ "TIL", "WebSocket"]
   実際にwebsocketをハンズオンで進めるにあたって、WebAPIの詳細はこれを見るとよい。
 
 
-3. 
+### 3. HandsOn Server側
 - 実装したい言語／PWのDocを参考に実装する。
   
   
