@@ -1,13 +1,42 @@
+---
+date: "2018-09-01"
+last-mod: "2018-09-01"
+title: ""
+slug: ""
+categories: [ "TIL", "" ]
+tags: [ "TIL", ""]
+---
+
 
 
 リアルタイムマッチングのアーキテクチャとロジック
 
 実務でリアルタイムマッチングの実装と設計を行うことになり、その時に他社のスライドや記事を読み漁っていたので、そのまとめ。
 
-## 1. mixi
+## 1. [ElixirとPhoenixでスケールする対戦マッチングシステムを設計する](https://qiita.com/Amothic/items/7cf17610d7bf1639da57)
+
+### Pre
+- mixi
+ーElixir/Phoenix
+
+### Atchitecture
+
+- MatchingLogic
+  - GenServerのWorker
+  - 役割ごとに様々なWorkerを作成している
+  - Matching(Ratingが緩い〜厳しい) / Excorist(ゾンビLockを開放)
+
+- Storage
+
+  - Lock Version State　→ 楽観的ロック
+
+- Logic
+
+  > * マッチングさせるべき起点ユーザを取得する
+  > * 起点ユーザと結びつけるユーザを取得する
 
 
-## 1. [ステートフルで大規模アクセスのあるsoft-realtimeなゲームサーバーをeasyにつくる](https://speakerdeck.com/ne_sachirou/sutetohurudeda-gui-mo-akusesufalsearusoft-realtimenagemusabawoeasynitukuru?slide=22)
+## 2. [ステートフルで大規模アクセスのあるsoft-realtimeなゲームサーバーをeasyにつくる](https://speakerdeck.com/ne_sachirou/sutetohurudeda-gui-mo-akusesufalsearusoft-realtimenagemusabawoeasynitukuru?slide=22)
 
 ### Pre
 - Drecom
