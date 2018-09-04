@@ -1,6 +1,6 @@
 ---
 date: "2018-01-01"
-last-mod: "2018-01-01"
+last-mod: "2018-09-04"
 title: "summary"
 # categories: [ "Event", "erlang-elixir-fest-2018" ]
 # tags: [ "Poem", "erlang-elixir-fest-2018" ]
@@ -56,8 +56,12 @@ Elixir/Webエンジニア弱者なので、指摘事項などがあればコメ�
   - Elixirﾁｮｯﾄﾃﾞｷﾙ人
   - 1週間でElixirを完全に理解した
 
-- [Erlang in Anger](https://www.erlang-in-anger.com/)の話が多すぎて、これを機に[日本語訳化が行われるかもしれない](https://twitter.com/seizans/status/1008263285559312384)ので、逆に今読むのは待ったほうが良いかも
+- ~~[Erlang in Anger](https://www.erlang-in-anger.com/)の話が多すぎて、これを機に[日本語訳化が行われるかもしれない](https://twitter.com/seizans/status/1008263285559312384)ので、逆に今読むのは待ったほうが良いかも~~
 
+  →[Erlang in Anger の翻訳に参加しました](https://blog.mookjp.io/blog-ja/erlang-in-anger-%E3%81%AE%E7%BF%BB%E8%A8%B3%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/)
+  > 前述した Erlang & Elixir Fest 後すぐに翻訳話が持ち上がり、複数人でスピーディに翻訳作業が進んだため 約1ヶ月くらいで全章の翻訳が完了していました。
+  
+  完了したようです。[こちら](https://github.com/ymotongpoo/erlang-in-anger)より。
 
 ## HANDS ON
 
