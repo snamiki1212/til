@@ -38,8 +38,13 @@ title: "01_「らくらく連絡網」が Elixir でリアルタイムメッセ�
 
 ### 調査
 
-- ★erlybely
+- [erlyberly](https://github.com/andytill/erlyberly)
+
+  > erlyberly is a debugger for erlang, elixir and LFE using erlang tracing. It is probably the easiest and quickest way to start debugging your nodes.
+
 - [recon_ex](https://github.com/tatsuya6502/recon_ex)
+
+  > ReconEx is an Elixir wrapper for Recon. It is a library to be dropped into any other Elixir project, to be used to assist DevOps people diagnose problems from iex shell in production Erlang VMs.
 
 
 
