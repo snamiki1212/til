@@ -12,6 +12,10 @@ tags: [ "TIL", "Elixir", "Debug" ]
 ## `IO.inspect/1`
 
 ```elixir
+iex(1)> IO.inspect "test-message:0001"
+"test-message:0001"
+"test-message:0001"
+
 iex(7)> 1..10 \
 ...(7)> |> Enum.map(&(&1*&1)) \
 ...(7)> |> IO.inspect(label: "point_0001") \
@@ -21,6 +25,8 @@ point_0001: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 ```
 
 ## `IO.warn/1`
+
+stderr
 
 ```elixir
 iex(8)> IO.warn "test-message"
@@ -66,7 +72,77 @@ Allow? [Yn] y
 pry(1)> # start to console debug 
 ```
 
+### helper func
 
+- `whereami/0`
+```elixir
+pry(1)> whereami
+Location: lib/fchat_web/controllers/page_controller.ex:5
+
+    3:
+    4:   def index(conn, _params) do
+    5:     require IEx;IEx.pry
+    6:     render(conn, "index.html")
+    7:   end
+
+    (fchat) lib/fchat_web/controllers/page_controller.ex:5: FchatWeb.PageController.index/2
+    (fchat) lib/fchat_web/controllers/page_controller.ex:1: FchatWeb.PageController.action/2
+    (fchat) lib/fchat_web/controllers/page_controller.ex:1: FchatWeb.PageController.phoenix_controller_pipeline/2
+    (fchat) lib/fchat_web/endpoint.ex:1: FchatWeb.Endpoint.instrument/4
+    (phoenix) lib/phoenix/router.ex:278: Phoenix.Router.__call__/1
+    (fchat) lib/fchat_web/endpoint.ex:1: FchatWeb.Endpoint.plug_builder_call/2
+    (fchat) lib/plug/debugger.ex:122: FchatWeb.Endpoint."call (overridable 3)"/2
+    (fchat) lib/fchat_web/endpoint.ex:1: FchatWeb.Endpoint.call/2
+    (plug) lib/plug/adapters/cowboy/handler.ex:16: Plug.Adapters.Cowboy.Handler.upgrade/4
+    (cowboy) /Users/namikishun/.ghq/github-private/snamiki1212/fchat/deps/cowboy/src/cowboy_protocol.erl:442: :cowboy_protocol.execute/4
+```
+
+- `respawn/0`
+end pry
+```elixir
+pry(8)> xyz=1
+1
+pry(9)> xyz
+1
+pry(10)> respawn
+
+Interactive Elixir (1.7.3) - press Ctrl+C to exit (type h() ENTER for help)
+iex(1)> xyz
+** (CompileError) iex:1: undefined function xyz/0
+
+```
+
+- `continue/0`
+continue pry
+
+- 
+
+```elixir
+# start pry
+
+Request to pry #PID<0.592.0> at FchatWeb.PageController.index/2 (lib/fchat_web/controllers/page_controller.ex:6)
+
+    4:   def index(conn, _params) do
+    5:     a=1
+    6:     require IEx;IEx.pry
+    7:     b=2
+    8:     require IEx;IEx.pry
+    9:     c=3
+
+Allow? [Yn] y
+
+Interactive Elixir (1.7.3) - press Ctrl+C to exit (type h() ENTER for help)
+pry(1)> a
+1
+pry(2)> b
+** (UndefinedFunctionError) function :erl_eval.b/0 is undefined or private
+pry(2)> continue
+pry(1)> b
+2
+pry(2)> c
+** (UndefinedFunctionError) function :erl_eval.c/0 is undefined or private
+pry(2)>
+```
 
 # etc
 ## `binding/0`
