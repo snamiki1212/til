@@ -1,5 +1,5 @@
 
-# Memo to read [elixir-plug README](https://github.com/elixir-plug/plug)
+# Memo to read [elixir-plug README](https://github.com/elixir-plug/plug) and [plug_cowboy README](https://github.com/elixir-plug/plug_cowboy)
 
 ## How to wakeup
 
@@ -27,3 +27,6 @@
 ## etc
   - Plug ships with many plugs.
 
+## Memo
+
+![elixir p1](https://user-images.githubusercontent.com/26793088/47355058-579f6780-d6fb-11e8-9ce9-e54808bda7cd.png)
