@@ -29,11 +29,11 @@
 
 ## Wakeup ~ Request from user
 
+  - (1) Wake up Cowboy 
+    - register MyPlug, ( use Plug)
+    - through plug_cowboy as adapter
+  - (2) User Request to web server as cowboy
+    - and elixir get conn as connection data from user
+
 ![elixir p1](https://user-images.githubusercontent.com/26793088/47355058-579f6780-d6fb-11e8-9ce9-e54808bda7cd.png)
 
-1. Wake up Cowboy 
-  - register MyPlug, ( use Plug)
-  - through plug_cowboy as adapter
-
-2. User Request to web server as cowboy
-  - and elixir get conn as connection data from user
