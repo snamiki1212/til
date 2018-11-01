@@ -1,6 +1,6 @@
 ---
 date: "2018-06-08"
-last-mod: "2018-06-08"
+last-mod: "2018-11-01"
 title: "task"
 slug: "task"
 categories: [ "TIL", "Elixir" ]
@@ -17,7 +17,7 @@ tags: [ "TIL", "Elixir", "Task"]
 
 - 複数非同期処理同士で関連性が無いかつ小規模処理のときに使用される位置づけ
 
-
+- 注意点：`Task.await/2`の第2引数でwait timeを指定できる。defaultが5_000 milliseconds なので、重い処理を実行する場合は変更必須。
 
 ## 使い方
 
