@@ -1,9 +1,9 @@
-
-
-# flex
+# flexbox
 - 親子関係
   - 親： container
     - flex-direction
+      - 行: row
+      - 列: column: 
     - flex-wrap
     - flex-flow = flex-direction + flex-wrap
     - justify-content
