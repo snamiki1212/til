@@ -52,3 +52,6 @@
   - Webフォントサイトの紹介
 
 
+- [CSSでwebフォントの読み込みが遅い問題を改善する方法 - Qiita](https://qiita.com/oreo/items/2e82bfeb42e351557c3c)
+  - `font-display: swap`を設定すると、先に代替フォントで表示させておける。
+
