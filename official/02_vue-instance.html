@@ -1,0 +1,84 @@
+<!--
+  「Vue インスタンス」 
+  https://jp.vuejs.org/v2/guide/instance.html
+ -->
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <!-- 1 -->
+  <div id='app1'>
+    <p>{{ msg1 }}</p>
+  </div>
+
+  <!-- 2 -->
+  <div id='app2'>
+    <button v-on:click="foo='aft'">{{ foo }}</button>
+  </div>
+
+  <!-- 3 -->
+  <div id='app3'>
+    
+    <button v-on:click="x=x+123">{{ x }}</button>
+    <input v-model="x">
+  </div>
+
+  
+</html>
+
+<script>
+  // Vueインスタンスとオブジェクトの値が参照し合う
+  var n_msg = {text: 'this is new msg1'};
+  var vm = new Vue({
+    el: '#app1',
+    data: {
+      msg1: n_msg
+    }
+  });
+  console.log('vm.data', vm.msg1.text);
+  n_msg.text = 'CHANGED';  
+  console.log('n_msg', n_msg.text);
+  console.log('vm.data', vm.msg1.text);
+
+  // オブジェクトの値のロック
+  obj2 = {foo: 'bef'};
+  Object.freeze(obj2); // コメントアウトするとボタンで値が変わる
+  var vm2 = new Vue({
+    el: '#app2',
+    data: obj2
+  });
+
+  // ライフサイクルフック
+  var vm3 = new Vue({
+    el: '#app3',
+    data: {
+      x: '123'
+    },
+    beforeCreate: function(){
+      console.log('1: BEFORE_CREATE');
+    },
+    created: function(){
+      console.log('2: CREATED');
+    },
+    beforeMount: function(){
+      console.log('3: BEFORE_MOUNT');
+    },
+    mounted: function(){
+      console.log('4: MOUNTED');
+    },
+    beforeUpdate: function(){
+      console.log('5: BEFORE_UPDATE');
+    },
+    updated: function(){
+      console.log('6: UPDATED');
+    },
+    beforeDestory: function(){
+      console.log('7: BEFORE DESTORY');
+    },
+    destoryed: function(){
+      console.log('8: DESTORYED');
+    },
+
+    
+  });
+
+</script>
