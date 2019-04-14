@@ -1,0 +1,86 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <!-- 1 v-once -->
+  <div id='app1'>
+    <h2>v-once</h2>
+    <p>
+      (1)this is v-once
+      <span v-once>this is v-once:{{ x }}</span>
+      <button v-once v-on:click="x='aft'">{{ x }}</button>
+    </p>
+    <p>
+      (2)this is not v-once
+      <span>this isn't v-once:{{ x }}</span>
+      <button v-on:click="x='aft'">{{ x }}</button>
+    </p>
+    <p>xの値が変更されても、すでに描画された分については、確定されているので、(1)は変わらない。</p>
+  </div>
+  <hr />
+
+  <!-- 2 js -->
+  <!-- 単一の式だけ。文やフロー制御は動かない -->
+  <div id='app2'>
+    <h2>javascript</h2>
+    <p>{{ z }}</p>
+    <p>{{ true ? 1 : 2 }}</p>
+    <p>{{ false ? 1 : 2 }}</p>
+    <!-- <p>{{ var a = 1 }} </p>  これ文 -->
+    <!-- <p>{{ if(true)console.log(123) }} </p>  これフロー制御 -->
+  </div>
+  <hr>
+
+  <!-- 3ディレクティブ -->
+  <div id='app3'>
+    <h2>ディレクティブの動的引数</h2>
+    <span v-on:[event]="q='aft'">XXXX -> {{ q }}</span>
+  </div>
+  <hr>
+
+  <!-- 4 省略記法 -->
+  <div id='app4'>
+    <h4>省略記法：コード参照</h4>
+    <div>
+      <input v-bind:value='kkk'>
+      <input :value='kkk'>
+    </div>
+    <div>
+      <button v-on:click='echoV'>{{ kkk }}</button>
+      <button @click='echoV'>{{ kkk }}</button>
+    </div>
+  </div>
+</html>
+
+<script>
+  var vm1 = new Vue({
+    el: '#app1',
+    data: {
+      x: 123,
+    }
+  });
+
+  var vm2 = new Vue({
+    el: '#app2',
+    data: {
+      z: 123,
+    }
+  });
+
+  var vm3=new Vue({
+    el: '#app3',
+    data:{
+      q: 1,
+      event: "click"
+    },
+  });
+
+  var vm4 = new Vue({
+    el: '#app4',
+    data: {
+      kkk: 111,
+      echoV: function(){
+        console.log('V')
+      }
+    }
+  });
+</script>
