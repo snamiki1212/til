@@ -1,0 +1,41 @@
+
+<!--
+  「Vue 算出プロパティとウォッチャ」
+  https://jp.vuejs.org/v2/guide/computed.html
+ -->
+ <html>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <div id='app1'>
+      <h1>クラスをv-bind</h1>
+      <p :class="objectClass">xyz</p>
+      <hr>
+    </div>
+
+    <div id='app2'>
+      <p v-bind:style="styleObject">color</p>
+    </div>
+</html> 
+
+<script>
+  var vm1 = new Vue({
+    el: '#app1',
+    data: {},
+    computed: {
+      objectClass: function(){
+        return {
+          active: true,
+          'text-danger': false
+        }
+      }
+    }
+  });
+
+  var vm2 = new Vue({
+    el: '#app2',
+    data: {
+      styleObject: {
+        color: 'red'
+      }
+    },
+  });
+</script>
