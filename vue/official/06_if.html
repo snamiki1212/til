@@ -1,0 +1,86 @@
+
+<!--
+  「Vue 条件付きレンダリング」
+  https://jp.vuejs.org/v2/guide/conditional.html
+ -->
+ <html>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  
+    <div id='app1'>
+      <h2>if-elseの使い方</h2>
+      <!-- v-if -->
+      <template v-if=true>
+        <p>(1)true block</p>
+      </template>
+      <template v-if=false>
+        <p>false block</p>
+      </template>
+
+      <!-- v-else -->
+      <template v-if=false>
+        <p>v-if=false block</p>
+      </template>
+      <template v-else>
+        <p>(2)v-if-else block</p>
+      </template>
+
+
+      <!-- v-if-else -->
+      <template v-if=false>
+        <p>v-if is false</p>
+      </template>
+      <template v-else-if=true>
+        <p>(3)v-else-if is true</p>
+      </template>
+      <template v-else>
+        <p>v-else</p>
+      </template>
+      <hr>
+    </div>
+
+    <div id='app2'>
+      <h2>要素の使い回しの話</h2>
+      <div>
+        <button @click='x=!x'>{{ x }}</button>
+        <template v-if="x">
+          <input v-bind:style="{'backgroundColor': 'lightblue'}">
+        </template>
+        <template v-else>
+            <input v-bind:style="{'backgroundColor': 'lightgreen'}">
+        </template>
+      </div>
+
+      <div>
+        <button @click='x=!x'>{{ x }}</button>
+        <template v-if="x">
+          <input v-bind:style="{'backgroundColor': 'lightblue'}" key=1>
+        </template>
+        <template v-else>
+          <input v-bind:style="{'backgroundColor': 'lightgreen'}" key=2>
+        </template>
+      </div>
+      <hr>
+    </div>
+
+    <div id='app3'>
+      <h2>v-show</h2>
+      <span v-show=true>OK</span>
+      <span v-show=false>NG</span>
+      <hr>
+    </div>
+  </html>
+
+  <script>
+    var vm1 = new Vue({
+      el: '#app1',
+    });
+    var vm2 = new Vue({
+      el: '#app2',
+      data: {
+        x: true
+      }
+    })
+    var vm3 = new Vue({
+      el: '#app3',
+    });
+  </script>
