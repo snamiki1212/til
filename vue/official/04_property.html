@@ -1,0 +1,96 @@
+
+<!--
+  「Vue 算出プロパティとウォッチャ」
+  https://jp.vuejs.org/v2/guide/computed.html
+ -->
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <div id='app1'>
+    <h2>算出プロパティ</h2>
+    <p>MSG:{{ msg }}</p>
+    <p>COMPUTED:{{ reverseMeesage }}</p>
+    <hr>
+  </div>  
+
+  <div id='app2'>
+    <h2>算出プロパティ vs メソッド</h2>
+    <p>COMPUTED1:{{ comp_func1 }}</p>
+    <p>COMPUTED1:{{ comp_func2 }}</p>
+    <p>METHODS:{{ method_func() }}</p>
+    <button @click="x=x+1">{{ x }}</button>
+    <hr>
+  </div>
+
+  <div id='app3'>
+    <h2>算出setter関数</h2>
+    <p>{{ fullName }}</p>
+    <p>{{ name }}</p>
+    <button @click="fullName=fullName+'[click]'">xyz</button>
+    <hr>
+  </div>
+
+</html>
+
+<script>
+  watchExampleVM = new Vue({
+    el: '#app4',
+    data :{
+      question: '',
+      answer: 'I cannot give u an aswer until u ask a question'
+    },
+    watch:{
+      question: function(){}
+    }
+  });
+
+  
+  var vm1 = new Vue({
+    el: '#app1',
+    data:{
+      msg: 'abcdefg',
+    },
+    computed: {
+      reverseMeesage: function(){
+        return this.msg.split('').reverse().join('')
+      }
+    }
+  });
+
+  var vm2 = new Vue({
+    el: '#app2',
+    data: {
+      x: 0
+    },
+    methods: {
+      method_func: function(){
+        return Date.now();
+      }
+    },
+    computed: {
+      comp_func1: function(){
+        return Date.now() + this.x;
+      },
+      comp_func2: function(){
+        return Date.now();
+      }
+    }
+  });
+
+  var vm3 = new Vue({
+    el: '#app3',
+    data: {
+      name: 'initial-name'
+    },
+    computed: {
+      fullName: {
+        get: function(){
+          return this.name+ "[get]";
+        },
+        set: function(newValue){
+          this.name = newValue + "[set]";
+        }
+      }
+    }
+  });
+</script>
