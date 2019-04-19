@@ -1,0 +1,68 @@
+
+
+
+<!--
+  「Vue リストレンダリング」
+  https://jp.vuejs.org/v2/guide/list.html
+ -->
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <div id="app1">
+    <h2>v-for</h2>
+    <p v-for="(v, k) in x1" :key="v.id">
+      {{ k }} | {{ v.n }}  | {{ v.id }}
+    </p>
+    <hr>
+  </div>
+ 
+  <div id='app2'>
+    <h2> Method / Computed</h2>
+    <span v-for="i in f1">{{ i }}</span><br>
+    <span v-for="i in f2(list2)">{{ i }} / </span>
+    <hr>
+  </div>
+
+  <div id='app3'>
+    <h2>範囲付きv-for</h2>
+    <span v-for="i in 10">{{ i }}</span>
+    <hr>
+  </div>
+</html>
+
+<script>
+  var vm1 = new Vue({
+    el: '#app1',
+    data: {
+      x1: [
+        {n: 'a', id: 1029},
+        {n: 'b', id: 9992},
+        {n: 'c', id: 1234},
+        {n: 'd', id: 2302}
+      ]
+    }
+  })
+  var vm2 = new Vue({
+    el: '#app2',
+    data: {
+      list1: [0,1,2,3,4],
+      list2: [10,11,12,13]
+    },
+    computed: {
+      f1 : function() {
+        return this.list1.map(i => i + 1);
+      }
+    },
+    methods:{
+      f2: function(list){
+        return list.map(n => n+100)
+      }
+    }
+  });
+
+  var vm3 = new Vue({
+    el: '#app3',
+  })
+
+
+</script> 
