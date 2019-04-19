@@ -1,0 +1,42 @@
+<!--
+  「Vue イベントハンドリング」
+  https://jp.vuejs.org/v2/guide/events.html
+ -->
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <div id='app1'>
+    <h2>Simple click-on</h2>
+    <h3>counter</h3>
+    <span>Hi, this text describe about count = {{ count }}</span>
+    <button @click="count += 1">{{ count }}</button>
+
+    <h3>greeter</h3>
+    <span>greeter greet when count is even.</span>
+    <button @click="greeter">do greet</button>
+    
+    <h3>key modifier</h3>
+    <span>Don't click but only 'enter'.</span>
+    <button v-on:keyup.enter="res()">BUTTON</button>
+  </div>
+
+</html>
+
+<script>
+  var vm1 = new Vue({
+    el: '#app1',
+    data: {
+      count: 1
+    },
+    methods: {
+      greeter: function(){
+        this.count % 2 == 0
+          ? alert("hi i'm greeter.")
+          : alert("i dont greet u.");
+          ;
+      },
+      res: function(){
+        return alert('THIS IS ALERT');
+      }
+    }
+  });
+</script>
