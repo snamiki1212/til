@@ -1,0 +1,68 @@
+<!--
+  「フォーム入力バインディング」
+  https://jp.vuejs.org/v2/guide/forms.html
+ -->
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <div id='app1'>
+    <h2></h2>
+    <h3>text</h3>
+    <p>{{ t }}</p>
+    <input v-model="t"><br>
+    <textarea v-model='t'></textarea><br>
+
+    <h3>checkbox</h3>
+    <input type='checkbox' v-model='ck'>ck: {{ ck }}<br>
+    <p>ck_list: {{ ck_list }}</p>
+    <input type='checkbox' value='ck1' v-model='ck_list'>ck_list0<br>
+    <input type='checkbox' value='ck2' v-model='ck_list'>ck_list1<br>
+    <input type='checkbox' value='ck3' v-model='ck_list'>ck_list2<br>
+
+    <h3>radio</h3>
+    <p>r_list : {{ r_list }}</p>
+    <input type='radio' value='r_v1' v-model='r_list'>r_v1<br>
+    <input type='radio' value='r_v2' v-model='r_list'>r_v2<br>
+    
+    <h3>select</h3>
+    <p>{{ s_list }}</p>
+    <select v-model='s_list'>
+      <option>A</option>
+      <option>B</option>
+      <option>C</option>
+    </select>
+    <hr>
+  </div>
+  
+  <div id='app2'>
+    <input
+      v-model='m1'
+      type='checkbox'
+      true-value='yes'
+      false-value='no'
+    >{{ m1 }}<br>
+    <input v-model='m2'>eager: {{ m2 }}<br>
+    <input v-model.lazy='m2'>lazy: {{ m2 }}<br>
+      
+  </div>
+</html>
+
+<script>
+  var vm1 = new Vue({
+    el: '#app1',
+    data: {
+      t: 'this is text',
+      ck: true,
+      ck_list: [],
+      r_list: '',
+      s_list: '',
+    }
+  });
+
+  var vm2 = new Vue({
+    el: '#app2',
+    data: {
+      m1: '',
+      m2: ''
+    },
+  });
+</script>
