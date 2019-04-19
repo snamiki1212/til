@@ -1,0 +1,100 @@
+
+<!--
+  「コンポーネントの基本」
+  https://jp.vuejs.org/v2/guide/components.html
+-->
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <div id='app1'>
+    <h3>counter</h3>
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+
+    <h3>properties</h3>
+    <with-title title='A1'></with-title>
+    <with-title title='A2'></with-title>
+
+    <h3>data -> props</h3>
+    <with-title
+      v-for="post in posts"
+      :title="post.title"
+      :key="post.id"
+    ></with-title>
+    <hr>
+  </div>
+
+  <div id='app2'>
+    <h2>custon event listener/action</h2>
+    <div :style='{fontSize: font_size + "px"}'>
+      <p>font_size : {{ font_size }}</p>
+      <text-with-enlarger
+        v-for='text in posts'
+        :key='text.id'
+        :title='text.title'
+        :scale='text.scale'
+        @enlarge-text="font_size += $event"
+        @ensmall-text="ensmall_text($event)"
+      >
+      </text-with-enlarger>
+    </div>
+  </div>
+</html>
+
+<script>
+  // app1
+  Vue.component('button-counter', {
+    data: function(){
+      return {
+        count: 0,
+      }
+    },
+    template: '<div><span>count: </span><button @click="count+=1">{{ count }}</button><br></div>'
+  });
+
+  // app1
+  Vue.component('with-title', {
+    props: ['title'],
+    template: '<span>Title is [{{ title }}].<br></span>'
+  });
+
+  var vm1 = new Vue({
+    el: '#app1',
+    data: {
+      posts: [
+        {id: 1, title: 'jQuery is Dead'},
+        {id: 2, title: 'VirtualDom is god'},
+        {id: 3, title: 'vs React'},
+      ],
+    }
+  });
+
+    // app2
+    Vue.component('text-with-enlarger', {
+    props: ['title', 'scale'],
+    template: `\
+      <div>\
+        <button @click="$emit('enlarge-text', scale)">ENLARGER(+{{ scale }})</button>\
+        <button @click="$emit('ensmall-text', scale)">ENSMALLER(-{{ scale }})</button>\
+        <span>THIS TITLE IS [{{ title }}].</span>\
+      </div>`
+  });
+  var vm2 = new Vue({
+    el: '#app2',
+    data: {
+      font_size: 25,
+      posts: [
+        {id: 1, title: 'book1', scale: 1},
+        {id: 2, title: 'book2', scale: 5},
+        {id: 3, title: 'book3', scale: 10},
+      ],
+    },
+    methods: {
+      ensmall_text: function(size){
+        this.font_size -= size;
+      }
+    }
+  });
+
+
+</script>
