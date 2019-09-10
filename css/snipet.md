@@ -1,0 +1,3 @@
+```
+javascript:(function(){var style=document.createElement('style');var head=document.getElementsByTagName('head');style.setAttribute('type', 'text\/css');style.innerHTML='* {background-color: rgba(255,0,0,.2)!important;}* * {background-color：rgba(0,255,0、.2)!important;} * * * {background-color：rgba(0,0,255、.2)!important;} * * * * {background-color：rgba(255,0,255、.2)!important;} * * * * * {background-color：rgba(0,255,255、.2)!important;} * * * * * * {background-color：rgba(255,255,0、.2)!important;} * * * * * * * {background-color：rgba(255,0,0、.2)!important; } * * * * * * * * {background-color：rgba(0,255,0、.2)!important;} * * * * * * * * * {background-color：rgba(0,0,255、.2)!important;}';head[0].appendChild(style);})();
+```
