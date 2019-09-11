@@ -1,0 +1,50 @@
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="module">
+  var app = new Vue({
+    el: "#app",
+    data: function() {
+      return {
+        message: "Hello Vue!",
+        isSeen: true,
+        m: { id: 123, name: "shun" }
+      };
+    },
+    methods: {
+      onClickA: function() {
+        alert(`my name is ${this.m.name}`);
+      }
+    }
+  });
+</script>
+
+<!-- HTML -->
+<html>
+  <body>
+    <div id="app">
+      <hr />
+      <div>v-if =<span v-if="isSeen">Can I see?</span></div>
+      <hr />
+      <div>
+        v-model <br />
+        ・v-model.name = <input v-model="m.name" /><br />
+        ・v-model.isSeen? = <input type="checkbox" v-model="isSeen" /><br />
+        <br />
+        v-bind<br />
+        ・v-bind = <input :value="m.name" /><br />
+      </div>
+      <hr />
+      <div>
+        v-for =
+        <span v-for="(v,i) in Array.from({length:10})">
+          {{ i }}
+        </span>
+      </div>
+      <hr />
+      <div>v-show=<span v-show="isSeen">Can I see?</span></div>
+      <hr />
+      <div>v-on = <button @click="onClickA">A-button</button></div>
+      <hr />
+    </div>
+  </body>
+</html>
