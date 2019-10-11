@@ -11,8 +11,6 @@
 
 TODO: 次https://nextjs.org/learn/basics/styling-components
 
-
-
 ## for_of_vs_for_in
 
 ```javascript
@@ -45,3 +43,19 @@ for(x of list) console.log(x)
 [].length === [].length
 // > true
 ```
+
+## re-export
+
+- import したものをそのまま、export したいときに使える構文。
+- bundleファイルで使うと良い構文。
+
+```js
+// re-export
+export { A } from './A'
+
+// 下と同じ
+import {A} from './A'
+export {A}
+```
+
+- REF: https://javascript.info/import-export#re-export

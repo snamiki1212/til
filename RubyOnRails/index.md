@@ -161,3 +161,11 @@ end
 ```
 
 - REF: https://qiita.com/jnchito/items/42193d066bd61c740612
+
+## bundle exec
+
+- Gemfile の依存解決した状態での実行を担保してくれるのが、`bundle exec <command>`
+- `<command>` ex(irb)とかをすると、Globalにrequire されているPackage を使うので、依存解決が不整合を起こしてしまう。
+
+- REF: https://qiita.com/diskkid/items/0d000a42df04c561ca0f
+
