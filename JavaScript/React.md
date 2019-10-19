@@ -15,3 +15,9 @@
 REF: https://qiita.com/IgnorantCoder/items/ac681c97eb8318a87bb3
 REF: https://kde.hateblo.jp/entry/2019/02/14/220155
 
+## react-redux + hooks
+
+example
+- https://github.com/reduxjs/react-redux/issues/1335
+- https://github.com/reduxjs/redux-thunk/issues/252
+

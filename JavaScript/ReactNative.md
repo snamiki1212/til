@@ -34,7 +34,7 @@ Expo で作成したアプリの任意ページを Deeplink で開く。
 
 - `<path>`と`Screen`を紐付けてくれる
 - configで `{path=/user, ScreenComponent=UserComponentScreen}`みたいに紐付けておくと、自動的にそのコンポーネントのスクリーンが表示されるようになる。
-- REF: https://reactnavigation.org/docs/en/deep-linking.html
+- REF: [react-navigation[(https://reactnavigation.org/docs/en/deep-linking.html)
 
 ### MEMO
 
@@ -52,4 +52,4 @@ Expo で作成したアプリの任意ページを Deeplink で開く。
 
 ---
 
-REF: https://www.reactnativeschool.com/handling-deep-links-with-react-navigation
+REF: [Handling Deep Links with React Navigation](https://www.reactnativeschool.com/handling-deep-links-with-react-navigation)
