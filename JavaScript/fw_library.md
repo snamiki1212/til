@@ -2,7 +2,8 @@
 
 ## Formik
 
-- render props で formを作成する
+- render props で formを作成する。render-propsの中にフォーム（インプット・ボタン）が入る。
+- touchedがうまく動かないケースがあるので、handleBlurのタイミングで手動でtouchedをtrueにしないといけない。
 
 ```tsx
 <Formik
@@ -15,6 +16,7 @@
 
   render={props=>(
     // props の中では、formikが用意している様々な関数・値を使える
+    // - props.<formik-property>.<form-value>でrender-propsの値を使う
     <>
       <Field
         placeholder="mail@example.com"
@@ -26,7 +28,7 @@
       />
       <Button
         title="再発行リンクを送信"
-        onPress={props.handleSubmit} // １つうえのレイヤーのFormik>props>onSubmitが呼ばれる
+        onPress={props.handleSubmit} // １つうえのレイヤーの<Formik />のpropsのonSubmitが呼ばれる
         disabled={!props.isValid}
       />
     </>
